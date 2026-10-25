@@ -1,0 +1,2256 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Soumission · Chalet Boreä · ASCIA</title>
+<meta name="description" content="Soumission contractuelle ASCIA pour la domotique du chalet Boreä de New Way Living.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="assets/ascia-symbol.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* ASCIA soumission — architectural spec-sheet on deep indigo, orange accent.
+   Order mirrors a contractual devis: objet > plan > matériel > IA > serre > journée > automatisations
+   > investissement > réalisation > après-livraison > engagements > dispositions > signatures. */
+:root{
+  color-scheme: dark;
+  --base:#0F0B1F; --base-2:#151127; --surface:#1B1535; --raised:#221A3F;
+  --ink:#F4F2F8; --ink-2:rgba(244,242,248,.68); --ink-3:rgba(244,242,248,.44);
+  --orange:#EF773E; --coral:#E94B5D; --lilac:#48428C; --lilac-2:#8E86E0;
+  --grad:linear-gradient(135deg,#F2A35E 0%,#EF773E 38%,#E94B5D 100%);
+  --hair:rgba(255,255,255,.08); --hair-2:rgba(255,255,255,.14); --hair-3:rgba(255,255,255,.22);
+  --grid:rgba(72,66,140,.22);
+  --s-ecl:#F2B45E; --s-cli:#6EC3E0; --s-sec:#F0697A; --s-ene:#9CCB6B; --s-ser:#4FBF8F;
+  --s-the:#EF773E; --s-med:#A99BF0; --s-pre:#7F8CFF; --s-inf:#BDB8D2;
+  --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Fraunces","Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --max:1200px; --gut:clamp(16px,4vw,40px); --r:18px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px;overflow-x:clip}
+body{margin:0;background:var(--base);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;font-weight:500;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+em.it,.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono)}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:6px}
+.print-only{display:none}
+[hidden]{display:none!important}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--base) 84%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.nav .logo img{height:30px;width:auto}
+.nav ul{display:flex;gap:2px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav a.l{display:block;color:var(--ink-3);text-decoration:none;font-size:13px;font-weight:400;padding:6px 10px;border-radius:8px;white-space:nowrap;transition:color .2s,background .2s}
+.nav a.l:hover{color:var(--ink)}
+.nav a.l.on{color:var(--ink);background:var(--hair)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-weight:500;font-size:14px;text-decoration:none;white-space:nowrap;transition:transform .2s,filter .2s}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:scale(.98)}
+.btn-grad{background:var(--grad);color:#1a0f06}
+.btn-ghost{border:1px solid var(--hair-3);color:var(--ink)}
+@media (max-width:1100px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+
+/* ---------- film (hero video, no overlay text) ---------- */
+.film{position:relative;height:min(calc(100svh - 64px),56.25vw);min-height:220px;background:#0a0716;overflow:hidden}
+.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.film::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(transparent,var(--base));pointer-events:none}
+.film-ctl{position:absolute;left:20px;bottom:22px;z-index:2;display:flex;gap:8px}
+.film-ctl button,.film-cue{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:999px;background:rgba(15,11,31,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--hair-2);color:var(--ink);font-size:12.5px;text-decoration:none;transition:background .2s}
+.film-ctl button{width:38px;padding:0;justify-content:center}
+.film-ctl button:hover,.film-cue:hover{background:rgba(15,11,31,.8)}
+.film-cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+@media (max-width:640px){.film-cue{display:none}.film-ctl{left:12px;bottom:12px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--hair)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 70% at 70% 30%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 70% 30%,#000 20%,transparent 75%);pointer-events:none}
+.hero::after{content:"";position:absolute;width:720px;height:720px;right:-200px;top:-260px;background:radial-gradient(circle,rgba(239,119,62,.22),transparent 62%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-block:72px 56px}
+.badge-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px 20px}
+.logo-chip{background:rgba(255,255,255,.04);border:1px solid var(--hair-2);border-radius:14px;padding:12px 16px}
+.logo-chip img{height:34px;width:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.hero h1{font-size:clamp(42px,7.4vw,92px);line-height:.98;letter-spacing:-.035em;margin-top:34px;font-weight:500}
+.hero h1 .it{font-weight:300}
+.hero .lead{margin-top:26px;max-width:66ch;color:var(--ink-2);font-size:clamp(15.5px,1.2vw,18px)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:40px}
+.kpi{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--hair-2);border-radius:16px;padding:18px 20px}
+.kpi .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.kpi .v{font-size:clamp(26px,2.6vw,34px);font-weight:500;letter-spacing:-.03em;line-height:1.1;margin-top:10px}
+.kpi .s{font-size:13px;color:var(--ink-2);margin-top:2px}
+.kpi.hl{border-color:rgba(239,119,62,.45);background:linear-gradient(180deg,rgba(239,119,62,.12),rgba(239,119,62,.03))}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:40px;border-top:1px solid var(--hair)}
+.meta div{padding:18px 20px 0 0}
+.meta .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.meta .v{font-size:14.5px;margin-top:6px;font-weight:400}
+@media (max-width:900px){.meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tagline{margin-top:40px;padding-top:18px;border-top:1px solid var(--hair);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;color:var(--ink-3);font-size:13px}
+
+/* ---------- sections ---------- */
+section{position:relative;padding-block:clamp(72px,9vw,112px);border-bottom:1px solid var(--hair)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:8px 28px;margin-bottom:44px;align-items:start}
+.sec-no{font-family:var(--mono);font-size:clamp(40px,5vw,64px);line-height:.9;color:transparent;-webkit-text-stroke:1px rgba(239,119,62,.55);font-weight:400;padding-top:4px}
+.sec-head h2{font-size:clamp(30px,4.2vw,50px);line-height:1.06;margin-top:12px}
+.sec-head .lead{color:var(--ink-2);max-width:68ch;margin-top:16px;font-size:16.5px}
+@media (max-width:640px){.sec-head{grid-template-columns:1fr}.sec-no{font-size:36px}}
+.prose{color:var(--ink-2);max-width:72ch;display:grid;gap:16px;font-size:16px}
+.prose b,.prose strong{color:var(--ink);font-weight:500}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);padding:clamp(18px,2.2vw,28px)}
+.callout{display:grid;grid-template-columns:40px 1fr;gap:16px;background:linear-gradient(180deg,rgba(72,66,140,.22),rgba(72,66,140,.08));border:1px solid rgba(142,134,224,.28);border-radius:var(--r);padding:22px 24px;margin-top:28px}
+.callout .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(239,119,62,.14);color:var(--orange);font-family:var(--mono);font-size:15px}
+.callout h3{font-size:18px}
+.callout p{color:var(--ink-2);font-size:15px;margin-top:6px}
+.callout.warm{background:linear-gradient(180deg,rgba(239,119,62,.12),rgba(239,119,62,.03));border-color:rgba(239,119,62,.35)}
+.sub-h{display:flex;align-items:center;gap:12px;font-size:19px;margin:48px 0 18px}
+.sub-h::before{content:"";width:8px;height:8px;transform:rotate(45deg);background:var(--orange);flex:none}
+.sub-h .tag{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);border:1px solid rgba(239,119,62,.4);padding:3px 9px;border-radius:999px}
+
+/* objet + le projet (scrolling story of the design sheet) */
+.projet{margin-top:80px}
+.projet-head{max-width:68ch}
+.projet-head h3{font-size:clamp(26px,3.2vw,40px);line-height:1.1;margin-top:14px}
+.projet-head p{color:var(--ink-2);margin-top:14px}
+.scrolly{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px;margin-top:36px}
+.scrolly-stage{position:sticky;top:88px;align-self:start;height:min(calc(100svh - 120px),700px)}
+.stage-frame{position:relative;height:100%;border-radius:22px;overflow:hidden;border:1px solid var(--hair-2);background:var(--base-2);box-shadow:0 40px 100px -60px rgba(0,0,0,.8)}
+.layer{position:absolute;inset:0;opacity:0;transform:scale(1.04);transition:opacity .7s ease,transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.layer.on{opacity:1;transform:none}
+.m{position:absolute;inset:0}
+.m-main{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.m.is-paper{background:#F3F0E9}
+.m.is-paper .m-main{object-fit:contain;padding:28px 28px 44px}
+.m-grid{position:absolute;inset:0;padding:50px 16px 30px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.25fr .8fr 1.25fr;gap:10px}
+.m-grid figure{margin:0;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:0}
+.m-grid figure:first-child,.m-grid figure:nth-child(4){grid-column:span 2}
+/* drawings with labels: the box is sized to the image so labels can be placed in % of the drawing */
+.m-fitbox{position:absolute;inset:44px 10px 34px;display:flex;align-items:center;justify-content:center}
+.m-fit{position:relative;width:100%;height:100%}
+.m-fit img{display:block;width:100%;height:100%;object-fit:contain}
+.lbl{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:baseline;gap:6px;background:rgba(15,11,31,.85);color:var(--ink);border-radius:6px;padding:3px 8px;font-size:11px;line-height:1.3;white-space:nowrap;box-shadow:0 6px 16px -8px rgba(0,0,0,.6);pointer-events:none}
+.lbl b{font-weight:500}
+.lbl span{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--orange)}
+@media (max-width:600px){.lbl{font-size:9px;padding:2px 5px;gap:4px}.lbl span{font-size:8px}}
+.m-grid img{width:100%;height:auto;max-height:calc(100% - 20px);flex:0 1 auto;min-height:0;object-fit:contain;display:block}
+.m-grid figcaption{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6a6580;text-align:center;padding-top:4px}
+.m-inset{position:absolute;right:16px;bottom:16px;width:40%;border-radius:12px;border:3px solid var(--base);box-shadow:0 18px 40px -16px rgba(0,0,0,.7)}
+.m.is-paper .m-inset{border-color:#F3F0E9}
+.m-cap{position:absolute;left:16px;top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:rgba(15,11,31,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--hair-2);padding:5px 10px;border-radius:999px}
+.stage-prog{position:absolute;left:16px;bottom:16px;display:flex;gap:5px;z-index:2}
+.stage-prog i{width:18px;height:3px;border-radius:2px;background:rgba(255,255,255,.28);transition:background .3s,width .3s}
+.stage-prog i.on{background:var(--orange);width:30px}
+.stage-prog.on-paper i{background:rgba(15,11,31,.2)}
+.stage-prog.on-paper i.on{background:var(--orange)}
+.scrolly-steps{padding-bottom:16svh}
+.step{min-height:72svh;display:flex;flex-direction:column;justify-content:center;padding:24px 0;opacity:.3;transition:opacity .45s}
+.step.on{opacity:1}
+.step .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.step h4{font-size:clamp(24px,2.5vw,34px);font-weight:500;letter-spacing:-.02em;line-height:1.12;margin:10px 0 0}
+.step>p,.step .lede{color:var(--ink-2);font-size:15.5px;margin-top:12px;max-width:52ch}
+.specs{display:grid;grid-template-columns:minmax(120px,max-content) 1fr;margin:20px 0 0;border-top:1px solid var(--hair)}
+.specs dt,.specs dd{margin:0;padding:10px 0;border-bottom:1px solid var(--hair);font-size:14px}
+.specs dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-right:18px;padding-top:12px}
+.specs dd{color:var(--ink);font-weight:400}
+.pill-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
+.pill-row div{border:1px solid var(--hair-2);border-radius:12px;padding:12px 14px}
+.pill-row b{display:block;font-weight:500;font-size:14.5px}
+.pill-row span{color:var(--ink-2);font-size:13px}
+.wflow{display:grid;gap:8px;margin-top:20px}
+.wflow-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.wflow-row span{border:1px solid var(--hair-2);border-radius:999px;padding:6px 12px;font-size:13px;background:var(--surface)}
+.wflow-row i{color:var(--orange);font-style:normal;font-family:var(--mono)}
+.ascia-note{margin-top:16px;border-left:2px solid var(--orange);padding:4px 0 4px 14px;color:var(--ink-2);font-size:14px}
+.ascia-note b{color:var(--ink);font-weight:500}
+.m-inline{display:none}
+@media (max-width:960px){
+  .scrolly{grid-template-columns:1fr;gap:0}
+  .scrolly-stage{display:none}
+  .scrolly-steps{padding-bottom:0}
+  .step{min-height:0;opacity:1;padding:32px 0;border-top:1px solid var(--hair)}
+  .m-inline{display:block;position:relative;aspect-ratio:16/10;border-radius:16px;overflow:hidden;border:1px solid var(--hair-2);margin-bottom:20px;background:var(--base-2)}
+  .m-inline.tall{aspect-ratio:4/3.4}
+}
+@media (max-width:520px){.pill-row{grid-template-columns:1fr}.specs{grid-template-columns:1fr}.specs dt{padding-bottom:0;border-bottom:0}}
+.band{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:var(--r);overflow:hidden;margin-top:40px}
+.band div{background:var(--base-2);padding:22px}
+.band b{display:block;font-size:clamp(28px,3vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1.05}
+.band span{color:var(--ink-2);font-size:13.5px}
+@media (max-width:760px){.band{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+@media (max-width:960px){.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.pillars{grid-template-columns:1fr}}
+.pillar{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:20px}
+.pillar .n{font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:.14em}
+.pillar h3{font-size:16.5px;margin-top:10px}
+.pillar p{color:var(--ink-2);font-size:14px;margin-top:6px}
+
+/* visite 3D */
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 340px;background:var(--base-2);border:1px solid var(--hair-2);border-radius:22px;overflow:hidden;box-shadow:0 40px 120px -60px rgba(239,119,62,.35)}
+@media (max-width:1000px){.stage{grid-template-columns:1fr}}
+.viewport{position:relative;height:clamp(460px,74vh,780px);background:radial-gradient(ellipse at 50% 35%,#2a2150,#0F0B1F 75%);overflow:hidden}
+.viewport canvas{position:absolute;inset:0;width:100%;height:100%;display:block;outline:none}
+.labels3d{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.lbl3d{position:absolute;left:0;top:0;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);background:rgba(15,11,31,.74);border:1px solid var(--hair-2);padding:3px 8px;border-radius:6px;white-space:nowrap;pointer-events:auto;cursor:pointer;transition:opacity .25s,background .2s,color .2s;will-change:transform}
+.lbl3d:hover{color:var(--ink);border-color:var(--hair-3)}
+.lbl3d.on{color:#1a0f06;background:var(--orange);border-color:var(--orange)}
+.tip3d{position:absolute;left:0;top:0;pointer-events:none;background:rgba(15,11,31,.94);border:1px solid var(--hair-3);border-radius:10px;padding:8px 12px;font-size:13px;white-space:nowrap;z-index:3;font-weight:400}
+.tip3d b{font-weight:500;display:flex;align-items:center;gap:8px}
+.tip3d b i{width:8px;height:8px;border-radius:50%}
+.tip3d span{display:block;font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}
+.vp-top{position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;pointer-events:none;z-index:4}
+.vp-top>*{pointer-events:auto}
+.seg{display:inline-flex;background:rgba(15,11,31,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--hair-2);border-radius:999px;padding:3px}
+.seg button{padding:6px 14px;border-radius:999px;font-size:12.5px;color:var(--ink-2);transition:all .2s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--base);font-weight:500}
+.vp-tools{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tool{display:inline-flex;align-items:center;gap:7px;background:rgba(15,11,31,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--hair-2);border-radius:999px;padding:7px 12px;font-size:12.5px;color:var(--ink-2);transition:all .2s}
+.tool:hover{color:var(--ink)}
+.tool[aria-pressed="true"]{color:var(--ink);border-color:rgba(239,119,62,.65);background:rgba(239,119,62,.18)}
+.vp-load{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);transition:opacity .5s;pointer-events:none}
+.vp-load.done{opacity:0}
+.vp-hint,.vp-count{position:absolute;bottom:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-3);pointer-events:none;margin:0}
+.vp-hint{left:14px}
+@media (max-width:640px){.vp-hint{display:none}}
+.vp-count{right:14px;text-align:right}
+.vp-activate{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;background:var(--grad);color:#1a0f06;font-weight:500;font-size:14px;padding:12px 22px;border-radius:999px;box-shadow:0 14px 40px -10px rgba(239,119,62,.6)}
+.vp-exit{position:absolute;left:14px;bottom:40px;z-index:4}
+.plan2d{position:absolute;inset:0;padding:64px 16px 16px;display:flex;justify-content:center;background:var(--base-2);z-index:2}
+.plan2d[hidden],.tip3d[hidden]{display:none}
+.plan2d{background:#F3F0E9!important}
+.plan2d::before{display:none}
+#planSvg .wall{fill:#25222c}
+#planSvg .winf{fill:#F3F0E9;stroke:#25222c;stroke-width:1.2}
+#planSvg .glassl{stroke:#4f7aa8;stroke-width:1.5}
+#planSvg .mull{stroke:#25222c;stroke-width:1.8}
+#planSvg .door{fill:none;stroke:#4a4656;stroke-width:1}
+#planSvg .fix{fill:#fff;stroke:#4a4656;stroke-width:1}
+#planSvg .furn{fill:#ebe5da;stroke:#6b6676;stroke-width:.9}
+#planSvg .soft{fill:#ddd4c4;stroke:#6b6676;stroke-width:.9}
+#planSvg .thin{fill:none;stroke:#6b6676;stroke-width:.8}
+#planSvg .dark{fill:#3a3742;stroke:#25222c;stroke-width:.8}
+#planSvg .tank{fill:#cfe0f2;stroke:#3f6fa8;stroke-width:1}
+#planSvg .hp{fill:#fff;stroke:#4a4656;stroke-width:.9;stroke-dasharray:3 2}
+#planSvg .rug{fill:none;stroke:#b7ad9c;stroke-width:.8;stroke-dasharray:3 3}
+#planSvg .floor{fill:#f1e7d6}
+#planSvg .tile{fill:#e5e3de}
+#planSvg .deck{fill:#eadbc5;stroke:#8b6e52;stroke-width:1}
+#planSvg .board{stroke:#d3bfa3;stroke-width:.7}
+#planSvg .ghf{fill:#edf2ec;stroke:#4f7aa8;stroke-width:1.3}
+#planSvg .ghi{fill:none;stroke:#9db4cc;stroke-width:.7}
+#planSvg .plant{fill:#d3e3cc;stroke:#6f9a6a;stroke-width:.8}
+#planSvg .pot{fill:#cfccc6;stroke:#7d7a74;stroke-width:.7}
+#planSvg .patio{fill:#e7e3dc;stroke:#8d8880;stroke-width:1}
+#planSvg .paveline{fill:none;stroke:#d2cdc4;stroke-width:.8}
+#planSvg .water{fill:#cfe6ee;stroke:#6aa6bd;stroke-width:.8}
+#planSvg .fire{fill:#f6c59e;stroke:#e08a4b;stroke-width:.8}
+#planSvg .stone{fill:#ddd9d1;stroke:#a19b91;stroke-width:.7}
+#planSvg .gravel{fill:#ebe8e1}
+#planSvg .lamp{fill:#25222c}
+#planSvg .dim{stroke:#EF773E;stroke-width:1}
+#planSvg .rl{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.08em;fill:#25222c;text-anchor:middle}
+#planSvg .rd{font-family:var(--mono);font-size:9.5px;fill:#5d5868;text-anchor:middle;letter-spacing:.04em}
+#planSvg .dimt{font-family:var(--mono);font-size:11px;fill:#c4501e;text-anchor:middle}
+#planSvg .tiny{font-family:var(--mono);font-size:7.5px;fill:#5d5868;text-anchor:middle;letter-spacing:.04em}
+#planSvg .pz{fill:transparent;cursor:pointer;transition:fill .2s;outline:none}
+#planSvg .pz:hover,#planSvg .pz:focus-visible{fill:rgba(239,119,62,.07)}
+#planSvg .pz.on{fill:rgba(239,119,62,.1);stroke:#EF773E;stroke-width:2}
+#planSvg .pdot{stroke:#fff;stroke-width:1.2;pointer-events:none}
+.plan2d::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;opacity:.5;pointer-events:none}
+.plan2d svg{position:relative;height:100%;width:auto;max-width:100%}
+.side3d{border-left:1px solid var(--hair);padding:20px;display:flex;flex-direction:column;gap:14px;overflow:auto;height:clamp(460px,74vh,780px);scrollbar-width:thin;scrollbar-color:var(--hair-2) transparent}
+@media (max-width:1000px){.side3d{border-left:0;border-top:1px solid var(--hair);height:auto}}
+.side-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.znav{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.znav button{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:8px 11px;border:1px solid var(--hair);border-radius:10px;font-size:13px;color:var(--ink-2);text-align:left;transition:all .2s}
+.znav button:hover{border-color:var(--hair-3);color:var(--ink)}
+.znav button[aria-pressed="true"]{border-color:rgba(239,119,62,.7);color:var(--ink);background:rgba(239,119,62,.1)}
+.znav b{font-family:var(--mono);font-weight:400;font-size:11px;color:var(--ink-3)}
+.devcard{border:1px solid rgba(239,119,62,.45);background:linear-gradient(180deg,rgba(239,119,62,.12),rgba(239,119,62,.03));border-radius:12px;padding:12px 14px}
+.devcard .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.devcard b{display:flex;align-items:center;gap:8px;font-weight:500;font-size:15px;margin-top:4px}
+.devcard b i{width:8px;height:8px;border-radius:50%;flex:none}
+.devcard span{display:block;color:var(--ink-2);font-size:13px;margin-top:2px}
+.side3d .zone-panel{background:none;border:0;padding:0}
+.side3d .zone-panel h3{font-size:22px}
+.legend{justify-content:center;margin-top:16px}
+.zone{cursor:pointer;outline:none}
+.zone .z{fill:rgba(27,21,53,.85);stroke:rgba(142,134,224,.45);stroke-width:1.5;transition:fill .2s,stroke .2s}
+.zone:hover .z,.zone:focus-visible .z{stroke:var(--orange)}
+.zone.on .z{fill:rgba(239,119,62,.10);stroke:var(--orange);stroke-width:2}
+.zone .zl{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;fill:var(--ink-3);pointer-events:none}
+.zone .zd{font-family:var(--mono);font-size:10px;letter-spacing:.06em;fill:var(--ink-3);opacity:.7;pointer-events:none}
+.zone.on .zl{fill:var(--ink)}
+.dot{transition:opacity .25s}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--hair-2);padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:400;color:var(--ink);transition:opacity .2s,background .2s,border-color .2s}
+.chip i{width:8px;height:8px;border-radius:50%;flex:none}
+.chip[aria-pressed="false"]{opacity:.38}
+.chip.sel{background:var(--ink);color:var(--base);border-color:var(--ink)}
+.zone-panel{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);padding:24px;min-width:0}
+.zone-panel .cnt{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.zone-panel h3{font-size:26px;margin-top:8px}
+.zone-panel .zdesc{color:var(--ink-2);margin:6px 0 16px;font-size:15px}
+.zlist{list-style:none;margin:0;padding:0}
+.zlist li{display:grid;grid-template-columns:10px 1fr auto;gap:14px;align-items:baseline;padding:11px 0;border-top:1px solid var(--hair);font-size:14px}
+.zlist li i{width:8px;height:8px;border-radius:50%;transform:translateY(-1px)}
+.zlist li strong{display:block;font-weight:500;color:var(--ink)}
+.zlist li span{color:var(--ink-2)}
+.zlist li b{font-family:var(--mono);font-weight:400;color:var(--ink-3);font-size:12.5px}
+
+/* matériel */
+.budget{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;margin-bottom:48px}
+@media (max-width:960px){.budget{grid-template-columns:1fr}}
+.bars{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);padding:20px 22px}
+.bar{display:grid;grid-template-columns:minmax(110px,170px) 1fr 92px;gap:14px;align-items:center;padding:6px 8px;margin:0 -8px;border-radius:10px;cursor:pointer;transition:background .2s;width:calc(100% + 16px);text-align:left}
+.bar:hover{background:var(--hair)}
+.bar .n{font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .track{height:10px;background:rgba(255,255,255,.05);border-radius:999px;overflow:hidden;position:relative}
+.bar .track span{position:absolute;inset:0 auto 0 0;border-radius:999px;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.bar .p{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--ink-2)}
+@media (max-width:520px){.bar{grid-template-columns:1fr 84px}.bar .track{grid-column:1/-1;grid-row:2}}
+.side{display:grid;gap:16px;align-content:start}
+.mini{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);padding:20px 22px}
+.mini .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.mini .v{font-size:30px;font-weight:500;letter-spacing:-.03em;margin-top:6px}
+.mini p{color:var(--ink-2);font-size:13.5px;margin-top:4px}
+.ring{display:flex;gap:18px;align-items:center}
+.ring svg{flex:none}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:16px;scrollbar-width:thin;scrollbar-color:var(--hair-2) transparent}
+.tab{flex:none;display:flex;align-items:center;gap:8px;border:1px solid var(--hair-2);color:var(--ink-2);padding:8px 14px;border-radius:999px;font-size:13.5px;font-weight:400;transition:all .2s}
+.tab i{width:7px;height:7px;border-radius:50%}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--raised);color:var(--ink);border-color:var(--hair-3)}
+.sys{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);overflow:hidden}
+.sys-top{display:grid;grid-template-columns:1fr auto;gap:20px;padding:24px 26px 20px;align-items:end;border-bottom:1px solid var(--hair)}
+.sys-top h3{font-size:24px}
+.sys-top p{color:var(--ink-2);max-width:66ch;margin-top:6px;font-size:14.5px}
+.sys-top .t{text-align:right}
+.sys-top .t b{font-size:30px;font-weight:500;letter-spacing:-.03em;display:block}
+.sys-top .t small{color:var(--ink-3);font-family:var(--mono);font-size:11.5px}
+@media (max-width:640px){.sys-top{grid-template-columns:1fr}.sys-top .t{text-align:left}}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tbl table{min-width:640px}
+th{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:12px 26px;border-bottom:1px solid var(--hair)}
+td{padding:13px 26px;border-bottom:1px solid var(--hair);vertical-align:top;font-weight:400}
+td small{display:block;color:var(--ink-3);font-size:12.5px;margin-top:2px;font-weight:300}
+th.r,td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+.brand{font-family:var(--mono);font-size:11px;color:var(--orange);border:1px solid rgba(239,119,62,.32);padding:1px 7px;border-radius:5px;margin-left:8px;white-space:nowrap;display:inline-block}
+
+/* IA */
+.ai{display:grid;gap:12px}
+.ai-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.ai-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ai-card{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:16px 18px}
+.ai-card h3{font-size:15px}
+.ai-card p{color:var(--ink-2);font-size:13px;margin-top:4px}
+.ai-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:12px}
+.ai-label::after{content:"";flex:1;height:1px;background:var(--hair)}
+.ai-core{border:1px dashed rgba(142,134,224,.45);border-radius:20px;padding:16px;background:rgba(72,66,140,.12)}
+.ha{border:1px solid rgba(239,119,62,.6);background:linear-gradient(180deg,rgba(239,119,62,.14),rgba(239,119,62,.04));border-radius:16px;padding:20px;text-align:center}
+.ha h3{font-size:19px}
+.ha p{color:var(--ink-2);font-size:14px;margin-top:4px}
+.flow{display:flex;justify-content:center;color:var(--orange);opacity:.7}
+.ai-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+@media (max-width:760px){.ai-opts{grid-template-columns:1fr}}
+.opt{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);padding:22px}
+.opt.rec{border-color:rgba(239,119,62,.5)}
+.opt .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.opt h3{margin:8px 0 10px;font-size:19px}
+.opt ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:14px;display:grid;gap:4px}
+
+/* serre */
+.serre{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+@media (max-width:960px){.serre{grid-template-columns:1fr}}
+.phone{background:var(--base-2);border:1px solid var(--hair-2);border-radius:30px;padding:20px;max-width:440px;width:100%;justify-self:center;box-shadow:0 40px 90px -40px rgba(0,0,0,.7),0 0 0 6px rgba(255,255,255,.02)}
+.ph-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;gap:10px}
+.ph-h b{font-size:16px;font-weight:500}
+.ph-h small{font-family:var(--mono);color:var(--ink-3);font-size:11px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.tile{background:var(--surface);border-radius:12px;padding:10px 12px}
+.tile small{color:var(--ink-3);font-size:11px;display:block}
+.tile b{font-size:18px;font-weight:500}
+.beds{display:grid;gap:8px}
+.bed{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:var(--surface);border-radius:12px;padding:10px 12px}
+.bed .leaf{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(79,191,143,.16)}
+.bed b{font-size:13.5px;font-weight:500;display:block}
+.bed small{color:var(--ink-3);font-size:12px}
+.pill{font-family:var(--mono);font-size:10.5px;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:rgba(79,191,143,.18);color:var(--s-ser)}
+.pill.warn{background:rgba(242,180,94,.18);color:var(--s-ecl)}
+.pill.harv{background:rgba(240,105,122,.18);color:var(--s-sec)}
+.ai-msg{margin-top:10px;border:1px solid rgba(239,119,62,.3);border-radius:14px;padding:12px 14px;font-size:13px;color:var(--ink);font-weight:400}
+.ai-msg span{font-family:var(--mono);font-size:10.5px;color:var(--orange);letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:4px}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--hair)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--mono);color:var(--orange);font-size:13px;padding-top:3px}
+.steps b{display:block;font-weight:500}
+.steps span{color:var(--ink-2);font-size:14.5px}
+
+/* journée */
+.day{position:relative;display:grid;max-width:860px}
+.day::before{content:"";position:absolute;left:83px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--orange),var(--lilac-2) 70%,var(--lilac))}
+.moment{display:grid;grid-template-columns:64px 38px 1fr;gap:0 4px;align-items:start;padding:12px 0}
+.moment time{font-family:var(--mono);font-size:13.5px;color:var(--ink-2);text-align:right;padding-top:2px}
+.moment .pt{width:13px;height:13px;border-radius:50%;margin:6px 0 0 13px;background:var(--base);border:2px solid var(--orange);position:relative;z-index:1}
+.moment.night .pt{border-color:var(--lilac-2)}
+.moment b{display:block;font-weight:500}
+.moment span{color:var(--ink-2);font-size:14.5px}
+
+/* automatisations */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;align-items:center}
+.filters .count{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+.auto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.auto{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:16px 18px;display:grid;gap:6px;align-content:start}
+.auto .top{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase}
+.auto .top i{width:7px;height:7px;border-radius:50%}
+.auto .ia{margin-left:auto;color:#1a0f06;background:var(--grad);padding:1px 7px;border-radius:5px;font-weight:500}
+.auto h3{font-size:15.5px}
+.auto .trig{font-size:13px;color:var(--ink-3)}
+.auto .trig b{color:var(--ink-2);font-weight:500}
+.auto p{font-size:13.5px;color:var(--ink-2)}
+
+/* investissement */
+.invest{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:960px){.invest{grid-template-columns:1fr}}
+.inv-tbl{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);overflow:hidden}
+.inv-tbl td,.inv-tbl th{padding:12px 22px}
+.inv-tbl tr.sub td{background:rgba(255,255,255,.025);font-weight:500}
+.inv-tbl tr.opt-row td{color:var(--orange)}
+.inv-tbl tr.tax td{color:var(--ink-2);font-weight:300}
+.inv-tbl tr.tot td{background:linear-gradient(90deg,rgba(239,119,62,.16),rgba(233,75,93,.08));font-weight:600;font-size:15px;border-bottom:0}
+.inv-tbl tr.pending td{color:var(--ink-3);font-style:normal}
+.inv-tbl tr.pending td .it{color:var(--ink-2)}
+.invest .total-card{position:sticky;top:88px}
+@media (max-width:960px){.invest .total-card{position:relative;top:0}}
+.total-card{background:linear-gradient(160deg,var(--raised),var(--surface));border:1px solid rgba(239,119,62,.4);border-radius:var(--r);padding:26px;position:relative;overflow:hidden}
+.total-card::after{content:"";position:absolute;width:320px;height:320px;right:-140px;top:-160px;background:radial-gradient(circle,rgba(239,119,62,.25),transparent 65%)}
+.total-card .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.total-card .v{font-size:clamp(38px,4.6vw,54px);font-weight:500;letter-spacing:-.04em;line-height:1.05;margin:10px 0 6px}
+.total-card p{color:var(--ink-2);font-size:14px}
+.total-card .split{display:flex;justify-content:space-between;gap:12px;margin-top:18px;padding-top:14px;border-top:1px solid var(--hair);font-size:13.5px;color:var(--ink-2)}
+.total-card .split b{color:var(--ink);font-weight:500;font-family:var(--mono);font-size:13px}
+.opts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.optc{position:relative;display:grid;grid-template-columns:1fr auto;gap:6px 14px;background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:16px 18px;cursor:pointer;transition:border-color .2s,background .2s}
+.optc:hover{border-color:var(--hair-3)}
+.optc input{position:absolute;opacity:0;pointer-events:none}
+.optc b{font-weight:500;font-size:15px}
+.optc .d{grid-column:1/-1;color:var(--ink-2);font-size:13.5px}
+.optc .pr{font-family:var(--mono);font-size:13px;color:var(--ink);white-space:nowrap}
+.optc .box{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
+.optc .box::before{content:"";width:16px;height:16px;border-radius:5px;border:1px solid var(--hair-3);display:grid;place-items:center}
+.optc:has(input:checked){border-color:rgba(239,119,62,.6);background:linear-gradient(180deg,rgba(239,119,62,.1),rgba(239,119,62,.02))}
+.optc:has(input:checked) .box{color:var(--orange)}
+.optc:has(input:checked) .box::before{background:var(--orange);border-color:var(--orange);box-shadow:inset 0 0 0 3px var(--surface)}
+.optc:has(input:focus-visible){outline:2px solid var(--orange);outline-offset:3px}
+.sched{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.sched{grid-template-columns:1fr}}
+.pay{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:20px;display:grid;gap:4px}
+.pay .n{font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:.14em;text-transform:uppercase}
+.pay h3{font-size:16.5px;margin-top:4px}
+.pay p{color:var(--ink-2);font-size:13.5px}
+.pay .amt{font-size:24px;font-weight:500;letter-spacing:-.02em;margin-top:8px}
+.pay .pct{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.checks li{display:grid;grid-template-columns:20px 1fr;gap:12px;color:var(--ink-2);font-size:14.5px}
+.checks li::before{content:"✓";color:var(--orange);font-family:var(--mono);font-size:13px;padding-top:2px}
+.checks li b{color:var(--ink);font-weight:500}
+
+/* réalisation */
+.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;counter-reset:ph}
+@media (max-width:960px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.phases{grid-template-columns:1fr}}
+.phase{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:20px;position:relative;overflow:hidden}
+.phase::after{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--grad);opacity:.7}
+.phase .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.phase h3{font-size:17px;margin-top:8px}
+.phase p{color:var(--ink-2);font-size:13.5px;margin-top:6px}
+.phase.after{background:transparent;border-style:dashed}
+.phase.after::after{display:none}
+
+/* après-livraison, engagements, dispositions */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.feat{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);padding:24px}
+.feat .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:rgba(239,119,62,.14);color:var(--orange);font-family:var(--mono);font-size:14px;margin-bottom:14px}
+.feat h3{font-size:18px}
+.feat p{color:var(--ink-2);font-size:14.5px;margin-top:8px}
+.feat ul{margin:10px 0 0;padding-left:18px;color:var(--ink-2);font-size:14.5px;display:grid;gap:6px}
+.disp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:960px){.disp{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.disp{grid-template-columns:1fr}}
+.disp article{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:20px}
+.disp .n{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--raised);font-family:var(--mono);font-size:12px;color:var(--orange)}
+.disp h3{font-size:15.5px;margin-top:12px}
+.disp p{color:var(--ink-2);font-size:13.5px;margin-top:6px}
+
+/* signatures */
+.retained{background:var(--surface);border:1px solid rgba(239,119,62,.45);border-radius:var(--r);padding:22px 24px;display:grid;gap:6px;margin-bottom:20px}
+.retained .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.retained b{font-size:18px;font-weight:500}
+.retained span{color:var(--ink-2);font-size:14px}
+.dl{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--base-2);border:1px solid var(--hair);border-radius:var(--r);padding:20px 24px;margin-bottom:20px}
+.dl h3{font-size:17px}
+.dl p{color:var(--ink-2);font-size:14px;margin-top:2px}
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.sign{grid-template-columns:1fr}}
+.party{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);padding:24px}
+.party .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.party h3{font-size:18px;margin:6px 0 18px}
+.fld{display:grid;gap:6px;margin-bottom:14px}
+.fld label,.fld .lb{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.fld input{width:100%;background:var(--base-2);border:1px solid var(--hair-2);border-radius:10px;padding:11px 13px;color:var(--ink);font:400 15px var(--sans);transition:border-color .2s}
+.fld input:focus{outline:none;border-color:var(--orange)}
+.fld .ro{padding:11px 0;border-bottom:1px solid var(--hair);font-size:15px;font-weight:400}
+.fld-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.fld-row{grid-template-columns:1fr}}
+.pad{position:relative;background:#FBF8F2;border-radius:12px;height:170px;touch-action:none;overflow:hidden}
+.pad canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
+.pad .hint{position:absolute;left:16px;bottom:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(15,11,31,.4);pointer-events:none}
+.pad .line{position:absolute;left:16px;right:16px;bottom:34px;border-bottom:1px dashed rgba(15,11,31,.22);pointer-events:none}
+.pad.signed .hint{display:none}
+.pad-bar{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.pad-bar button{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.pad-bar button:hover{color:var(--orange)}
+.pad.blank{background:rgba(255,255,255,.03);border:1px dashed var(--hair-2)}
+.pad.blank .hint{color:var(--ink-3)}
+.pad.blank .line{border-color:var(--hair-2)}
+
+/* closing + footer */
+.closing{text-align:center;padding-block:clamp(72px,9vw,120px)}
+.closing h2{font-size:clamp(34px,5vw,60px);line-height:1.05;max-width:18ch;margin:0 auto}
+.closing p{color:var(--ink-2);max-width:62ch;margin:20px auto 0}
+.closing .cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+footer{padding-block:36px;color:var(--ink-3);font-size:13px;border-top:1px solid var(--hair)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer img{height:26px;width:auto}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+.fab{position:fixed;right:20px;bottom:20px;z-index:50;box-shadow:0 14px 40px -10px rgba(239,119,62,.55)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+
+/* ---------- print / PDF ---------- */
+@media print{
+  @page{size:Letter;margin:14mm 13mm}
+  :root{--base:#fff;--base-2:#f6f5f9;--surface:#fff;--raised:#f1eff7;--ink:#14102a;--ink-2:#3d3956;--ink-3:#6c6889;--hair:#e3e0ec;--hair-2:#d6d2e2;--hair-3:#c4bfd5;--grid:transparent}
+  html,body{background:#fff!important;color:var(--ink);font-size:10.5pt}
+  .nav,.fab,.legend,.tabs,.filters,.dl,.pad-bar,.no-print,.closing .cta,.film{display:none!important}
+  .print-only{display:block!important}
+  .hero::before,.hero::after,.plan2d::before,.total-card::after{display:none}
+  #c3d,.labels3d,.tip3d,.vp-top,.vp-load,.vp-hint,.vp-count,.vp-activate,.vp-exit,.znav,.side-k,.devcard{display:none!important}
+  .scrolly{display:block}
+  .scrolly-stage{display:none!important}
+  .step{min-height:0;opacity:1!important;padding:14pt 0;break-inside:avoid}
+  .m-inline{display:block;position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;margin-bottom:8pt;border:1px solid var(--hair-2)}
+  .m-cap{background:#fff;color:var(--ink)}
+  .stage{display:block;border:0;box-shadow:none;background:#fff}
+  .viewport{height:auto;background:#fff}
+  .plan2d{display:flex!important;position:static;padding:0;background:#fff}
+  .plan2d svg{width:70%;height:auto}
+  .side3d{height:auto;border:0;padding:12pt 0 0}
+  .grad{background:none;color:#C4501E;-webkit-text-fill-color:#C4501E}
+  .sec-no{-webkit-text-stroke:1px #C4501E}
+  section{padding-block:22pt;border-color:var(--hair)}
+  .hero .wrap{padding-block:10pt 20pt}
+  .rv{opacity:1!important;transform:none!important}
+  .card,.callout,.kpi,.pillar,.mini,.ai-card,.opt,.pay,.phase,.feat,.disp article,.party,.auto,.optc,.retained,.zone-panel,.total-card,.bars,.sys,.inv-tbl,.band,.phone{break-inside:avoid;box-shadow:none!important;background:#fff!important}
+  .optc:not(:has(input:checked)){display:none}
+  #sysPanel{display:none}
+  .fld input{border:0;border-bottom:1px solid var(--hair-2);border-radius:0;padding:6px 0;background:transparent}
+  .pad{border:1px solid var(--hair-2);background:#fff}
+  .pad .hint{display:none}
+  .auto .ia{background:#C4501E;color:#fff}
+  a{text-decoration:none}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .print-sys{break-inside:auto;margin-top:16pt}
+  .print-sys h3{font-size:12pt;margin:14pt 0 4pt}
+  .print-sys table{font-size:9pt}
+  .print-sys td,.print-sys th{padding:5pt 6pt}
+  #signature{break-before:page}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections du document">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ASCIA, retour en haut"><img src="assets/ascia-wordmark.png" alt="ASCIA" width="183" height="51"></a>
+    <ul id="navLinks">
+      <li><a class="l" href="#objet">Objet</a></li>
+      <li><a class="l" href="#plan">Visite 3D</a></li>
+      <li><a class="l" href="#materiel">Matériel</a></li>
+      <li><a class="l" href="#ia">IA</a></li>
+      <li><a class="l" href="#serre">Serre</a></li>
+      <li><a class="l" href="#automatisations">Automatisations</a></li>
+      <li><a class="l" href="#investissement">Investissement</a></li>
+      <li><a class="l" href="#realisation">Réalisation</a></li>
+      <li><a class="l" href="#dispositions">Dispositions</a></li>
+    </ul>
+    <a class="btn btn-grad" href="#signature">Signer la soumission</a>
+  </div>
+</nav>
+
+<div class="film" id="top">
+  <video id="film" muted loop playsinline autoplay preload="auto" poster="assets/borea-hero-poster.jpg" aria-label="Film du chalet Boreä : lever du soleil, stores, plancher radiant, serre, salle mécanique, serrure, soirée, Thermeä et vue de nuit">
+    <source src="assets/borea-hero.webm" type="video/webm">
+    <source src="assets/borea-hero.mp4" type="video/mp4">
+  </video>
+  <a class="film-cue" href="#intro">Découvrir la soumission ↓</a>
+  <div class="film-ctl"><button type="button" id="filmToggle" aria-label="Mettre le film en pause" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path id="filmIcon" d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button></div>
+</div>
+
+<header class="hero" id="intro">
+  <div class="wrap">
+    <div class="badge-row">
+      <span class="logo-chip"><img src="assets/ascia-wordmark.png" alt="ASCIA, designed for a better living" width="183" height="51"></span>
+      <span class="eyebrow">Soumission contractuelle · Bon de commande</span>
+    </div>
+    <h1>Domotique du chalet <span class="it grad">Boreä</span></h1>
+    <p class="lead">Le chalet autonome de 600 pi² de New Way Living, équipé par ASCIA : éclairage, climat, sécurité, énergie solaire, eau de pluie, serre et zone Thermeä réunis dans un seul système. Tout fonctionne en local, sans abonnement, avec une intelligence artificielle qui reste dans la maison. Forfait Premium filaire : les capteurs sont câblés et invisibles, pensés pour un chalet souvent inoccupé.</p>
+    <div class="kpis">
+      <div class="kpi hl"><p class="k">Matériel · avant taxes</p><p class="v num" id="kTotal">—</p><p class="s" id="kTotalSub">13 systèmes</p></div>
+      <div class="kpi"><p class="k">Appareils</p><p class="v num" id="kCount">—</p><p class="s">répartis dans 7 zones</p></div>
+      <div class="kpi"><p class="k">Automatisations</p><p class="v num">64</p><p class="s">prêtes à la livraison</p></div>
+      <div class="kpi"><p class="k">Abonnement</p><p class="v num">0&nbsp;$</p><p class="s">par mois, pour toujours</p></div>
+    </div>
+    <div class="meta">
+      <div><p class="k">Projet</p><p class="v">Chalet Boreä · Édition fondatrice 2026</p></div>
+      <div><p class="k">Client</p><p class="v">New Way Living</p></div>
+      <div><p class="k">Prestataire</p><p class="v">ASCIA · Montréal</p></div>
+      <div><p class="k">Référence · Date</p><p class="v mono" style="font-size:13px">SOUM-ASCIA-2026-____ · ____________</p></div>
+    </div>
+    <div class="tagline"><span>Designed for a better living · Automatisation résidentielle haut de gamme depuis 2018</span><span>info@ascia.ca · (514) 891-6213</span></div>
+  </div>
+</header>
+
+<main>
+
+<!-- 01 OBJET -->
+<section id="objet">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">01</span>
+      <div>
+        <p class="eyebrow">01 — Objet</p>
+        <h2>Un chalet qui se pilote <span class="it">tout seul</span></h2>
+      </div>
+    </div>
+    <div>
+      <div class="prose rv">
+        <p>La présente soumission contractuelle (la « Soumission ») engage <b>ASCIA</b> (le « Prestataire ») à fournir le matériel domotique du <b>chalet Boreä</b> (le « Projet ») pour le client signataire (le « Client »), selon le forfait Premium filaire. Les quantités sont établies à partir de la fiche de conception New Way Living : 24' × 25', serre intégrée de 10' × 12', terrasse de 24' × 8' et zone Thermeä.</p>
+        <p>Sont couverts : l'infrastructure et le serveur local, l'éclairage intérieur et paysager, le climat et la qualité de l'air, l'alarme filaire, les caméras, les serrures, la gestion de l'énergie solaire, l'eau de pluie et les eaux grises, la serre intelligente, la zone Thermeä, le multimédia, les interfaces et la voix, la présence et le bien-être. La liste complète figure à la section 03, appareil par appareil, avec son prix.</p>
+        <p>La main-d'œuvre d'installation, la programmation des 64 automatisations, la configuration de l'IA et la formation sont présentées à la section 08. La signature vaut acceptation ferme du périmètre et des modalités.</p>
+      </div>
+    </div>
+
+    <div class="band rv">
+      <div><b class="num">2018</b><span>ASCIA fondée à Montréal par des ingénieurs</span></div>
+      <div><b class="num">100&nbsp;%</b><span>local, aucune donnée dans le nuage</span></div>
+      <div><b class="num" id="bandCount">—</b><span>appareils intégrés en un seul système</span></div>
+      <div><b class="num">9&nbsp;kW</b><span>de solaire mis au service du confort</span></div>
+    </div>
+
+    <div class="projet" id="projet">
+      <div class="projet-head rv">
+        <p class="eyebrow">Le projet · Boreä par New Way Living</p>
+        <h3>La fiche de conception, <span class="it">panneau par panneau</span></h3>
+        <p>Tout ce que nous équipons part de ce document : le concept, la fiche technique, le plan, les élévations, la zone Thermeä, l'eau, l'énergie et la coupe du chalet. Faites défiler pour le parcourir.</p>
+      </div>
+      <div class="scrolly">
+        <div class="scrolly-stage" aria-hidden="true"><div class="stage-frame" id="stageFrame"></div></div>
+        <div class="scrolly-steps" id="scrollySteps"></div>
+      </div>
+    </div>
+
+    <h3 class="sub-h rv">Pourquoi un chalet autonome demande une domotique différente</h3>
+    <div class="pillars">
+      <article class="pillar rv"><p class="n">01</p><h3>Il fonctionne sans internet</h3><p>Le serveur est dans le chalet. Les interrupteurs, l'alarme et le chauffage continuent de répondre même si la connexion tombe.</p></article>
+      <article class="pillar rv"><p class="n">02</p><h3>Il veille quand il est vide</h3><p>Fuites, gel, intrusion, fumée : capteurs filaires, valve d'eau motorisée et alertes décrites avec photo.</p></article>
+      <article class="pillar rv"><p class="n">03</p><h3>Il suit le soleil</h3><p>Les 18 panneaux décident de l'ordre : chauffe-eau, spa et bain froid chauffent sur le surplus, le reste attend.</p></article>
+      <article class="pillar rv"><p class="n">04</p><h3>Il vous appartient</h3><p>Home Assistant, protocoles ouverts, aucun abonnement. Rien n'est verrouillé chez un fabricant ni chez ASCIA.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PLAN -->
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">02</span>
+      <div>
+        <p class="eyebrow">02 — Le chalet en 3D</p>
+        <h2>Visitez le Boreä, <span class="it">appareil par appareil</span></h2>
+        <p class="lead">Faites pivoter le chalet, ouvrez le toit, passez à la nuit. Chaque point lumineux est un appareil ASCIA à sa place, coloré selon son système. Survolez-le ou touchez-le pour savoir ce qu'il est ; activez « Réseau » pour voir tout converger vers le serveur de la salle mécanique.</p>
+      </div>
+    </div>
+    <div class="stage rv">
+      <div class="viewport" id="viewport">
+        <canvas id="c3d" aria-label="Modèle 3D interactif du chalet Boreä avec ses appareils domotiques"></canvas>
+        <div class="labels3d" id="labels3d"></div>
+        <div class="tip3d" id="tip3d" hidden></div>
+        <div class="plan2d" id="plan2d" hidden><svg id="planSvg" viewBox="0 0 880 840" role="group" aria-label="Plan du chalet Boreä, appareils par zone"></svg></div>
+        <div class="vp-top">
+          <div class="seg" role="group" aria-label="Type de vue"><button type="button" data-view="3d" aria-pressed="true">3D</button><button type="button" data-view="2d" aria-pressed="false">Plan</button></div>
+          <div class="vp-tools" id="vpTools">
+            <button type="button" class="tool" id="tRoof" aria-pressed="true"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 14v6h14v-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Toit ouvert</button>
+            <button type="button" class="tool" id="tNight" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Nuit</button>
+            <button type="button" class="tool" id="tNet" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.5" fill="currentColor"/><path d="M12 9.5V3M12 21v-6.5M9.5 12H3M21 12h-6.5M6 6l4 4M18 18l-4-4M18 6l-4 4M6 18l4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Réseau</button>
+            <button type="button" class="tool" id="tTour" aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Visite</button>
+          </div>
+        </div>
+        <div class="vp-load" id="vpLoad"><span>Assemblage du chalet…</span></div>
+        <button type="button" class="vp-activate" id="vpActivate" hidden>Explorer en 3D</button>
+        <button type="button" class="tool vp-exit" id="vpExit" hidden>✕ Terminer</button>
+        <p class="vp-hint" id="vpHint">Glisser pour pivoter · molette pour zoomer · clic droit pour déplacer</p>
+        <p class="vp-count" id="vpCount"></p>
+      </div>
+      <aside class="side3d" aria-label="Zones du chalet">
+        <p class="side-k">Zones</p>
+        <div class="znav" id="zoneNav"></div>
+        <div class="devcard" id="devCard" hidden aria-live="polite"></div>
+        <div class="zone-panel" id="zonePanel" aria-live="polite"></div>
+      </aside>
+    </div>
+    <div class="legend rv" id="legend" aria-label="Filtrer les appareils par système"></div>
+  </div>
+</section>
+
+<!-- 03 MATÉRIEL -->
+<section id="materiel">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">03</span>
+      <div>
+        <p class="eyebrow">03 — Matériel et prix</p>
+        <h2>La liste complète, <span class="it">appareil par appareil</span></h2>
+        <p class="lead">Quantités estimées à partir du plan, prix unitaires en dollars canadiens avant taxes. Les modèles 120 V sont certifiés pour l'Amérique du Nord. Touchez une barre pour ouvrir le détail du système.</p>
+      </div>
+    </div>
+    <div class="budget rv">
+      <div class="bars" id="bars"></div>
+      <div class="side">
+        <div class="mini ring">
+          <svg width="92" height="92" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="38" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="9"/><circle id="ringArc" cx="48" cy="48" r="38" fill="none" stroke="url(#rg)" stroke-width="9" stroke-linecap="round" transform="rotate(-90 48 48)" stroke-dasharray="0 999"/><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2A35E"/><stop offset=".5" stop-color="#EF773E"/><stop offset="1" stop-color="#E94B5D"/></linearGradient></defs></svg>
+          <div><p class="k">Intelligence et pilotage</p><p class="v num" id="ringPct">—</p><p>Serveur, réseau, IA, capteurs et modules. Le reste est de l'équipement utilisé directement : audio, TV, stores, serrures.</p></div>
+        </div>
+        <div class="mini"><p class="k">Coût moyen par appareil</p><p class="v num" id="avgDev">—</p><p>La majorité des appareils sont des capteurs et modules basse tension. Les gros postes sont l'audio-vidéo, les stores et le serveur.</p></div>
+        <div class="mini"><p class="k">Déjà amorti</p><p class="v" style="font-size:24px">Énergie et eau</p><p>Le délestage solaire, le chauffe-eau sur surplus et l'arrosage à l'eau de pluie réduisent la sollicitation des batteries et la consommation d'eau.</p></div>
+      </div>
+    </div>
+    <div class="tabs rv" id="tabs" role="tablist" aria-label="Systèmes"></div>
+    <div class="sys rv" id="sysPanel" role="tabpanel"></div>
+    <div class="print-only" id="printSys"></div>
+  </div>
+</section>
+
+<!-- 04 IA -->
+<section id="ia">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">04</span>
+      <div>
+        <p class="eyebrow">04 — Intelligence artificielle</p>
+        <h2>L'IA observe et conseille. <span class="it">Home Assistant décide.</span></h2>
+        <p class="lead">Toute l'IA tourne sur le serveur du chalet. Aucune image ni conversation ne sort de la maison, et l'IA ne peut jamais agir hors des règles de sécurité : elle ne peut pas, par exemple, allumer un foyer ou ouvrir la valve d'eau d'elle-même.</p>
+      </div>
+    </div>
+    <div class="ai rv">
+      <p class="ai-label">Ce que la maison perçoit</p>
+      <div class="ai-row">
+        <div class="ai-card"><h3>Caméras</h3><p>Terrain, porte d'entrée, Thermeä et serre</p></div>
+        <div class="ai-card"><h3>Capteurs</h3><p>Climat, sol, radars, énergie, eau</p></div>
+        <div class="ai-card"><h3>Voix et iPad</h3><p>Questions et commandes en français</p></div>
+        <div class="ai-card"><h3>Météo et solaire</h3><p>Prévisions sur 48 heures</p></div>
+      </div>
+      <div class="flow" aria-hidden="true"><svg width="20" height="30"><path d="M10 2v24M4 20l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="ai-core">
+        <p class="ai-label" style="margin-bottom:12px">Serveur IA local · dans la salle mécanique</p>
+        <div class="ai-row">
+          <div class="ai-card"><h3>Frigate</h3><p>Personnes, véhicules, faune, plaques et colis, avec une description de l'événement</p></div>
+          <div class="ai-card"><h3>Vision des plantes</h3><p>Maladies, ravageurs, carences, fruits mûrs</p></div>
+          <div class="ai-card"><h3>Assistant local</h3><p>Modèle de langage via Ollama : résumés, conseils, planification</p></div>
+          <div class="ai-card"><h3>Voix locale</h3><p>Whisper pour écouter, Piper pour répondre</p></div>
+        </div>
+      </div>
+      <div class="flow" aria-hidden="true"><svg width="20" height="30"><path d="M10 2v24M4 20l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="ha"><h3>Home Assistant · ASCIA OS</h3><p>Automatisations, historique et règles de sécurité. Toute action passe par ici.</p></div>
+      <div class="flow" aria-hidden="true"><svg width="20" height="30"><path d="M10 2v24M4 20l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="ai-row">
+        <div class="ai-card"><h3>Notifications</h3><p>Photo et explication en une phrase</p></div>
+        <div class="ai-card"><h3>iPad et écrans</h3><p>Carnet du jardinier, rapports, application 3D</p></div>
+        <div class="ai-card"><h3>Réponse vocale</h3><p>Briefing du matin, alertes</p></div>
+        <div class="ai-card"><h3>Actions</h3><p>Arrosage, stores, chauffage, alarme</p></div>
+      </div>
+    </div>
+    <div class="ai-opts">
+      <div class="opt rec rv">
+        <p class="tag">Inclus dans cette soumission</p>
+        <h3>Option légère</h3>
+        <ul><li>Serveur NUC + accélérateur Hailo-8</li><li>Environ 60 à 80 W pour tout le rack, en continu</li><li>Détection caméras, voix, diagnostics de la serre</li><li>Réponses de l'assistant plus simples</li></ul>
+      </div>
+      <div class="opt rv">
+        <p class="tag">En option · section 08</p>
+        <h3>Option complète</h3>
+        <ul><li>Mini-PC avec carte graphique 16 Go</li><li>Réveillé sur demande ou pendant le surplus solaire, endormi la nuit</li><li>Assistant conversationnel plus riche, descriptions vidéo détaillées</li><li>La sécurité reste toujours active sur le NUC</li></ul>
+      </div>
+    </div>
+    <div class="callout rv">
+      <span class="ic" aria-hidden="true">i</span>
+      <div><h3>Vie privée et Loi 25</h3><p>Aucune caméra dans les pièces de vie. Le sommeil et les chutes sont suivis par radar, sans image. La reconnaissance faciale et la lecture de plaques ne sont activées qu'avec le consentement écrit du Client. Les enregistrements restent sur le NAS du chalet.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 SERRE -->
+<section id="serre">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">05</span>
+      <div>
+        <p class="eyebrow">05 — Serre intelligente</p>
+        <h2>Un jardinier <span class="it">qui ne dort jamais</span></h2>
+        <p class="lead">La serre de 10' × 12' se régule seule : climat, eau de pluie, lumière. Trois caméras photographient les bacs chaque jour et l'IA locale explique ce qu'elle voit.</p>
+      </div>
+    </div>
+    <div class="serre">
+      <div class="phone rv" role="img" aria-label="Exemple d'écran du carnet du jardinier">
+        <div class="ph-h"><b>Carnet du jardinier</b><small>Exemple · mardi 10 h 02</small></div>
+        <div class="tiles">
+          <div class="tile"><small>Air</small><b class="num">23,4°</b></div>
+          <div class="tile"><small>Humidité</small><b class="num">68&nbsp;%</b></div>
+          <div class="tile"><small>Lumière (DLI)</small><b class="num">14,2</b></div>
+          <div class="tile"><small>CO₂</small><b class="num">640</b></div>
+          <div class="tile"><small>Pluie dispo.</small><b class="num">1&nbsp;840&nbsp;L</b></div>
+          <div class="tile"><small>Arrosé auj.</small><b class="num">22&nbsp;L</b></div>
+        </div>
+        <div class="beds">
+          <div class="bed"><div class="leaf"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14zm0 0 7-7" fill="none" stroke="var(--s-ser)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><b>Bac 1 · Tomates cerises</b><small>Sol 41 % · fructification</small></div><span class="pill harv">4 à cueillir</span></div>
+          <div class="bed"><div class="leaf"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14zm0 0 7-7" fill="none" stroke="var(--s-ser)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><b>Bac 2 · Concombres</b><small>Sol 36 % · humidité nuit 88 %</small></div><span class="pill warn">À surveiller</span></div>
+          <div class="bed"><div class="leaf"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14zm0 0 7-7" fill="none" stroke="var(--s-ser)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><b>Bac 3 · Basilic, fines herbes</b><small>Sol 48 % · +12 % / semaine</small></div><span class="pill ok">En santé</span></div>
+        </div>
+        <div class="ai-msg"><span>Analyse IA</span>Petites taches jaunes sur 3 feuilles de concombre, et l'humidité dépasse 85 % la nuit depuis 3 jours. Risque d'oïdium. J'augmente le brassage d'air de 22 h à 6 h. Retirez les feuilles touchées si possible.</div>
+      </div>
+      <ol class="steps rv">
+        <li><div><b>Photo quotidienne</b><span>Chaque bac est photographié à 10 h, toujours dans la même lumière. Les photos sont archivées et une vidéo accélérée de la saison se crée seule.</span></div></li>
+        <li><div><b>Diagnostic visuel</b><span>Feuilles jaunies, taches, pucerons, aleurodes, manque d'eau ou brûlure de lumière, détectés par un modèle de vision local.</span></div></li>
+        <li><div><b>Croisement avec les capteurs</b><span>L'IA relie ce qu'elle voit à l'humidité, la température, le sol et la lumière pour expliquer la cause probable, puis ajuste la ventilation ou l'arrosage.</span></div></li>
+        <li><div><b>Récolte</b><span>Détection des fruits mûrs et notification du nombre prêt à cueillir.</span></div></li>
+        <li><div><b>Plan de culture</b><span>Le Client dit ce qu'il veut faire pousser ; l'IA propose un calendrier de semis selon la lumière mesurée et règle les consignes de chaque bac.</span></div></li>
+        <li><div><b>Journal du dimanche</b><span>Résumé en français : croissance, eau de pluie utilisée, problèmes réglés, tâches de la semaine.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 06 JOURNÉE -->
+<section id="journee">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">06</span>
+      <div>
+        <p class="eyebrow">06 — Une journée au Boreä</p>
+        <h2>Ce que vous vivez, <span class="it">heure par heure</span></h2>
+        <p class="lead">Une journée d'hiver ensoleillée, sans qu'aucun bouton ne soit nécessaire.</p>
+      </div>
+    </div>
+    <div class="day rv" id="day"></div>
+  </div>
+</section>
+
+<!-- 07 AUTOMATISATIONS -->
+<section id="automatisations">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">07</span>
+      <div>
+        <p class="eyebrow">07 — Automatisations</p>
+        <h2>64 automatisations <span class="it">prêtes à la livraison</span></h2>
+        <p class="lead">Filtrez par moment de vie. Le badge IA indique celles qui utilisent l'intelligence artificielle locale.</p>
+      </div>
+    </div>
+    <div class="filters rv" id="filters"></div>
+    <div class="auto-grid" id="autoGrid"></div>
+  </div>
+</section>
+
+<!-- 08 INVESTISSEMENT -->
+<section id="investissement">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">08</span>
+      <div>
+        <p class="eyebrow">08 — Investissement</p>
+        <h2>Votre <span class="it">investissement</span></h2>
+        <p class="lead" id="investLead">—</p>
+      </div>
+    </div>
+    <div class="invest rv">
+      <div class="inv-tbl"><table><thead><tr><th>Poste</th><th class="r">Montant ($ CA)</th></tr></thead><tbody id="invBody"></tbody></table></div>
+      <aside class="total-card" aria-live="polite">
+        <p class="k">Total matériel estimé</p>
+        <p class="v num" id="tcTotal">—</p>
+        <p id="tcSub">—</p>
+      </aside>
+    </div>
+
+    <div class="callout warm rv">
+      <span class="ic" aria-hidden="true">$</span>
+      <div><h3>Installation, programmation et formation</h3><p>Cette soumission couvre le matériel uniquement. L'installation, la programmation des 64 automatisations, la configuration de l'IA et la formation font l'objet d'un devis séparé.</p></div>
+    </div>
+
+    <h3 class="sub-h rv">Options à ajouter <span class="tag">Touchez pour inclure</span></h3>
+    <div class="opts-grid rv" id="optsGrid"></div>
+
+
+    <h3 class="sub-h rv">Ce que comprend le prix</h3>
+    <ul class="checks rv">
+      <li><span><b>Matériel uniquement :</b> cette soumission couvre le matériel. L'installation, la programmation des 64 automatisations, la configuration de l'IA et la formation font l'objet d'un devis séparé.</span></li>
+      <li><span><b>Prix :</b> en dollars canadiens, avant TPS et TVQ, estimés au 6 octobre 2026. Ils seront confirmés selon la disponibilité des fournisseurs.</span></li>
+      <li><span><b>Quantités :</b> établies à partir du plan. Elles seront ajustées après la visite et la validation des modèles du spa, du sauna, du foyer, de la thermopompe et de l'onduleur solaire.</span></li>
+      <li><span><b>Luminaires et stores :</b> les luminaires de base (pots, appliques) fournis par l'électricien ne sont pas inclus. Les stores comprennent le tissu et le moteur.</span></li>
+      <li><span><b>Sans abonnement :</b> tout fonctionne sans internet et sans abonnement. La connexion sert seulement aux notifications à distance et au support ASCIA.</span></li>
+      <li><span><b>Loi 25 :</b> la reconnaissance faciale et la lecture de plaques sont activées seulement avec le consentement du client.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 09 RÉALISATION -->
+<section id="realisation">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">09</span>
+      <div>
+        <p class="eyebrow">09 — Réalisation</p>
+        <h2>Six étapes, <span class="it">arrimées au chantier</span></h2>
+        <p class="lead">Le Premium filaire se joue pendant que les murs sont ouverts. Le calendrier suit donc celui de la construction de New Way Living, et chaque étape clé est validée avec vous.</p>
+      </div>
+    </div>
+    <div class="phases">
+      <article class="phase rv"><p class="n">Étape 1</p><h3>Visite et validation</h3><p>Visite du chalet ou revue des plans finaux. Confirmation des modèles du spa, du sauna, du foyer, de la thermopompe et de l'onduleur. Quantités et prix ajustés par écrit.</p></article>
+      <article class="phase rv"><p class="n">Étape 2</p><h3>Commande du matériel</h3><p>Après la validation des modèles et des quantités. Suivi des délais fournisseurs et réception au dépôt ASCIA.</p></article>
+      <article class="phase rv"><p class="n">Étape 3</p><h3>Pré-filage, murs ouverts</h3><p>Câbles réseau et PoE, contacts encastrés, haut-parleurs, basse tension LED et alarme filaire, en coordination avec l'électricien.</p></article>
+      <article class="phase rv"><p class="n">Étape 4</p><h3>Installation et réseau</h3><p>Rack, serveur, réseau, caméras, capteurs, stores, serrures et interfaces, une fois les finitions faites.</p></article>
+      <article class="phase rv"><p class="n">Étape 5</p><h3>Programmation et IA</h3><p>Les 64 automatisations, Frigate, la vision de la serre, la voix française et le tableau de bord ASCIA OS.</p></article>
+      <article class="phase rv"><p class="n">Étape 6</p><h3>Mise en service et formation</h3><p>Essais de chaque scénario, remise des accès administrateur, formation sur place et documentation.</p></article>
+    </div>
+    <div class="callout rv">
+      <span class="ic" aria-hidden="true">i</span>
+      <div><h3>Ce qui ne dépend pas de nous</h3><p>Les délais des fournisseurs, l'avancement du chantier et la disponibilité de l'électricien fixent une partie du calendrier. Un retard de l'un d'eux reporte d'autant l'étape concernée ; nous vous en avisons dès que nous le connaissons, avec l'impact en jours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 APRÈS-LIVRAISON -->
+<section id="apres">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">10</span>
+      <div>
+        <p class="eyebrow">10 — Après la livraison</p>
+        <h2>Tout vous <span class="it">appartient</span></h2>
+      </div>
+    </div>
+    <div class="two">
+      <article class="feat rv"><span class="ic" aria-hidden="true">★</span><h3>Propriété complète</h3><p>Le matériel devient la propriété du Client au paiement complet. La configuration Home Assistant, les automatisations, les sauvegardes et les accès administrateur vous sont remis. Aucun verrou propriétaire : une autre firme peut reprendre le système.</p></article>
+      <article class="feat rv"><span class="ic" aria-hidden="true">◆</span><h3>Garanties des fabricants</h3><p>Chaque appareil conserve la garantie de son fabricant, enregistrée au nom du Client. ASCIA gère les échanges sous garantie pour le matériel qu'elle a fourni et installé.</p></article>
+      <article class="feat rv"><span class="ic" aria-hidden="true">✎</span><h3>Documentation remise</h3><ul><li>Plan des appareils par zone et schéma du réseau</li><li>Liste des 64 automatisations et de leurs déclencheurs</li><li>Guide d'utilisation en français et procédure de sauvegarde</li><li>Inventaire du matériel, numéros de série et garanties</li></ul></article>
+      <article class="feat rv"><span class="ic" aria-hidden="true">▸</span><h3>Support ASCIA</h3><p>Accès à distance sécurisé, seulement avec votre accord, pour l'assistance et les mises à jour. Les modalités et la durée du support sont précisées dans le devis d'installation.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 11 ENGAGEMENTS -->
+<section id="engagements">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">11</span>
+      <div>
+        <p class="eyebrow">11 — Engagements</p>
+        <h2>Ce que nous faisons <span class="it">ensemble</span></h2>
+        <p class="lead">Quelques éléments ne peuvent venir que de vous. Pour chacun, ASCIA prépare le travail pour que votre part se réduise à une décision ou à une signature.</p>
+      </div>
+    </div>
+    <div class="two">
+      <article class="feat rv"><span class="ic" aria-hidden="true">A</span><h3>Ce que vous apportez</h3><ul><li>Les modèles retenus du spa, du sauna, du foyer, de la thermopompe et de l'onduleur solaire, ou le contact du fournisseur</li><li>L'accès au chantier au moment du pré-filage, murs ouverts</li><li>Les coordonnées de l'électricien et de l'entrepreneur général</li><li>Vos choix de consentement pour la reconnaissance faciale et la lecture de plaques</li><li>Une connexion internet si vous souhaitez les notifications à distance (facultatif)</li></ul></article>
+      <article class="feat rv"><span class="ic" aria-hidden="true">B</span><h3>Ce qu'ASCIA prend en charge</h3><ul><li>Un interlocuteur unique du premier jour à la mise en service</li><li>La coordination avec l'électricien et l'entrepreneur pour le pré-filage</li><li>La commande, la réception et le suivi de tout le matériel</li><li>Chaque écart de quantité ou de prix présenté par écrit avant d'être engagé</li><li>Des démonstrations à chaque étape clé, avant de passer à la suivante</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- 12 DISPOSITIONS -->
+<section id="dispositions">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">12</span>
+      <div>
+        <p class="eyebrow">12 — Dispositions</p>
+        <h2>Dispositions <span class="it">générales</span></h2>
+      </div>
+    </div>
+    <div class="disp">
+      <article class="rv"><span class="n">1</span><h3>Droit applicable</h3><p>La Soumission est régie par les lois du Québec et les lois fédérales du Canada applicables. Tout litige est soumis aux tribunaux du district judiciaire de Montréal.</p></article>
+      <article class="rv"><span class="n">2</span><h3>Prix</h3><p>Prix en dollars canadiens, avant TPS et TVQ, estimés au 6 octobre 2026. Ils seront confirmés selon la disponibilité des fournisseurs.</p></article>
+      <article class="rv"><span class="n">3</span><h3>Quantités</h3><p>Les quantités sont établies d'après le plan. Toute modification après la visite fait l'objet d'un écrit approuvé par le Client avant la commande.</p></article>
+      <article class="rv"><span class="n">4</span><h3>Propriété du matériel</h3><p>Le matériel demeure la propriété d'ASCIA jusqu'au paiement complet, puis appartient entièrement au Client.</p></article>
+      <article class="rv"><span class="n">5</span><h3>Fournisseurs tiers</h3><p>Les appareils proviennent de fabricants tiers dont ASCIA ne maîtrise ni les délais ni les conditions. Un modèle discontinué est remplacé par un équivalent approuvé par le Client.</p></article>
+      <article class="rv"><span class="n">6</span><h3>Renseignements personnels</h3><p>Les données restent dans le chalet. Le Client demeure responsable de l'usage des caméras au sens de la Loi 25 ; ASCIA configure les fonctions sensibles selon son consentement écrit.</p></article>
+      <article class="rv"><span class="n">7</span><h3>Modifications</h3><p>Toute modification de la Soumission ou du périmètre doit faire l'objet d'un écrit signé par les deux Parties.</p></article>
+      <article class="rv"><span class="n">8</span><h3>Intégralité</h3><p>La Soumission, complétée par le devis d'installation, constitue l'entente entière entre les Parties et remplace toute communication antérieure.</p></article>
+      <article class="rv"><span class="n">9</span><h3>Divisibilité</h3><p>Si une disposition est jugée invalide, les autres demeurent en vigueur.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 13 SIGNATURES -->
+<section id="signature" style="border-bottom:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no" aria-hidden="true">13</span>
+      <div>
+        <p class="eyebrow">13 — Acceptation</p>
+        <h2>Acceptation <span class="it">et signatures</span></h2>
+        <p class="lead">En foi de quoi, les Parties acceptent les termes de la présente Soumission. La signature vaut bon de commande, acceptation du périmètre et des modalités de paiement, et autorisation de démarrer le projet.</p>
+      </div>
+    </div>
+    <div class="retained rv" aria-live="polite"><p class="k">Offre retenue</p><b id="retTitle">—</b><span id="retSub">—</span></div>
+    <div class="dl rv">
+      <div><h3>Téléchargez votre soumission signée</h3><p>Complétez et signez ci-dessous, puis exportez le document complet en PDF. Vos informations restent sur votre appareil.</p></div>
+      <button class="btn btn-grad" type="button" data-print>⤓ Télécharger le PDF</button>
+    </div>
+    <div class="sign">
+      <div class="party rv">
+        <p class="k">Le Client · à compléter</p>
+        <h3>Vos informations et votre signature</h3>
+        <div class="fld"><label for="cName">Nom complet</label><input id="cName" autocomplete="name"></div>
+        <div class="fld"><label for="cCo">Société (le cas échéant)</label><input id="cCo" autocomplete="organization" placeholder="New Way Living"></div>
+        <div class="fld-row">
+          <div class="fld"><label for="cTitle">Titre / fonction</label><input id="cTitle" autocomplete="organization-title"></div>
+          <div class="fld"><label for="cDate">Date</label><input id="cDate" type="date"></div>
+        </div>
+        <div class="fld"><label for="cMail">Courriel</label><input id="cMail" type="email" autocomplete="email"></div>
+        <div class="fld"><span class="lb">Signature</span>
+          <div class="pad" id="pad"><canvas aria-label="Zone de signature du Client"></canvas><span class="line"></span><span class="hint">Signez ici : souris, stylet ou doigt</span></div>
+          <div class="pad-bar"><button type="button" id="padClear">Effacer</button></div>
+        </div>
+      </div>
+      <div class="party rv">
+        <p class="k">Le Prestataire · ASCIA</p>
+        <h3>Pour ASCIA</h3>
+        <div class="fld"><span class="lb">Nom complet</span><p class="ro">____________________</p></div>
+        <div class="fld-row">
+          <div class="fld"><span class="lb">Titre / fonction</span><p class="ro">____________________</p></div>
+          <div class="fld"><span class="lb">Date</span><p class="ro">____________________</p></div>
+        </div>
+        <div class="fld"><span class="lb">Courriel</span><p class="ro">info@ascia.ca</p></div>
+        <div class="fld"><span class="lb">Téléphone</span><p class="ro">(514) 891-6213</p></div>
+        <div class="fld"><span class="lb">Signature</span>
+          <div class="pad blank"><span class="line"></span><span class="hint">Signature ASCIA</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="closing">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center">Designed for a better living</p>
+    <h2 style="margin-top:20px">Un chalet autonome, <span class="it grad">pensé comme un seul système.</span></h2>
+    <p id="closingText">—</p>
+    <div class="cta"><a class="btn btn-grad" href="#signature">Signer la soumission</a><a class="btn btn-ghost" href="mailto:info@ascia.ca?subject=Soumission%20Bore%C3%A4">Poser une question</a></div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/ascia-wordmark.png" alt="ASCIA" width="183" height="51">
+    <nav aria-label="Pied de page"><a href="mailto:info@ascia.ca">info@ascia.ca</a><a href="tel:+15148916213">(514) 891-6213</a><a href="https://ascia.ca">ascia.ca</a><span>Montréal, QC</span></nav>
+    <span>© 2026 ASCIA · Soumission confidentielle préparée pour New Way Living</span>
+  </div>
+</footer>
+
+<button class="btn btn-grad fab" type="button" data-print aria-label="Télécharger la soumission en PDF">⤓ PDF</button>
+
+<script>
+/* ===== Data (from the ASCIA hardware draft, 6 octobre 2026) =====
+   item: [désignation, modèle, quantité, prix unitaire, note] */
+const SYS = [
+  {id:'infra', name:'Infrastructure', fam:'inf', desc:"Le cerveau du chalet, dans un mini-rack ventilé de la salle mécanique, alimenté par les batteries solaires via un UPS.", items:[
+    ['Serveur Home Assistant · Core Ultra 7, 32 Go, NVMe 1 To','ASUS NUC 14 Pro',1,1150,'HA, Zigbee2MQTT, Frigate, Music Assistant'],
+    ['Accélérateur IA M.2','Hailo-8',1,320,'Vision IA caméras et serre'],
+    ['Coordinateur Zigbee + Thread PoE','SMLight SLZB-MR1',1,120,'Un seul réseau suffit pour 600 pi²'],
+    ['Passerelle routeur + VLAN','UniFi Cloud Gateway Max',1,330,'Réseaux IoT, caméras, invités séparés'],
+    ['Switch PoE 16 ports','UniFi USW-Lite-16-PoE',1,320,'Caméras, iPad, points d\'accès'],
+    ['Point d\'accès WiFi 7 intérieur','UniFi U7 Pro',1,300,''],
+    ['Point d\'accès WiFi extérieur','UniFi U7 Outdoor',1,330,'Terrasse et zone Thermeä'],
+    ['NAS 2 baies + 2 disques 4 To (RAID 1)','Synology DS224+',1,880,'Vidéo, sauvegardes, photos de la serre'],
+    ['UPS en ligne 1500 VA','CyberPower OL1500',1,620,'Arrêt propre géré par NUT'],
+    ['Mini-rack mural 9U ventilé','StarTech / Navepoint',1,260,'Ventilateur piloté par sonde'],
+    ['Sonde de température du rack','Aqara',1,25,'Alerte surchauffe']]},
+  {id:'ecl', name:'Éclairage', fam:'ecl', desc:"14 circuits intérieurs, 9 extérieurs. Interrupteurs qui fonctionnent même sans serveur, LED 24 V pour l'ambiance chaude du plan.", items:[
+    ['Interrupteur gradateur Zigbee 2-en-1 (cUL)','Inovelli Blue',9,95,'Avec ou sans neutre, mode lampe intelligente'],
+    ['Relais Zigbee encastré','Sonoff ZBMINI-R2 / Aqara T2',7,30,'Appliques, sentiers, sauna, spa, foyer'],
+    ['Contrôleur LED RGBW / CCT Zigbee','Gledopto Pro',8,45,'Corniche, armoires, plinthes, lit, miroir, marches'],
+    ['Bande LED 24 V haute densité · 40 m + alimentations','COB 24 V + Mean Well',1,520,'Lot complet'],
+    ['Kit synchronisation TV HDMI « ASCIA Sync »','HyperHDR + WLED',1,220,'Capture HDMI, ESP32, bande LED'],
+    ['Ampoules Zigbee de chevet','Aqara T2',2,28,''],
+    ['Module gradateur 0-10 V Zigbee','Sunricher',1,55,'Rampes horticoles de la serre'],
+    ['Rampes LED horticoles pleine lumière','Spider Farmer SF-2000',2,290,'Complément d\'hiver'],
+    ['Prise extérieure étanche Zigbee','Sonoff / Aqara',1,45,'Guirlandes de terrasse'],
+    ['Projecteurs RGBW extérieurs (uplights)','Gledopto IP65',4,90,'Arbres et rocailles'],
+    ['Bornes de sentier 12 V + transformateur','Lot paysager',1,620,'Sentiers Thermeä'],
+    ['Télécommande murale à scènes','Aqara H1 / Hue Tap',3,40,'Entrée, chevet, porte de la serre']]},
+  {id:'cli', name:'Climat et air', fam:'cli', desc:"Plancher radiant en base, thermopompe pour les ajustements rapides. Le pilotage est prédictif et utilise le soleil des grandes fenêtres.", items:[
+    ['Thermostat de zone plancher hydronique Zigbee','Sinopé TH1400ZB',3,165,'Aire ouverte, chambre, salle de bain'],
+    ['Relais pompe / chaudière du radiant','Sinopé RM3250ZB',1,90,''],
+    ['Module local pour thermopompe murale','ESPHome CN105 / UART',1,55,'Sans infrarouge ni cloud'],
+    ['Module d\'allumage du foyer au gaz','Selon fabricant',1,180,'Avec sécurités'],
+    ['Relais multi-vitesses pour VRC','Sonoff ZBMINI × 2',1,60,''],
+    ['Relais ventilateurs (salle de bain, toiture)','Sonoff ZBMINI-R2',2,30,''],
+    ['Capteur température / humidité Zigbee','Aqara T1',5,25,''],
+    ['Moniteur qualité d\'air CO₂, COV, PM2.5','Apollo AIR-1',2,120,''],
+    ['Détecteur de radon','Airthings Wave Radon',1,260,''],
+    ['Station météo (vent, pluie, UV)','Ecowitt WS90 + GW2000',1,420,'Locale'],
+    ['Store motorisé Zigbee, fenêtres pleine hauteur','Zemismart / Coulisse',4,480,'Tissu + moteur'],
+    ['Store motorisé Zigbee, chambre et salle de bain','Zemismart',3,360,'Tissu + moteur'],
+    ['Toile d\'ombrage motorisée de la serre + relais','Moteur tubulaire + Sonoff',1,420,'']]},
+  {id:'ala', name:'Alarme', fam:'sec', desc:"Konnected Alarm Pro et Alarmo. Tous les capteurs sont filaires et invisibles, pensés pour un chalet souvent inoccupé.", items:[
+    ['Panneau d\'alarme','Konnected Alarm Pro',1,420,''],
+    ['Contact encastré filaire (portes et fenêtres)','GRI / Honeywell',11,16,'3 portes, 8 fenêtres'],
+    ['Détecteur de mouvement filaire','Bosch Blue Line',2,45,''],
+    ['Détecteur de bris de vitre filaire','Honeywell FG-1625',2,65,'Fenêtres pleine hauteur, serre'],
+    ['Avertisseur fumée / CO câblé interconnecté','Kidde',3,75,''],
+    ['Module relais d\'avertisseurs','Kidde SM120X',1,55,''],
+    ['Détecteur de gaz (foyer)','Filaire 12 V',1,70,''],
+    ['Sirène intérieure + sirène extérieure stroboscope','Filaires',2,75,''],
+    ['Bouton panique','Filaire',2,30,'Chambre, entrée'],
+    ['Capteur de fuite filaire','Filaire',4,25,''],
+    ['Valve d\'eau principale motorisée Zigbee','Sinopé Sedna',1,520,'Fermeture automatique'],
+    ['Sonde de gel des tuyaux','Aqara',1,25,'']]},
+  {id:'cam', name:'Caméras', fam:'sec', desc:"Reolink PoE et Frigate. Le NVR enregistre en continu, Frigate détecte et décrit. Aucune caméra dans les pièces de vie.", items:[
+    ['Sonnette vidéo PoE (interphone)','Reolink Video Doorbell PoE',1,200,'Réponse depuis l\'iPad'],
+    ['Caméra 4K PoE vision de nuit couleur','Reolink RLC-1240A',4,170,'Terrasse, arrière, côté, stationnement'],
+    ['Caméra double objectif 180°','Reolink Duo 3 PoE',1,300,'Zone Thermeä'],
+    ['Caméra de la serre (vue d\'ensemble)','Reolink E1 Outdoor PoE',1,160,'Yeux de l\'IA'],
+    ['Caméra gros plan des bacs','ESP32-S3 + capteur 5 MP',2,45,''],
+    ['Enregistreur NVR 8 canaux, 2 To','Reolink RLN8-410',1,460,'']]},
+  {id:'acc', name:'Accès', fam:'sec', desc:"Serrures Matter sur Thread, gérées en local par Home Assistant. Codes invités temporaires.", items:[
+    ['Serrure à empreinte Matter-over-Thread, porte avant','Aqara U200',1,380,''],
+    ['Serrure intelligente, porte de la serre','Aqara U100 / U200 Lite',1,300,'']]},
+  {id:'ene', name:'Énergie', fam:'ene', desc:"Le gestionnaire solaire : il décide quoi alimenter selon le soleil et l'état des batteries.", items:[
+    ['Passerelle onduleur / batteries (Modbus, MQTT local)','Victron Cerbo GX ou équivalent',1,380,'Selon l\'onduleur installé'],
+    ['Mesure par circuit, 16 circuits','Emporia Vue 3 (ESPHome)',1,280,''],
+    ['Contrôleur du chauffe-eau 60 gal','Sinopé RM3500ZB',1,190,'Chauffe sur surplus'],
+    ['Contacteur de puissance piloté (spa, sauna)','Contacteur 40 A + relais',2,160,'Délestage'],
+    ['Prise Zigbee avec mesure d\'énergie','Sonoff S60 / Aqara',6,32,'']]},
+  {id:'eau', name:'Eau', fam:'ene', desc:"Eau de pluie, eaux grises et réseau. La maison sait combien il reste et où ça coule.", items:[
+    ['Capteur de niveau de réservoir','ESPHome ultrason / pression',2,85,'Pluie et eaux grises'],
+    ['Débitmètre','ESPHome',3,90,'Entrée, pluie, eaux grises'],
+    ['Capteur de pression différentielle (filtres)','ESPHome',2,75,''],
+    ['Capteur qualité de l\'eau TDS / pH','Atlas / DFRobot',1,160,''],
+    ['Relais de pompe','Sonoff ZBMINI-R2',2,30,''],
+    ['Électrovanne de bascule pluie / réseau','Motorisée 3/4"',1,160,''],
+    ['Relais de l\'aspirateur central','Sonoff',1,30,''],
+    ['Sonde de température des réservoirs','Aqara',2,25,'Anti-gel']]},
+  {id:'ser', name:'Serre', fam:'ser', desc:"Climat, arrosage goutte-à-goutte à l'eau de pluie, ventilation et carnet du jardinier IA.", items:[
+    ['Capteur température / humidité (haut, bas)','Aqara T1',2,25,''],
+    ['Capteur de CO₂','Apollo MTR-1 / SCD40',1,90,''],
+    ['Capteur de lumière PAR','Apogee SQ / ESPHome',1,190,'Calcul du DLI'],
+    ['Sonde d\'humidité du sol capacitive','ESPHome / Zigbee',6,30,'Une par bac'],
+    ['Sonde de température du sol','DS18B20',2,20,''],
+    ['Électrovanne goutte-à-goutte par zone','Zigbee 24 V',4,45,''],
+    ['Kit goutte-à-goutte complet','Rain Bird',1,160,''],
+    ['Ventilateur d\'extraction et de brassage','AC Infinity',2,130,''],
+    ['Ouvre-fenêtre de toit motorisé','Actionneur 24 V',1,210,''],
+    ['Brumisateur (vanne + buses)','Kit',1,180,''],
+    ['Chauffage d\'appoint et tapis de semis','Prise Zigbee incluse',2,85,''],
+    ['Écran 7" étanche « carnet du jardinier »','Tablette durcie',1,260,'']]},
+  {id:'the', name:'Zone Thermeä', fam:'the', desc:"Spa, sauna, bain froid et foyer extérieur, lancés en une session et chauffés sur le surplus solaire.", items:[
+    ['Module de contrôle du spa','Balboa / Gecko local',1,260,''],
+    ['Analyseur d\'eau du spa flottant','Sutro / ESPHome',1,220,'pH, chlore, température'],
+    ['Capteur du couvercle du spa','Aqara',1,25,''],
+    ['Sonde haute température du sauna','ESPHome',1,90,'Contacteur compté en Énergie'],
+    ['Contact de porte + présence du sauna','Aqara',2,40,'Sécurité'],
+    ['Contrôle du bain froid (contacteur + sonde)','ESPHome',1,160,''],
+    ['Vanne et allumage du foyer extérieur au gaz','Selon fabricant',1,360,''],
+    ['Haut-parleurs extérieurs (paire)','Polk Atrium 6',2,420,''],
+    ['Bouton d\'appel étanche','Aqara',1,40,'']]},
+  {id:'med', name:'Multimédia', fam:'med', desc:"Multiroom WiiM et Music Assistant, local et sans dépendre de Sonos. Cinéma au salon.", items:[
+    ['Haut-parleurs encastrés au plafond (paire)','Polk RC80i',2,320,'Aire ouverte, chambre'],
+    ['Haut-parleur encastré humidité','Polk RC60i',1,160,'Salle de bain'],
+    ['Amplificateur multiroom','WiiM Amp Pro',4,460,''],
+    ['Haut-parleurs extérieurs terrasse (paire)','Polk Atrium 5',1,380,''],
+    ['Récepteur cinéma + enceintes 3.1','Yamaha RX-V4A + Paradigm',1,1650,''],
+    ['Téléviseur 65"','LG C5 OLED',1,2200,''],
+    ['Lecteur multimédia','Apple TV 4K',1,200,''],
+    ['Télécommande intelligente','Unfolded Circle Remote 3',1,560,'Intégrée à HA']]},
+  {id:'int', name:'Interfaces et voix', fam:'inf', desc:"Un iPad principal, des écrans à la marque ASCIA, et une voix 100 % locale en français.", items:[
+    ['Tableau de bord principal','iPad Air 11"',1,880,'Application 3D, interphone'],
+    ['Boîtier mural encastré PoE pour iPad','iPort Surface Mount',1,520,''],
+    ['Écran mural 4" ASCIA','ESP32-S3 86 mm',2,75,'Chambre, porte de la serre'],
+    ['Assistant vocal local','Home Assistant Voice PE',3,85,''],
+    ['Tag NFC','NTAG215 ASCIA',10,3,'']]},
+  {id:'pre', name:'Présence et bien-être', fam:'pre', desc:"Radar pour réagir à l'instant, Bluetooth pour savoir qui est là. Sommeil et chute sans caméra.", items:[
+    ['Capteur de présence mmWave + PIR + proxy Bluetooth','Everything Presence One',4,115,'Salon, cuisine, chambre, serre'],
+    ['Capteur mmWave de plafond','Apollo MSR-2',1,70,'Salle de bain'],
+    ['Capteur de présence extérieur','Aqara FP / PIR IP65',2,70,''],
+    ['Radar 60 GHz respiration et sommeil','Seeed MR60BHA2',1,65,''],
+    ['Radar 60 GHz détection de chute','Seeed MR60FDA2',1,65,'Salle de bain'],
+    ['Capteur de lit (cellules de charge)','ESPHome',1,85,''],
+    ['Capteur de vibration de fenêtre','Aqara',2,25,''],
+    ['Proxy Bluetooth PoE','Olimex ESP32-POE',1,60,'Couvre la Thermeä'],
+    ['Balise Bluetooth porte-clés','Feasycom / Ruuvi',2,30,'']]}
+];
+const FAM = {
+  ecl:{n:'Éclairage',c:'var(--s-ecl)'}, cli:{n:'Climat',c:'var(--s-cli)'}, sec:{n:'Sécurité',c:'var(--s-sec)'},
+  ene:{n:'Énergie et eau',c:'var(--s-ene)'}, ser:{n:'Serre',c:'var(--s-ser)'}, the:{n:'Thermeä',c:'var(--s-the)'},
+  med:{n:'Multimédia',c:'var(--s-med)'}, pre:{n:'Présence',c:'var(--s-pre)'}, inf:{n:'Réseau et interfaces',c:'var(--s-inf)'}
+};
+const OPTIONS = [
+  ['ia','Option IA complète','Mini-PC avec carte graphique 16 Go, réveillé sur demande',2400],
+  ['tv','Support TV motorisé descendant','Ramène la TV du foyer à hauteur des yeux',1900],
+  ['cine','Cinéma extérieur','Projecteur Epson et toile sous la terrasse',2600],
+  ['ve','Borne de recharge VE OCPP','Grizzl-E, recharge sur surplus solaire',700],
+  ['net','Internet de secours','Starlink ou routeur LTE sur la passerelle',650],
+  ['gen','Génératrice à démarrage automatique','Si les batteries sont critiques en hiver',6500],
+  ['dose','Pompe doseuse d\'engrais','Fertigation automatique de la serre',180],
+  ['zw','Clé Z-Wave 800','Seulement si une serrure Z-Wave est choisie',60]
+];
+
+const nb = ' ';
+const money = v => Math.round(v).toLocaleString('fr-CA') + nb + '$';
+const money2 = v => v.toLocaleString('fr-CA',{minimumFractionDigits:2,maximumFractionDigits:2}) + nb + '$';
+const $ = id => document.getElementById(id);
+const store = {
+  get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+};
+
+SYS.forEach(s => { s.total = s.items.reduce((a,i)=>a+i[2]*i[3],0); s.count = s.items.reduce((a,i)=>a+i[2],0); });
+const GRAND = SYS.reduce((a,s)=>a+s.total,0);
+const COUNT = SYS.reduce((a,s)=>a+s.count,0);
+const sorted = [...SYS].sort((a,b)=>b.total-a.total);
+$('kCount').textContent = COUNT;
+$('bandCount').textContent = COUNT;
+
+/* ===== plan ===== */
+const ZONES = [
+  {id:'chambre',name:'Chambre',dim:"13'×12'",shape:'rect',x:40,y:60,w:260,h:240,desc:"13' × 12', plafond 8'. Réveil naturel, sommeil suivi sans caméra.",dev:[['ecl',5,'Interrupteur, LED sous le lit, 2 ampoules de chevet, télécommande à scènes'],['cli',4,'Thermostat de zone, capteur T/H, qualité d\'air, store'],['sec',5,'2 contacts de fenêtre, mouvement, avertisseur, panique'],['pre',4,'Presence One, radar sommeil, capteur de lit, vibration de fenêtre'],['med',2,'2 haut-parleurs encastrés'],['inf',3,'Écran 4", assistant vocal, tag NFC'],['ene',1,'Prise intelligente avec mesure']]},
+  {id:'sdb',name:'S. de bain',dim:"6'×8'",shape:'rect',x:300,y:60,w:120,h:160,desc:"6' × 8'. Plancher chaud au réveil, ventilation selon l'humidité.",dev:[['ecl',2,'Interrupteur, LED miroir et veilleuse'],['cli',4,'Thermostat, capteur T/H, ventilateur, store'],['sec',3,'Contact de fenêtre, 2 capteurs de fuite'],['pre',2,'Radar de plafond, radar de chute'],['med',1,'Haut-parleur résistant à l\'humidité'],['ene',1,'Prise intelligente'],['inf',1,'Tag NFC']]},
+  {id:'meca',name:'Méca.',dim:"5'×12'",shape:'rect',x:420,y:60,w:100,h:240,desc:"Le cerveau du chalet : rack, alarme, énergie et eau.",dev:[['inf',10,'Serveur, accélérateur IA, Zigbee/Thread, routeur, switch PoE, NAS, UPS, rack, sonde du rack, point d\'accès WiFi 7'],['sec',9,'Konnected, NVR, avertisseur, 2 capteurs de fuite, valve d\'eau, sonde de gel, sirène intérieure, module relais d\'avertisseurs'],['ene',17,'Passerelle onduleur, mesure 16 circuits, contrôleur du chauffe-eau, 2 niveaux de réservoir, 3 débitmètres, 2 pressions de filtre, qualité d\'eau, 2 relais de pompe, électrovanne pluie / réseau, relais aspirateur, 2 sondes de réservoir'],['cli',4,'Relais du radiant, relais VRC, relais ventilateur, capteur T/H'],['ecl',2,'Interrupteur automatique, alimentations LED 24 V']]},
+  {id:'vie',name:'Aire ouverte',dim:"24'×13' · plafond 14'",shape:'rect',x:40,y:300,w:480,h:260,desc:"Salon, salle à manger et cuisine, plafond cathédral 14'. Foyer, TV, grandes fenêtres.",dev:[['ecl',12,'4 interrupteurs, corniche LED, LED du foyer, LED sous armoires, plinthes, synchro TV, télécommande à scènes, relais de la suspension, contrôleur LED'],['cli',11,'Thermostat, module thermopompe, allumage du foyer, 4 stores, capteur T/H, qualité d\'air, radon, relais ventilateur de toiture'],['sec',12,'4 contacts de fenêtre, contact de porte, mouvement, 2 bris de vitre, avertisseur, détecteur de gaz, panique, capteur de fuite'],['pre',4,'2 Presence One, vibration de fenêtre, balise porte-clés'],['med',6,'Haut-parleurs encastrés, ampli, cinéma 3.1, TV OLED, Apple TV, télécommande'],['inf',7,'iPad encastré, boîtier PoE, assistant vocal, 4 tags NFC'],['ene',3,'3 prises intelligentes']]},
+  {id:'serre',name:'Serre',dim:"10'×12'",shape:'rect',x:520,y:320,w:200,h:240,desc:"10' × 12' vitrée. Climat, arrosage à l'eau de pluie, 3 caméras pour l'IA.",dev:[['ser',24,'Capteur T/H haut, capteur T/H bas, CO₂, PAR, 6 sondes de sol, 2 sondes de température du sol, 4 vannes, kit goutte-à-goutte, 2 ventilateurs, ouvre-fenêtre, brumisateur, 2 chauffages d\'appoint, écran 7"'],['ecl',4,'2 rampes horticoles, module 0-10 V, télécommande de porte'],['sec',6,'Caméra d\'ensemble, 2 caméras gros plan, contact de porte, serrure, bris de vitre'],['cli',1,'Toile d\'ombrage'],['pre',1,'Presence One'],['inf',3,'Écran 4", assistant vocal, tag NFC']]},
+  {id:'terrasse',name:'Terrasse',dim:"24'×8'",shape:'rect',x:40,y:560,w:480,h:160,desc:"24' × 8' couverte. Salon extérieur, marches éclairées, musique, et les caméras du pourtour.",dev:[['ecl',7,'Prise des guirlandes, 2 projecteurs RGBW, relais des appliques, contrôleur LED des marches, interrupteur extérieur, relais des pots'],['sec',7,'Sonnette vidéo, 4 caméras 4K, sirène extérieure, serrure de porte avant'],['med',2,'Haut-parleurs de terrasse, ampli'],['pre',1,'Présence extérieure'],['cli',2,'Station météo, passerelle météo'],['inf',2,'Point d\'accès WiFi extérieur, tag NFC'],['ene',1,'Prise extérieure avec mesure']]},
+  {id:'thermea',name:'Thermeä',dim:'',shape:'circle',x:280,y:850,r:112,desc:"Sauna tonneau, spa, bain froid et foyer extérieur.",dev:[['the',11,'Module du spa, analyseur d\'eau, couvercle du spa, sonde du sauna, porte du sauna, présence du sauna, bain froid, foyer extérieur, 2 haut-parleurs, bouton d\'appel'],['ecl',8,'Bornes de sentier, 2 projecteurs RGBW, transformateur 12 V, relais du spa, relais du sauna, relais du foyer, contrôleur LED'],['sec',1,'Caméra 180°'],['ene',2,'Contacteur du spa, contacteur du sauna'],['pre',3,'Présence extérieure, proxy Bluetooth, balise porte-clés'],['med',1,'Ampli'],['inf',2,'2 tags NFC']]}
+];
+const famOn = Object.fromEntries(Object.keys(FAM).map(k=>[k,true]));
+let currentZone = 'vie';
+/* ===== 2D plan: an architectural drawing in feet (1 ft = 20 px), traced from the New Way Living sheet.
+   Same coordinates as the 3D model: x = width (0 → 24), z = depth (0 = back wall, 25 = front wall). ===== */
+const svg = $('planSvg');
+const PX = x => ((x + 7) * 20).toFixed(1), PZ = z => ((z + 4) * 20).toFixed(1), F = v => (v * 20).toFixed(1);
+const PZONES = {chambre:[0,0,13,12], sdb:[13,0,6,8], meca:[19,0,5,12], vie:[0,12,24,13], serre:[24,13,10,12], terrasse:[0,25,24,8], thermea:[12,47,8]};
+let planDevs = null;   // device positions handed over by the 3D model once it has placed them
+/* the plan frames the house by default and glides to the Thermeä when that zone is picked (viewBox in px) */
+const PLAN_VIEWS = {house:[0, 0, 880, 840], thermea:[0, 790, 880, 580]};
+let pvNow = PLAN_VIEWS.house.slice(), pvRaf = 0;
+function planView(id){
+  const to = PLAN_VIEWS[id === 'thermea' ? 'thermea' : 'house'], from = pvNow.slice(), t0 = performance.now();
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  cancelAnimationFrame(pvRaf);
+  const step = now => { const k = reduce ? 1 : Math.min(1, (now - t0) / 650), e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    pvNow = from.map((v, i) => v + (to[i] - v) * e); svg.setAttribute('viewBox', pvNow.map(v => v.toFixed(1)).join(' '));
+    if (k < 1) pvRaf = requestAnimationFrame(step); };
+  pvRaf = requestAnimationFrame(step);
+}
+function drawPlan(){
+  const o = [];
+  const R = (x0, z0, x1, z1, c, a = '') => o.push(`<rect class="${c}" x="${PX(x0)}" y="${PZ(z0)}" width="${F(x1 - x0)}" height="${F(z1 - z0)}" ${a}/>`);
+  const L = (x0, z0, x1, z1, c) => o.push(`<line class="${c}" x1="${PX(x0)}" y1="${PZ(z0)}" x2="${PX(x1)}" y2="${PZ(z1)}"/>`);
+  const C = (x, z, r, c) => o.push(`<circle class="${c}" cx="${PX(x)}" cy="${PZ(z)}" r="${F(r)}"/>`);
+  const T = (x, z, s, c, a = '') => o.push(`<text class="${c}" x="${PX(x)}" y="${PZ(z)}" ${a}>${s}</text>`);
+  const rot = (x0, z0, x1, z1, c, deg, cx, cz) => R(x0, z0, x1, z1, c, `transform="rotate(${deg} ${PX(cx)} ${PZ(cz)})"`);
+  const door = (hx, hz, w, c0, c1) => {   // leaf drawn open, arc from closed to open
+    const a0 = c0 * Math.PI / 180, a1 = c1 * Math.PI / 180, sx = hx + w * Math.cos(a0), sz = hz + w * Math.sin(a0), ex = hx + w * Math.cos(a1), ez = hz + w * Math.sin(a1);
+    const sweep = ((c1 - c0 + 360) % 360) < 180 ? 1 : 0;
+    o.push(`<path class="door" d="M${PX(hx)} ${PZ(hz)} L${PX(ex)} ${PZ(ez)} M${PX(sx)} ${PZ(sz)} A${F(w)} ${F(w)} 0 0 ${sweep} ${PX(ex)} ${PZ(ez)}"/>`);
+  };
+  const winH = (a, b, z0, z1) => { R(a, z0, b, z1, 'winf'); L(a, (z0 + z1) / 2, b, (z0 + z1) / 2, 'glassl'); };
+  const winV = (a, b, x0, x1) => { R(x0, a, x1, b, 'winf'); L((x0 + x1) / 2, a, (x0 + x1) / 2, b, 'glassl'); };
+  const wallH = (x0, x1, z0, z1, opens) => { let x = x0; opens.forEach(([a, b]) => { if (a > x) R(x, z0, a, z1, 'wall'); x = b; }); if (x < x1) R(x, z0, x1, z1, 'wall'); };
+  const wallV = (z0, z1, x0, x1, opens) => { let z = z0; opens.forEach(([a, b]) => { if (a > z) R(x0, z, x1, a, 'wall'); z = b; }); if (z < z1) R(x0, z, x1, z1, 'wall'); };
+
+  /* site under the drawing: Thermeä, path, gravel */
+  R(19, 40.8, 33, 51.4, 'gravel');
+  C(12, 47, 8, 'patio'); C(12, 47, 5.6, 'paveline'); C(12, 47, 3.0, 'paveline');
+  [[12, 35.9], [12.4, 37.4], [12.3, 55.6], [13, 57.2], [12.3, 58.8], [13, 60.4]].forEach(([x, z]) => C(x, z, .8, 'stone'));
+  R(-4.6, 43, 4.4, 49, 'deck');                                   // sauna platform
+  R(-3.8, 43.5, 2.6, 48.5, 'fix'); L(-3.2, 43.5, -3.2, 48.5, 'thin'); L(2.0, 43.5, 2.0, 48.5, 'thin'); L(2.6, 45.3, 2.6, 46.7, 'glassl');
+  C(12, 47, 1.6, 'fix'); C(12, 47, 1.0, 'fire');                  // fire pit
+  for (let i = 0; i < 6; i++) { const a = i / 6 * 2 * Math.PI + Math.PI / 6, x = 12 + 3.9 * Math.cos(a), z = 47 + 3.9 * Math.sin(a), d = a * 180 / Math.PI + 90;
+    rot(x - 1.1, z - 1.1, x + 1.1, z + 1.1, 'soft', d, x, z); rot(x - 1.1, z + .75, x + 1.1, z + 1.1, 'furn', d, x, z); }
+  R(20.2, 44.4, 26.6, 50.8, 'fix'); R(20.7, 44.9, 26.1, 50.3, 'water');   // hot tub
+  C(30, 43.6, 1.6, 'fix'); C(30, 43.6, 1.3, 'water');                     // cold plunge
+  [[10.4, 36], [13.8, 37.4], [5, 42.6], [4.4, 51.4], [8.6, 54.6], [15.6, 54.6], [19.4, 51.8], [19, 41.6], [11, 57.6], [14, 60.6]].forEach(([x, z]) => C(x, z, .22, 'lamp'));
+
+  /* deck */
+  R(0, 25, 24, 33, 'deck'); for (let z = 25.5; z < 33; z += .5) L(0, z, 24, z, 'board');
+  R(10, 33, 14, 34.1, 'deck'); R(10, 34.1, 14, 35.2, 'deck');
+  R(2.4, 26.6, 5, 29.2, 'soft'); R(6, 26.6, 8.6, 29.2, 'soft'); L(2.4, 27, 5, 27, 'thin'); L(6, 27, 8.6, 27, 'thin'); C(5.5, 28.6, .6, 'furn');
+  R(15.5, 27.4, 21, 30, 'furn'); [15.9, 17.7, 19.5].forEach(x => { R(x, 26.1, x + 1.3, 27.2, 'soft'); R(x, 30.2, x + 1.3, 31.3, 'soft'); });
+  [[1, 31.8], [23, 31.8], [9, 32.2], [15, 32.2]].forEach(([x, z]) => C(x, z, .7, 'plant'));
+
+  /* floors */
+  R(.5, .5, 23.5, 24.5, 'floor'); R(13.125, .5, 18.875, 7.875, 'tile'); R(19.125, .5, 23.5, 11.875, 'tile');
+
+  /* greenhouse */
+  R(24, 13, 34, 25, 'ghf'); R(24.25, 13.25, 33.75, 24.75, 'ghi');
+  for (let x = 26.5; x < 34; x += 2.5) L(x, 24.75, x, 25, 'mull');
+  for (let z = 15.4; z < 25; z += 2.4) L(33.75, z, 34, z, 'mull');
+  R(24.6, 17, 26.2, 21, 'furn'); R(32.2, 17.6, 33.6, 21.2, 'furn');
+  [[26, 15], [31.8, 15.4], [26.4, 22.6], [31.6, 22.2], [29, 19]].forEach(([x, z]) => { C(x, z, 1.4, 'plant'); C(x, z, .7, 'pot'); });
+  door(34, 23.6, 2.2, 270, 360);
+
+  /* living */
+  R(1.8, 14.6, 10.4, 23.6, 'rug');
+  R(.5, 14.4, 1.25, 20.4, 'fix'); R(.62, 14.9, 1.1, 19.9, 'fire');                         // gas fireplace, TV above
+  R(3, 15.4, 5.8, 23.2, 'soft'); R(3, 20.6, 9.4, 23.2, 'soft'); L(5.2, 15.4, 5.2, 20.6, 'thin'); L(5.2, 22.6, 9.4, 22.6, 'thin');
+  C(7.6, 18.4, 1.4, 'furn');
+  R(10.8, 15.6, 13.8, 21.6, 'furn'); [16.4, 18.3, 20.2].forEach(z => { R(9.7, z, 10.7, z + 1.2, 'soft'); R(13.9, z, 14.9, z + 1.2, 'soft'); });
+  R(16.4, 15.6, 19, 22.2, 'fix'); R(17, 17.6, 18.4, 18.8, 'thin'); R(17, 19, 18.4, 20.2, 'thin');    // island + double sink
+  [16.6, 18.6, 20.6].forEach(z => C(15.5, z, .5, 'soft'));
+  R(21.6, 13, 23.5, 22.6, 'fix'); [[22.2, 16.6], [23, 16.6], [22.2, 17.6], [23, 17.6]].forEach(([x, z]) => C(x, z, .3, 'thin'));
+  R(9, 12.2, 12.2, 13, 'hp');                                                                      // wall heat pump (high)
+  [[1.3, 13.2], [1.3, 23.6], [20.8, 13.3]].forEach(([x, z]) => C(x, z, .8, 'plant'));
+
+  /* bedroom, bathroom, mechanical room */
+  R(1.2, 2.4, 8.8, 10.8, 'rug');
+  R(2, 3, 7.2, 9.8, 'soft'); R(2.3, 3.3, 4.4, 4.4, 'furn'); R(4.8, 3.3, 6.9, 4.4, 'furn'); L(2, 6.6, 7.2, 6.6, 'thin');
+  R(.8, 2.7, 1.9, 4, 'furn'); R(7.4, 2.7, 8.5, 4, 'furn'); C(10.8, 1.3, .8, 'plant');
+  R(13.4, .6, 16, 2.2, 'fix'); o.push(`<ellipse class="thin" cx="${PX(14.7)}" cy="${PZ(1.4)}" rx="${F(.7)}" ry="${F(.45)}"/>`);
+  R(16.2, .6, 18.8, 3.4, 'fix'); L(16.2, .6, 18.8, 3.4, 'thin'); L(18.8, .6, 16.2, 3.4, 'thin');
+  o.push(`<ellipse class="fix" cx="${PX(14.35)}" cy="${PZ(6.3)}" rx="${F(.6)}" ry="${F(.85)}"/>`); R(13.6, 5.1, 15.1, 5.6, 'fix');
+  R(19.4, .7, 21, 2.1, 'fix'); C(22.6, 2.0, .9, 'tank'); C(20.2, 4.8, .95, 'fix'); C(22.7, 6.0, .8, 'fix'); C(19.8, 8.0, .5, 'fix');
+  R(21.6, 8.6, 23.2, 11, 'dark'); R(22.6, 11, 23.4, 11.6, 'dark');
+  T(20.2, 1.55, 'FILTR.', 'tiny'); T(22.6, 2.2, 'PLUIE', 'tiny'); T(20.2, 5.0, '60 GAL', 'tiny'); T(22.7, 6.2, 'C.-E. AIR', 'tiny'); T(22.4, 9.9, 'BATT.', 'tiny', 'style="fill:#fff"');
+
+  /* walls: exterior 6", interior 3" (poché) with openings */
+  wallH(0, 24, 0, .5, [[2.8, 5.4], [12.6, 17], [20.4, 22.6]]); winH(2.8, 5.4, 0, .5); winH(12.6, 17, 0, .5); winH(20.4, 22.6, 0, .5);
+  wallV(0, 25, 0, .5, [[4, 6.4], [16.4, 19.4]]); winV(4, 6.4, 0, .5); winV(16.4, 19.4, 0, .5);
+  wallV(0, 25, 23.5, 24, [[5, 8]]); door(24, 8, 3, 270, 180);
+  R(0, 24.5, 2.6, 25, 'wall'); R(20.4, 24.5, 24, 25, 'wall');
+  R(2.6, 24.5, 20.4, 25, 'winf'); L(2.6, 24.75, 8.53, 24.75, 'glassl'); L(14.47, 24.75, 20.4, 24.75, 'glassl');
+  L(8.53, 24.62, 11.7, 24.62, 'glassl'); L(11.3, 24.88, 14.47, 24.88, 'glassl');                 // sliding door
+  for (let i = 0; i <= 6; i++) L(2.6 + i * 17.8 / 6, 24.5, 2.6 + i * 17.8 / 6, 25, 'mull');
+  [[.5, 11.875, 10.5, 12.125], [12, 11.875, 13, 12.125], [12.875, .5, 13.125, 12], [13, 7.875, 14, 8.125], [16, 7.875, 19, 8.125], [18.875, .5, 19.125, 12], [19, 11.875, 20, 12.125], [22, 11.875, 23.5, 12.125]]
+    .forEach(([a, b, c, d]) => R(a, b, c, d, 'wall'));
+  door(12, 12, 1.5, 180, 270); door(16, 8, 2, 180, 270); door(22, 12, 2, 180, 270);
+
+  /* labels */
+  const M = 'text-anchor="middle"';
+  T(10.4, 6.3, 'CHAMBRE', 'rl'); T(10.4, 7.25, `13'-0" × 12'-0"`, 'rd'); T(10.4, 8.05, `plafond 8'-0"`, 'rd');
+  T(16, 5.1, 'SDB', 'rl'); T(16, 5.95, `6'-0" × 8'-0"`, 'rd');
+  T(21.3, 13.15, 'SALLE MÉCANIQUE ↑', 'rd');
+  T(5.6, 14.05, 'SALON', 'rl'); T(12.3, 14.75, 'SALLE À MANGER', 'rl'); T(17.7, 14.75, 'CUISINE', 'rl'); T(10.6, 12.0, 'thermopompe murale', 'tiny');
+  T(12, 24.0, `AIRE DE VIE OUVERTE · PLAFOND CATHÉDRALE 14'-0"`, 'rd');
+  T(2.05, 17.4, 'FOYER AU GAZ · TV AU-DESSUS', 'tiny', `transform="rotate(-90 ${PX(2.05)} ${PZ(17.4)})"`);
+  T(29, 14.05, 'SERRE INTÉGRÉE', 'rl'); T(29, 24.2, `10'-0" × 12'-0"`, 'rd');
+  T(12, 28.7, 'TERRASSE AVANT', 'rl'); T(12, 29.6, `24'-0" × 8'-0"`, 'rd');
+  T(-.6, 50.2, 'SAUNA TONNEAU', 'rd'); T(12, 52.9, 'FOYER EXTÉRIEUR', 'rd'); T(23.4, 52.2, 'SPA', 'rd'); T(30, 46.3, 'BAIN FROID', 'rd');
+  T(25.5, 56.6, 'ZONE THERMEÄ', 'rl');
+  L(0, -2.4, 24, -2.4, 'dim'); L(0, -2.9, 0, -1.9, 'dim'); L(24, -2.9, 24, -1.9, 'dim'); T(12, -2.85, `24'-0"`, 'dimt');
+  L(35.6, 0, 35.6, 25, 'dim'); L(35.1, 0, 36.1, 0, 'dim'); L(35.1, 25, 36.1, 25, 'dim'); T(36.3, 12.5, `25'-0"`, 'dimt', `transform="rotate(90 ${PX(36.3)} ${PZ(12.5)})"`);
+  T(12, 63.2, 'Plan · façade avant orientée Est ou Sud-Est', 'rd');
+
+  /* clickable zones, then device dots on top */
+  Object.entries(PZONES).forEach(([id, z]) => {
+    const on = id === currentZone ? ' on' : '', zone = ZONES.find(x => x.id === id), name = zoneTitle(zone) + ', ' + zoneCount(zone) + ' appareils';
+    const attrs = `class="pz${on}" data-z="${id}" tabindex="0" role="button" aria-pressed="${!!on}" aria-label="${name}"`;
+    if (z.length === 3) o.push(`<circle cx="${PX(z[0])}" cy="${PZ(z[1])}" r="${F(z[2])}" ${attrs}/>`);
+    else o.push(`<rect x="${PX(z[0])}" y="${PZ(z[1])}" width="${F(z[2])}" height="${F(z[3])}" rx="4" ${attrs}/>`);
+  });
+  (planDevs || []).forEach(d => o.push(`<circle class="pdot" cx="${PX(d.x)}" cy="${PZ(d.z)}" r="${famOn[d.fam] ? 4 : 2.4}" fill="${FAM[d.fam].c}" opacity="${famOn[d.fam] ? .95 : .18}"/>`));
+
+  svg.innerHTML = o.join('');
+  svg.querySelectorAll('.pz').forEach(g => {
+    const pick = () => selectZone(g.dataset.z, '2d');
+    g.addEventListener('click', pick);
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); svg.querySelector('.pz.on')?.focus(); } });
+  });
+}
+const zoneTitle=z=>z.name==='S. de bain'?'Salle de bain':z.name==='Méca.'?'Salle mécanique':z.name;
+const zoneCount=z=>z.dev.reduce((a,d)=>a+d[1],0);
+function renderZone(){
+  const z=ZONES.find(x=>x.id===currentZone);
+  $('zonePanel').innerHTML=`<p class="cnt">${zoneCount(z)} appareils</p><h3>${zoneTitle(z)}</h3><p class="zdesc">${z.desc}</p><ul class="zlist">${z.dev.map(([f,c,t])=>`<li><i style="background:${FAM[f].c}"></i><span><strong>${FAM[f].n}</strong><span>${t}</span></span><b>× ${c}</b></li>`).join('')}</ul>`;
+  $('zoneNav').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.z===currentZone));
+}
+$('zoneNav').innerHTML=ZONES.map(z=>`<button type="button" data-z="${z.id}" aria-pressed="false">${zoneTitle(z)}<b>${zoneCount(z)}</b></button>`).join('');
+$('zoneNav').addEventListener('click',e=>{const b=e.target.closest('button');if(b)selectZone(b.dataset.z,'nav');});
+function selectZone(id,src){
+  currentZone=id; drawPlan(); planView(id); renderZone();
+  if(src!=='3d') $('devCard').hidden=true;
+  if(src!=='3d') window.borea3d?.focusZone(id);
+}
+function showDevice(d){
+  const z=ZONES.find(x=>x.id===d.zone);
+  $('devCard').hidden=false;
+  $('devCard').innerHTML=`<p class="k">Appareil sélectionné</p><b><i style="background:${FAM[d.fam].c}"></i>${d.label}</b><span>${FAM[d.fam].n} · ${zoneTitle(z)}</span>`;
+}
+const leg=$('legend');
+Object.entries(FAM).forEach(([k,f])=>{const b=document.createElement('button');b.type='button';b.className='chip';b.setAttribute('aria-pressed','true');b.innerHTML=`<i style="background:${f.c}"></i>${f.n}`;b.onclick=()=>{famOn[k]=!famOn[k];b.setAttribute('aria-pressed',famOn[k]);drawPlan();window.borea3d?.refreshFilters();};leg.appendChild(b);});
+drawPlan(); renderZone();
+
+/* view switch 3D / plan */
+function setView(v){
+  document.querySelectorAll('.seg [data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
+  $('plan2d').hidden=v!=='2d';
+  ['vpTools','vpHint','vpCount'].forEach(id=>$(id).style.visibility=v==='2d'?'hidden':'');
+  $('labels3d').style.display=v==='2d'?'none':'';
+  window.borea3d?.setPaused(v==='2d');
+}
+document.querySelectorAll('.seg [data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));
+function fallback2d(){
+  setView('2d'); $('vpLoad').classList.add('done');
+  document.querySelector('.seg').style.display='none';
+}
+window.BOREA={ZONES,FAM,famOn,selectZone,showDevice,fallback2d,zoneTitle,planDevices(list){planDevs=list;drawPlan();},get currentZone(){return currentZone;}};
+
+/* ===== budget bars ===== */
+const max=sorted[0].total;
+const barsEl=$('bars');
+barsEl.innerHTML=sorted.map(s=>`<button type="button" class="bar" data-id="${s.id}" aria-label="${s.name}, ${money(s.total)} : voir le détail"><span class="n">${s.name}</span><span class="track"><span data-w="${(s.total/max*100).toFixed(1)}" style="width:0;background:${FAM[s.fam].c}"></span></span><span class="p num">${money(s.total)}</span></button>`).join('');
+barsEl.querySelectorAll('.bar').forEach(b=>b.onclick=()=>{selectSys(b.dataset.id);$('tabs').scrollIntoView({behavior:'smooth',block:'start'});});
+const brain=['infra','ala','cam','ene','eau','ser','pre','int'].reduce((a,id)=>a+SYS.find(s=>s.id===id).total,0);
+const pct=brain/GRAND; $('ringPct').textContent=Math.round(pct*100)+nb+'%';
+$('avgDev').textContent=money(GRAND/COUNT);
+let barsDone=false;
+function growBars(){ if(barsDone) return; barsDone=true;
+  const C=2*Math.PI*38; $('ringArc').setAttribute('stroke-dasharray',`${(C*pct).toFixed(1)} ${C}`);
+  barsEl.querySelectorAll('.track span').forEach(e=>e.style.width=e.dataset.w+'%'); }
+
+/* ===== system tabs ===== */
+const tabsEl=$('tabs');
+const rowsHtml=s=>s.items.map(i=>`<tr><td>${i[0]}<span class="brand">${i[1]}</span>${i[4]?`<small>${i[4]}</small>`:''}</td><td class="r">${i[2]}</td><td class="r">${money(i[3])}</td><td class="r">${money(i[2]*i[3])}</td></tr>`).join('');
+const thead='<thead><tr><th>Appareil</th><th class="r">Qté</th><th class="r">Prix unitaire</th><th class="r">Total</th></tr></thead>';
+SYS.forEach(s=>{const b=document.createElement('button');b.type='button';b.className='tab';b.setAttribute('role','tab');b.id='tab-'+s.id;b.setAttribute('aria-selected','false');b.setAttribute('aria-controls','sysPanel');b.innerHTML=`<i style="background:${FAM[s.fam].c}"></i>${s.name}`;b.onclick=()=>selectSys(s.id);tabsEl.appendChild(b);});
+tabsEl.addEventListener('keydown',e=>{
+  if(!['ArrowRight','ArrowLeft'].includes(e.key)) return;
+  const i=SYS.findIndex(s=>'tab-'+s.id===document.activeElement.id); if(i<0) return;
+  const n=SYS[(i+(e.key==='ArrowRight'?1:-1)+SYS.length)%SYS.length]; selectSys(n.id); $('tab-'+n.id).focus();
+});
+function selectSys(id){
+  const s=SYS.find(x=>x.id===id);
+  tabsEl.querySelectorAll('.tab').forEach(t=>{const on=t.id==='tab-'+id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;});
+  const t=$('tab-'+id); tabsEl.scrollTo({left:t.offsetLeft-tabsEl.clientWidth/2+t.clientWidth/2,behavior:'smooth'});
+  $('sysPanel').setAttribute('aria-labelledby','tab-'+id);
+  $('sysPanel').innerHTML=`<div class="sys-top"><div><h3>${s.name}</h3><p>${s.desc}</p></div><div class="t"><b class="num">${money(s.total)}</b><small>${s.count} appareils · ${s.items.length} lignes</small></div></div><div class="tbl"><table>${thead}<tbody>${rowsHtml(s)}</tbody></table></div>`;
+}
+selectSys('infra');
+$('printSys').innerHTML='<h3 style="font-size:14pt;margin-top:10pt">Annexe A · Détail du matériel par système</h3>'+SYS.map(s=>`<div class="print-sys"><h3>${s.name} · ${money(s.total)}</h3><table>${thead}<tbody>${rowsHtml(s)}</tbody></table></div>`).join('');
+
+/* ===== day ===== */
+const DAY=[
+  ['06:45','Réveil naturel','Les stores de la chambre s\'ouvrent sur 15 minutes, la lumière monte en blanc chaud. Le plancher de la salle de bain est déjà chaud.'],
+  ['07:10','Briefing du matin','En entrant dans la cuisine : « −14 °C, beaucoup de soleil, 38 kWh prévus, batteries à 72 %, 4 tomates à cueillir. »'],
+  ['08:30','Départ','Le chalet se vide. Portes verrouillées, alarme armée, chauffage en mode économie. Rapport : tout est fermé.'],
+  ['10:00','Photo de la serre','Diagnostic des plantes. Risque d\'oïdium sur les concombres : le brassage nocturne est programmé.'],
+  ['11:30','Gain solaire','Les stores des grandes fenêtres restent ouverts. Le soleil charge la dalle, le radiant ralentit.'],
+  ['12:30','Surplus solaire','Batteries à 92 %. Le chauffe-eau, le bain froid et le spa chauffent gratuitement.'],
+  ['16:40','Retour à 10 km','Mode confort, éclairage d\'accueil. À la porte, la serrure reconnaît le propriétaire et lance sa playlist.'],
+  ['17:30','Session Thermeä','Lancée depuis le téléphone une heure plus tôt : sauna à 80 °C, spa à 39 °C, sentiers allumés, foyer à l\'arrivée.'],
+  ['19:15','Souper','Suspension tamisée, reste de la pièce à 30 %, musique douce.'],
+  ['20:30','Cinéma','Play sur l\'Apple TV : stores fermés, lumières éteintes sauf la synchro TV, son en mode film.'],
+  ['22:45','Bonne nuit','Un bouton au chevet : tout s\'éteint, portes verrouillées, foyer coupé, alarme en mode nuit.'],
+  ['02:10','Chemin de nuit','Lever détecté par le capteur de lit : LED sous le lit et veilleuse de la salle de bain à 5 %, rien d\'autre.']
+];
+$('day').innerHTML=DAY.map(([t,h,d])=>{const hr=+t.slice(0,2);return `<div class="moment${hr<6||hr>=22?' night':''}"><time>${t.replace(':',' h ')}</time><span class="pt" aria-hidden="true"></span><div><b>${h}</b><span>${d}</span></div></div>`;}).join('');
+
+/* ===== automations: [catégorie, titre, déclencheur, action, IA] ===== */
+const A=[
+ ['vie','Réveil naturel','Heure ou sommeil léger','Stores de la chambre ouverts sur 15 min, lumière tiède, plancher de salle de bain déjà chaud',0],
+ ['vie','Briefing du matin','Premier passage en cuisine','Annonce de la météo, du solaire, des batteries, de l\'eau et des tâches de la serre',1],
+ ['vie','Arrivée au chalet','Téléphone à 10 km','Chauffage en mode confort, chauffe-eau relancé, accueil lumineux, alarme désarmée',0],
+ ['vie','Accueil personnalisé','Bluetooth identifie la personne','Déverrouillage, scène et playlist préférées',0],
+ ['vie','Lumière qui suit','Radar de chaque pièce','Allumage instantané, intensité selon la lumière naturelle et l\'heure',0],
+ ['vie','Éclairage circadien','Position du soleil','Blanc froid le jour, ambre le soir',0],
+ ['vie','Chemin de nuit','Lever du lit entre 23 h et 6 h','LED sous le lit, plinthes et veilleuse à 5 %',0],
+ ['vie','Cuisine en action','Présence à l\'îlot','LED sous armoires à 100 %, musique baissée',0],
+ ['vie','Souper','Bouton ou voix','Suspension tamisée, pièce à 30 %, playlist',0],
+ ['vie','Cinéma','Lecture d\'un film','Stores fermés, synchro TV, support descendu, son en mode film',0],
+ ['vie','Pause du film','Lecture en pause','Lumières à 20 %',0],
+ ['vie','Soirée foyer','Bouton « foyer »','Foyer allumé, niche ambre, stores fermés, musique douce',0],
+ ['vie','Bonne nuit','Bouton de chevet ou voix','Tout s\'éteint, portes verrouillées, foyer coupé, alarme de nuit',0],
+ ['vie','Oubli au départ','Tout le monde est parti','Rapport des portes, fenêtres ou foyer actifs, avec bouton pour corriger',0],
+ ['vie','Aspirateur central','Hebdomadaire ou sac plein','Rappel d\'entretien',0],
+ ['cli','Chauffage prédictif','Prévision météo 24 h','Le plancher radiant anticipe le froid, la thermopompe ajuste',1],
+ ['cli','Gain solaire passif','Soleil d\'hiver','Stores ouverts pour charger la dalle, chauffage réduit',0],
+ ['cli','Anti-surchauffe','Soleil d\'été et chaleur','Stores fermés avant que la pièce chauffe',0],
+ ['cli','Purge de chaleur','Plafond chaud, nuit fraîche','Ventilateur de toit et VRC en grande vitesse',0],
+ ['cli','Air frais','CO₂ au-dessus de 900 ppm','VRC accéléré, thermopompe en pause si fenêtre ouverte',0],
+ ['cli','Douche','Humidité qui monte','Ventilateur jusqu\'au retour à la normale',0],
+ ['cli','Fenêtre ouverte','Contact de fenêtre','Chauffage ou climatisation de la zone en pause',0],
+ ['cli','Fumée de feux de forêt','PM2.5 élevé','VRC en recirculation, alerte',0],
+ ['cli','Radon','Seuil dépassé 7 jours','Alerte et ventilation augmentée',0],
+ ['cli','Confort personnel','Personne identifiée dans la chambre','Température préférée de cette personne',0],
+ ['ene','Surplus solaire','Batteries au-dessus de 90 %','Chauffe-eau, bain froid, spa et VE en priorité',0],
+ ['ene','Délestage','Batteries sous 30 %','Spa et sauna en pause, éclairage décoratif coupé',0],
+ ['ene','Mode survie','Batteries sous 15 %','Chauffage minimal, réseau, caméras et réfrigérateur seulement',0],
+ ['ene','Planification de la journée','Chaque matin','Heure idéale pour le sauna ou la lessive selon le soleil prévu',1],
+ ['ene','Rapport d\'autonomie','Chaque dimanche','kWh produits et consommés, litres de pluie récupérés',0],
+ ['ene','Gros consommateur','Circuit anormal','Alerte avec le nom de l\'appareil',0],
+ ['ene','Réservoir bas','Pluie sous 20 %','Bascule sur le réseau ou le puits, arrosage réduit',0],
+ ['ene','Pluie annoncée','Prévision météo','Arrosage reporté',0],
+ ['ene','Filtre colmaté','Pression différentielle','Rappel de changement',0],
+ ['ene','Fuite par débit','Débit continu 30 min sans usage','Valve principale fermée, alerte',0],
+ ['ene','Anti-gel','Tuyaux sous 4 °C','Chauffage d\'appoint, alerte',0],
+ ['sec','Armement auto','Personne depuis 15 min','Alarme armée, portes verrouillées',0],
+ ['sec','Intrusion','Alarme déclenchée','Lumières à 100 %, sirènes, clips vidéo, tableau de bord verrouillé',0],
+ ['sec','Personne sur le terrain','Détection la nuit','Notification décrite : « un homme avec une lampe frontale près du spa »',1],
+ ['sec','Faune','Ours, chevreuil, raton','Notification sans alarme, projecteurs allumés',1],
+ ['sec','Véhicule à l\'entrée','Lecture de plaque','Plaque connue : accueil. Inconnue : alerte',1],
+ ['sec','Visiteur','Sonnette','Vidéo sur l\'iPad et le téléphone, réponse, ouverture à distance',0],
+ ['sec','Livraison','Colis détecté','Notification avec photo',0],
+ ['sec','Code invité','Location ou visite','Code valide pour les dates du séjour',0],
+ ['sec','Simulation de présence','Chalet vide le soir','Lumières et stores imitent la vie réelle',0],
+ ['sec','Feu ou CO','Avertisseur','Gaz coupé, VRC arrêté, portes déverrouillées, appel aux contacts',0],
+ ['sec','Fuite d\'eau','Capteur de fuite','Valve fermée, pompes arrêtées, alerte localisée',0],
+ ['sec','Vibration de fenêtre','La nuit','Pré-alerte et projecteurs avant le bris',0],
+ ['ser','Arrosage intelligent','Sol sous la consigne du bac','Goutte-à-goutte par zone, eau de pluie en priorité',0],
+ ['ser','Surchauffe','Air au-dessus de 28 °C','Fenêtre, ventilation, ombrage, brumisation',0],
+ ['ser','Gel','Air sous 5 °C','Chauffage d\'appoint, fenêtre fermée',0],
+ ['ser','Lumière d\'appoint','Lumière du jour insuffisante','Rampes LED jusqu\'à la cible de la culture',0],
+ ['ser','Risque fongique','Humidité nocturne et photo','Brassage d\'air de nuit, alerte avec photo',1],
+ ['ser','Diagnostic quotidien','Photo de 10 h','Santé des plantes, ravageurs, carences',1],
+ ['ser','Récolte','Fruits mûrs détectés','« 4 tomates et 2 poivrons prêts »',1],
+ ['ser','Journal hebdomadaire','Dimanche','Résumé en français et vidéo accélérée',1],
+ ['the','Session Thermeä','Bouton, voix ou tag NFC','Sauna, spa, bain froid, sentiers, playlist, foyer',0],
+ ['the','Coach chaud-froid','Session en cours','Minuteur de cycles sur l\'iPad ou la montre',0],
+ ['the','Sécurité sauna','Plus de 25 min ou chaleur anormale','Alerte vocale, puis téléphone',0],
+ ['the','Sécurité spa','Présence la nuit ou couvercle ouvert','Alerte',0],
+ ['the','Foyer extérieur','Vent fort ou absence 10 min','Arrêt automatique',0],
+ ['the','Entretien du spa','Eau hors plage','Rappel avec la dose à ajouter',0],
+ ['the','Terrasse le soir','Coucher du soleil et présence','Pots, marches, guirlandes ; extinction à 23 h',0],
+ ['bie','Rapport de sommeil','Chaque matin','Heures, respiration, température et CO₂ de la nuit, avec un conseil',1]
+];
+const CAT={vie:['Vie quotidienne','var(--s-ecl)'],cli:['Confort et climat','var(--s-cli)'],ene:['Énergie et eau','var(--s-ene)'],sec:['Sécurité','var(--s-sec)'],ser:['Serre','var(--s-ser)'],the:['Thermeä','var(--s-the)'],bie:['Bien-être','var(--s-pre)']};
+let cat='all';
+const fEl=$('filters');
+const mk=(k,l)=>{const b=document.createElement('button');b.type='button';b.className='chip'+(k===cat?' sel':'');b.textContent=l;b.dataset.k=k;b.setAttribute('aria-pressed',k===cat);b.onclick=()=>{cat=k;fEl.querySelectorAll('.chip').forEach(c=>{const on=c.dataset.k===k;c.classList.toggle('sel',on);c.setAttribute('aria-pressed',on);});renderA();};fEl.appendChild(b);};
+mk('all','Toutes');Object.entries(CAT).forEach(([k,[l]])=>mk(k,l));mk('ia','Avec IA');
+const cnt=document.createElement('span');cnt.className='count';cnt.setAttribute('aria-live','polite');fEl.appendChild(cnt);
+function renderA(){
+  const list=A.map((a,i)=>[i+1,...a]).filter(a=>cat==='all'||(cat==='ia'?a[5]:a[1]===cat));
+  cnt.textContent=list.length+' / '+A.length;
+  $('autoGrid').innerHTML=list.map(([n,c,t,tr,ac,ia])=>`<article class="auto"><div class="top"><i style="background:${CAT[c][1]}"></i>${String(n).padStart(2,'0')} · ${CAT[c][0]}${ia?'<span class="ia">IA</span>':''}</div><h3>${t}</h3><p class="trig"><b>Quand</b> ${tr}</p><p>${ac}</p></article>`).join('');
+}
+renderA();
+
+/* ===== investissement + options ===== */
+const picked=new Set((store.get('borea-options')||[]).filter(id=>OPTIONS.some(o=>o[0]===id)));
+$('optsGrid').innerHTML=OPTIONS.map(([id,n,d,p])=>`<label class="optc"><input type="checkbox" value="${id}" ${picked.has(id)?'checked':''}><b>${n}</b><span class="pr num">+ ${money(p)}</span><span class="d">${d}</span><span class="box">${picked.has(id)?'Incluse':'Ajouter'}</span></label>`).join('');
+$('optsGrid').addEventListener('change',e=>{
+  const i=e.target; if(!i.matches('input')) return;
+  i.checked?picked.add(i.value):picked.delete(i.value);
+  i.closest('.optc').querySelector('.box').textContent=i.checked?'Incluse':'Ajouter';
+  store.set('borea-options',[...picked]); renderInvest();
+});
+function renderInvest(){
+  const opts=OPTIONS.filter(o=>picked.has(o[0]));
+  const optSum=opts.reduce((a,o)=>a+o[3],0);
+  const ht=GRAND+optSum;
+  $('invBody').innerHTML=
+    sorted.map(s=>`<tr><td>${s.name}<small>${s.count} appareils</small></td><td class="r">${money(s.total)}</td></tr>`).join('')+
+    (opts.length ? `<tr class="sub"><td>Sous-total matériel · ${COUNT} appareils</td><td class="r">${money(GRAND)}</td></tr>` : '')+
+    opts.map(o=>`<tr class="opt-row"><td>Option · ${o[1]}</td><td class="r">+ ${money(o[3])}</td></tr>`).join('')+
+    `<tr class="tot"><td>Total matériel, avant taxes</td><td class="r">${money(ht)}</td></tr>`+
+    `<tr class="pending"><td><span class="it">Installation, programmation, IA et formation</span><small>Font l'objet d'un devis séparé</small></td><td class="r">Devis séparé</td></tr>`;
+  $('tcTotal').textContent=money(ht);
+  $('tcSub').textContent=opts.length?`Avant taxes · ${COUNT} appareils, 13 systèmes et ${opts.length} option${opts.length>1?'s':''} · main-d'œuvre exclue`:`Avant taxes · main-d'œuvre et options exclues`;
+  $('kTotal').textContent=money(ht);
+  $('kTotalSub').textContent=opts.length?`13 systèmes + ${opts.length} option${opts.length>1?'s':''}`:'13 systèmes';
+  $('investLead').textContent=`${money(ht)} de matériel, avant taxes. Les prix sont unitaires et publiés ligne par ligne : vous savez exactement ce que vous payez.`;
+  $('retTitle').textContent=`Chalet Boreä · matériel domotique Premium filaire · ${money(ht)} avant taxes`;
+  $('retSub').textContent=`${COUNT} appareils, 13 systèmes, 64 automatisations`+(opts.length?` · options : ${opts.map(o=>o[1]).join(', ')}`:' · aucune option')+'. Installation et programmation : devis séparé.';
+  $('closingText').textContent=`${money(ht)} de matériel avant taxes, ${COUNT} appareils réunis en un seul système, 64 automatisations prêtes à la livraison, aucun abonnement et tout vous appartient. Il ne reste qu'à signer.`;
+}
+renderInvest();
+
+/* ===== signature pad ===== */
+(function(){
+  const pad=$('pad'), cv=pad.querySelector('canvas'), ctx=cv.getContext('2d');
+  let drawing=false, last=null, strokes=store.get('borea-sig')||[];
+  function size(){const r=cv.getBoundingClientRect();cv.width=r.width*devicePixelRatio;cv.height=r.height*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);redraw();}
+  function line(a,b){ctx.strokeStyle='#14102a';ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke();}
+  function redraw(){const r=cv.getBoundingClientRect();ctx.clearRect(0,0,r.width,r.height);strokes.forEach(s=>{for(let i=1;i<s.length;i++)line([s[i-1][0]*r.width,s[i-1][1]*r.height],[s[i][0]*r.width,s[i][1]*r.height]);});pad.classList.toggle('signed',strokes.length>0);}
+  const pos=e=>{const r=cv.getBoundingClientRect();return [(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height];};
+  cv.addEventListener('pointerdown',e=>{drawing=true;cv.setPointerCapture(e.pointerId);last=pos(e);strokes.push([last]);pad.classList.add('signed');});
+  cv.addEventListener('pointermove',e=>{if(!drawing)return;const p=pos(e),r=cv.getBoundingClientRect();line([last[0]*r.width,last[1]*r.height],[p[0]*r.width,p[1]*r.height]);strokes[strokes.length-1].push(p);last=p;});
+  const end=()=>{if(drawing){drawing=false;store.set('borea-sig',strokes);}};
+  cv.addEventListener('pointerup',end); cv.addEventListener('pointercancel',end);
+  $('padClear').onclick=()=>{strokes=[];store.set('borea-sig',strokes);redraw();};
+  new ResizeObserver(size).observe(cv);
+})();
+['cName','cCo','cTitle','cDate','cMail'].forEach(id=>{const i=$(id);const v=store.get('borea-'+id);if(v)i.value=v;i.addEventListener('input',()=>store.set('borea-'+id,i.value));});
+if(!$('cDate').value){const d=new Date();$('cDate').value=d.toISOString().slice(0,10);}
+document.querySelectorAll('[data-print]').forEach(b=>b.onclick=()=>window.print());
+
+/* ===== nav state + reveal ===== */
+const links=[...document.querySelectorAll('#navLinks a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>s&&navIO.observe(s));
+[$('top'),$('intro')].forEach(s=>navIO.observe(s)); // film and hero clear the highlight
+const rvIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.classList.contains('budget'))growBars();rvIO.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(n=>rvIO.observe(n));
+window.addEventListener('beforeprint',()=>{document.querySelectorAll('.rv').forEach(n=>n.classList.add('in'));growBars();});
+/* ===== le projet: the New Way Living design sheet as a scrolling story =====
+   media: main image (cover photo, or paper:true for drawings), optional inset, or a grid of drawings */
+const PROJET=[
+  {n:`01 · Concept`, t:`Design, nature et autonomie`, p:`Un chalet compact et moderne où design, nature et autonomie se rencontrent. Des espaces intelligents et durables, conçus pour un mode de vie équilibré, en harmonie avec l'environnement.`,
+   pills:[[`Autonomie`,`Eau, énergie et ressources`],[`Maison intelligente`,`Connectée et évolutive`],[`Énergie durable`,`Solaire et haute efficacité`],[`Bien-être nordique`,`Nature au quotidien`]],
+   m:{main:[`aube.jpg`,`Le chalet Boreä au lever du soleil, vue aérienne`],cap:`Boreä · lever du soleil`}},
+  {n:`02 · Fiche technique`, t:`600 pi² pensés au pouce près`, p:`Un seul niveau, une toiture monopente qui ouvre l'aire de vie vers la lumière, et une enveloppe pensée pour l'hiver québécois.`,
+   specs:[[`Bâtiment`,`24'-0" × 25'-0" · 600 pi² habitables`],[`Terrasse avant`,`24'-0" × 8'-0"`],[`Serre intégrée`,`10'-0" × 12'-0"`],[`Toiture`,`Monopente, pente vers l'arrière`],[`Hauteurs`,`14'-0" à l'avant (plafond cathédrale) · 8'-0" à l'arrière (plafond plat)`],[`Fondation`,`Dalle monolithique isolée chauffée (plancher radiant)`],[`Structure`,`Ossature 2×6`],[`Isolation cible`,`Murs R-30 min. · toit R-50 min.`],[`Chauffage`,`Plancher radiant hydronique + thermopompe murale`],[`Orientation`,`Façade Est ou Sud-Est, vue sur la nature`]],
+   m:{main:[`aerien.jpg`,`Vue aérienne du chalet, de la terrasse et de la zone Thermeä à l'aube`],cap:`Fiche technique`}},
+  {n:`03 · Plan d'étage`, t:`Un plan simple, chaque pièce à sa place`, p:`Les pièces fermées sont regroupées à l'arrière ; l'avant est une seule grande aire de vie ouverte sur la terrasse et la forêt.`,
+   specs:[[`Chambre`,`13'-0" × 12'-0", plafond 8'-0"`],[`Salle de bain`,`6'-0" × 8'-0", plafond 8'-0"`],[`Salle mécanique`,`Filtration, réservoir d'eau de pluie, chauffe-eau 60 gal, chauffe-eau d'air, aspirateur central, batteries solaires`],[`Aire de vie`,`Salon, salle à manger et cuisine sous plafond cathédrale 14'-0" ; foyer au gaz, TV au-dessus ; thermopompe murale`],[`Serre`,`10'-0" × 12'-0", attenante à la cuisine`],[`Terrasse`,`24'-0" × 8'-0", couverte`]],
+   m:{main:[`plan.jpg`,`Plan d'étage du chalet Boreä`],paper:true,tall:true,cap:`Plan d'étage · 1/4" = 1'-0"`}},
+  {n:`04 · Élévations`, t:`Métal noir, bois naturel, lumière`, p:`Revêtement de métal noir architectural et de bois naturel, toiture monopente en métal noir, fenêtres pleine hauteur et terrasse couverte sur la façade avant.`,
+   specs:[[`Avant`,`Est ou Sud-Est · fenêtres pleine hauteur, terrasse couverte`],[`Arrière`,`Ouest ou Nord-Ouest · fenêtres de la chambre et de la salle de bain`],[`Côté gauche`,`Fenêtre de la chambre`],[`Côté droit`,`Serre vitrée, porte extérieure, sortie d'eau vers la serre`]],
+   m:{grid:[[`elev-avant-v2.jpg`,`Façade avant · Est ou Sud-Est`],[`elev-arriere-v2.jpg`,`Façade arrière`],[`elev-gauche-v2.jpg`,`Côté gauche · chambre`],[`elev-droit-v2.jpg`,`Côté droit · serre`]],paper:true,tall:true,cap:`Élévations extérieures`}},
+  {n:`05 · Zone Thermeä`, t:`Le rituel nordique, à quelques pas`, p:`En contrebas de la terrasse, un sentier de dalles mène à un cercle de pierre autour du foyer, entre le sauna, le spa et le bain froid.`,
+   specs:[[`Sauna`,`Tonneau en bois, porte vitrée face au foyer`],[`Foyer`,`Extérieur, en pierre, entouré de chaises`],[`Spa`,`Carré, à droite du foyer`],[`Bain froid`,`Cuve ronde en bois`]],
+   note:`<b>Avec ASCIA :</b> une session Thermeä se lance d'un bouton, d'un tag ou de la voix ; sauna, spa et bain froid chauffent sur le surplus solaire, sentiers et foyer s'allument à l'arrivée.`,
+   m:{main:[`thermea.jpg`,`La zone Thermeä allumée le soir : foyer, spa, sauna et bain froid`],inset:[`thermea-plan.jpg`,`Plan d'implantation de la zone Thermeä`],cap:`Implantation extérieure`}},
+  {n:`06 · Système d'eau autonome`, t:`L'eau de pluie, utile deux fois`, p:`La toiture recueille la pluie ; les eaux grises sont filtrées et réutilisées. Le réseau ne sert qu'en appoint.`,
+   flow:[[`Pluie (toiture)`,`Filtration et stockage`,`Serre et arrosage`],[`Eaux grises (douche, lavabo)`,`Filtration secondaire`,`Toilettes`]],
+   note:`<b>Avec ASCIA :</b> niveau des réservoirs, débits, bascule pluie / réseau, arrosage goutte-à-goutte selon le sol et la météo, fermeture de la valve en cas de fuite.`,
+   m:{main:[`serre.jpg`,`Brumisation et goutte-à-goutte dans la serre`],inset:[`mecanique.jpg`,`Salle mécanique : filtration, réservoir d'eau de pluie et chauffe-eau`],cap:`Eau de pluie → serre`}},
+  {n:`07 · Énergie solaire`, t:`9 kW sur le toit`, p:`Dix-huit panneaux sur la toiture monopente alimentent des batteries dans la salle mécanique.`,
+   specs:[[`Panneaux`,`18 × 0,5 kW = 9 kW`],[`Toiture`,`1 évent de plomberie · 1 ventilateur maximum`],[`Stockage`,`Batteries solaires, salle mécanique`]],
+   note:`<b>Avec ASCIA :</b> la maison décide quoi alimenter selon le soleil et les batteries — chauffe-eau, spa et bain froid sur le surplus, délestage quand les batteries baissent.`,
+   m:{main:[`aerien.jpg`,`Les 18 panneaux solaires sur la toiture noire`],inset:[`toit.jpg`,`Vue de toit : panneaux solaires, évent et ventilateur`],cap:`Panneaux solaires · vue de toit`}},
+  {n:`08 · Coupe architecturale`, t:`Chaud par le sol`, p:`Une dalle monolithique isolée porte un plancher radiant hydronique sous tout le chalet ; la thermopompe murale ajuste rapidement l'aire de vie.`,
+   specs:[[`Aire de vie`,`Plafond cathédrale, 14'-0" à l'avant`],[`Chambre`,`Plafond plat 8'-0"`],[`SDB · mécanique`,`8'-0" (plafond plat)`],[`Dalle`,`Monolithique isolée, plancher radiant hydronique`]],
+   m:{main:[`coupe-v2.jpg`,`Coupe architecturale du chalet Boreä : aire de vie sous plafond cathédrale, chambre, salle de bain et salle mécanique sous plafond plat, dalle isolée avec plancher radiant`],paper:true,r:2.1942,cap:`Coupe architecturale`,
+      labels:[[30,13.4,`Aire de vie`,`cathédrale 14'-0"`],[56.2,38,`Chambre`,`8'-0"`],[74.2,30,`SDB`,`8'-0"`],[87.3,45,`Mécanique`,`8'-0"`],[50.2,76.5,`Dalle isolée`,`plancher radiant`]]}}
+];
+(function(){
+  const img=(f,alt,cls)=>`<img class="${cls}" src="assets/projet/${f}" alt="${alt}" loading="lazy" decoding="async">`;
+  const labelled=m=>`<div class="m-fitbox"><div class="m-fit" data-r="${m.r}">${img(m.main[0],m.main[1],'')}${m.labels.map(([x,y,b,s])=>`<span class="lbl" style="left:${x}%;top:${y}%"><b>${b}</b><span>${s}</span></span>`).join('')}</div></div>`;
+  const media=m=>`<div class="m${m.paper?' is-paper':''}">`+
+    (m.grid?`<div class="m-grid">${m.grid.map(([f,c])=>`<figure>${img(f,c,'')}<figcaption>${c}</figcaption></figure>`).join('')}</div>`:m.labels?labelled(m):img(m.main[0],m.main[1],'m-main'))+
+    (m.inset?img(m.inset[0],m.inset[1],'m-inset'):'')+`<span class="m-cap">${m.cap}</span></div>`;
+  const body=s=>(s.pills?`<div class="pill-row">${s.pills.map(([b,t])=>`<div><b>${b}</b><span>${t}</span></div>`).join('')}</div>`:'')+
+    (s.specs?`<dl class="specs">${s.specs.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`:'')+
+    (s.flow?`<div class="wflow">${s.flow.map(r=>`<div class="wflow-row">${r.map(x=>`<span>${x}</span>`).join('<i>→</i>')}</div>`).join('')}</div>`:'')+
+    (s.note?`<p class="ascia-note">${s.note}</p>`:'');
+  $('stageFrame').innerHTML=PROJET.map((s,i)=>`<div class="layer${i?'':' on'}">${media(s.m)}</div>`).join('')+`<div class="stage-prog">${PROJET.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div>`;
+  $('scrollySteps').innerHTML=PROJET.map((s,i)=>`<article class="step${i?'':' on'}" data-i="${i}"><div class="m-inline${s.m.tall?' tall':''}">${media(s.m)}</div><p class="n">${s.n}</p><h4>${s.t}</h4><p class="lede">${s.p}</p>${body(s)}</article>`).join('');
+  const layers=[...$('stageFrame').querySelectorAll('.layer')], bars=[...$('stageFrame').querySelectorAll('.stage-prog i')], steps=[...$('scrollySteps').querySelectorAll('.step')];
+  const paperIdx=PROJET.map(s=>!!s.m.paper);
+  const show=i=>{layers.forEach((l,k)=>l.classList.toggle('on',k===i));bars.forEach((b,k)=>b.classList.toggle('on',k===i));steps.forEach((s,k)=>s.classList.toggle('on',k===i));
+    $('stageFrame').querySelector('.stage-prog').classList.toggle('on-paper',paperIdx[i]);};
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)show(+e.target.dataset.i);}),{rootMargin:'-45% 0px -45% 0px'});
+  steps.forEach(s=>io.observe(s));
+  // size each labelled drawing to its exact aspect inside its box, so % label positions land on the drawing
+  const fit=()=>document.querySelectorAll('.m-fit').forEach(f=>{const b=f.parentElement.getBoundingClientRect();if(!b.width||!b.height)return;
+    const r=+f.dataset.r;let w=b.width,h=w/r;if(h>b.height){h=b.height;w=h*r;}f.style.width=w+'px';f.style.height=h+'px';});
+  fit(); addEventListener('resize',fit); addEventListener('load',fit);
+})();
+/* hero film: muted autoplay loop, pausable, paused offscreen, never autoplays under reduced motion */
+(function(){
+  const v=$('film'), btn=$('filmToggle'), icon=$('filmIcon');
+  const PAUSE='M7 5h4v14H7zM13 5h4v14h-4z', PLAY='M8 5v14l11-7z';
+  let userPaused=matchMedia('(prefers-reduced-motion: reduce)').matches, inView=true;
+  const sync=()=>{const p=userPaused||!inView; if(p) v.pause(); else v.play().catch(()=>{});
+    icon.setAttribute('d',userPaused?PLAY:PAUSE); btn.setAttribute('aria-pressed',userPaused);
+    btn.setAttribute('aria-label',userPaused?'Lire le film':'Mettre le film en pause');};
+  btn.onclick=()=>{userPaused=!userPaused;sync();};
+  new IntersectionObserver(es=>{inView=es[0].isIntersecting;sync();}).observe(v);
+  sync();
+})();
+/* if the 3D module never boots (CDN blocked, no WebGL), fall back to the 2D plan */
+setTimeout(()=>{ if(!window.borea3d) fallback2d(); },12000);
+</script>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+/* ===== Visite 3D du Boreä =====
+   1 unité = 1 pied. X = largeur (0 → 24, gauche → droite du plan), Z = profondeur (0 = façade arrière, 25 = façade avant).
+   Toit monopente : 8' à l'arrière, 14' à l'avant. Serre accolée à droite, terrasse à l'avant, Thermeä plus bas. */
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RGBELoader} from 'three/addons/loaders/RGBELoader.js';
+import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {GTAOPass} from 'three/addons/postprocessing/GTAOPass.js';
+import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+
+const B = window.BOREA, $ = id => document.getElementById(id);
+const vp = $('viewport'), cv = $('c3d');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const coarse = matchMedia('(pointer: coarse)').matches;
+const V3 = THREE.Vector3;
+
+try { boot(); } catch (e) { console.error(e); B.fallback2d(); }
+
+function boot(){
+  const renderer = new THREE.WebGLRenderer({canvas:cv, antialias:true, powerPreference:'high-performance'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.AgXToneMapping;   // filmic, photographic highlight roll-off
+  renderer.toneMappingExposure = 1.05;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  const scene = new THREE.Scene();
+  const BG = {day:new THREE.Color(0xa3afa6), night:new THREE.Color(0x090615)};   // misty forest grey by day, deep night
+  scene.background = BG.day.clone();
+  scene.fog = new THREE.FogExp2(BG.day.clone(), .0042);   // distance mist: the far forest fades softly
+  const camera = new THREE.PerspectiveCamera(38, 1, .5, 700);
+  const controls = new OrbitControls(camera, cv);
+  controls.enableDamping = true; controls.dampingFactor = .08;
+  controls.minDistance = 12; controls.maxDistance = 170;
+  controls.maxPolarAngle = Math.PI * .47;
+  controls.screenSpacePanning = true;
+
+  const FAMHEX = {ecl:0xF2B45E, cli:0x6EC3E0, sec:0xF0697A, ene:0x9CCB6B, ser:0x4FBF8F, the:0xEF773E, med:0xA99BF0, pre:0x7F8CFF, inf:0xBDB8D2};
+  const rng = seed => { let s = seed >>> 0 || 1; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; };
+  const roofH = z => 8 + 6 * Math.min(1, Math.max(0, z / 25));
+  const GROUND = -1.6;
+
+  /* ---------- device halo texture ---------- */
+  function canvasTex(w, h, draw){ const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; }
+  const haloTex = canvasTex(64, 64, (g, w) => { const r = g.createRadialGradient(w/2, w/2, 0, w/2, w/2, w/2); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(.25, 'rgba(255,255,255,.5)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, w, w); });
+
+  const house = new THREE.Group(); scene.add(house);
+  const TC = {x:12, z:47, r:8}, TY = GROUND + .25, ROOF_Y = 0;
+
+  /* ---------- the Blender model: assets/borea.glb, built by 3d/build_borea.py ---------- */
+  let roof = null; const roofMeshes = [];
+  const GLOW = {};   // night-driven materials, by name
+  const GLOW_COLOR = {Glow_Fire:0xff8a3d, Glow_Water:0x5ec8e5, Glow_Lantern:0xffc98a, Glow_String:0xffc98a, Glow_Sconce:0xffc98a, Glow_Fireplace:0xff8a3d, Glow_Leds:0x5de08a};
+  const shellMeshes = []; let shellMats = [];   // the house shell, faded in x-ray view
+  const cardIMs = [];        // instanced tree cards, hidden when they stand between the camera and its target
+  const ALL_MATS = new Set();   // every model material, so the night toggle can dim reflections
+  const CUTOUT = /^(TreeCard|fern_02|potted_plant_02_leaves|leaves)/;   // alpha-tested foliage
+  const hq = !coarse && innerWidth > 900;   // desktop: ambient occlusion, refractive water
+  const MODEL_VERSION = '2026-10-25.9';   // bump after each Blender build so browsers fetch the new model
+  const draco = new DRACOLoader().setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/libs/draco/gltf/');
+  new GLTFLoader().setDRACOLoader(draco).load('assets/borea.glb?v=' + MODEL_VERSION, gltf => {
+    const root = gltf.scene;
+    root.traverse(o => {
+      if (!o.isMesh) return;
+      const m = o.material;
+      ALL_MATS.add(m);
+      o.castShadow = true; o.receiveShadow = true;
+      m.side = m.name === 'ForestFloor' ? THREE.DoubleSide : THREE.FrontSide;
+      if (m.name === 'Glass') {
+        Object.assign(m, {transparent:true, opacity:.1, depthWrite:false, roughness:.02, metalness:.05, envMapIntensity:1.0, color:new THREE.Color(0xdde8ee)});
+        m.side = THREE.DoubleSide; o.castShadow = false; o.renderOrder = 2;
+      }
+      if (CUTOUT.test(m.name)) Object.assign(m, {alphaTest:.5, transparent:false, depthWrite:true, side:THREE.DoubleSide});
+      if (m.name === 'ForestFloor') { o.castShadow = false; m.color.setRGB(.36, .48, .28); }   // mossy, not sandy
+      if (m.name === 'modern_arm_chair_01_pillow' || /^Fabric(\.\d+)?$/.test(m.name)) { m.map = null; m.color.set(0xe8decd); m.needsUpdate = true; }   // cream linen, as on the sheet
+      const tone = {'cuir smopke':[0x2b2927, .55], 'bois foncé':[0x5b3e2c, .6], 'métal noir mat':[0x18181a, .45], 'Plastic':[0x1d1d1f, .5],
+                    'Lemon':[0xe6bf2c, .45], 'Cucumbers':[0x3a6527, .5], 'cucumber plant':[0x4a7a30, .7], 'Trellis':[0x8b6b4a, .8], 'Soil':[0x4a3627, 1]}[m.name];   // colours the exports lost
+      if (m.name === 'cucumber plant' || m.name === 'leaves') m.side = THREE.DoubleSide;
+      if (tone) { m.color.set(tone[0]); m.roughness = tone[1]; if (m.name !== 'bois foncé') m.map = null; m.needsUpdate = true; }   // black chairs and stools, as on the sheet
+      if (m.name === 'SpaCabinet') { m.map = null; m.color.set(0x7d7a76); m.roughness = .8; m.needsUpdate = true; }   // grey composite slats, grain kept in the normal map
+      if (m.name === 'Acrylic') { m.roughness = .18; m.envMapIntensity = 1.2; }
+      if (m.name === 'Glow_Water') {   // real water: clear, refractive, picks up the white acrylic shell and the sky
+        const w = new THREE.MeshStandardMaterial({name:'Glow_Water', color:0x86d3df, roughness:.03, metalness:0, transparent:true, opacity:.5,
+                                                   depthWrite:false, envMapIntensity:1.5, emissive:new THREE.Color(0x5ec8e5), emissiveIntensity:0});
+        o.material = w; ALL_MATS.delete(m); ALL_MATS.add(w); o.castShadow = false;
+      }
+      if (m.name === 'Flagstone') m.color.setRGB(.72, .72, .74);
+      if (m.name === 'Gravel') m.color.setRGB(.52, .52, .48);
+      if (o.name.startsWith('Flame')) o.visible = false;   // replaced by the sprite flame below
+      const gm = o.material;
+      if (GLOW_COLOR[gm.name] !== undefined) { gm.emissive = new THREE.Color(GLOW_COLOR[gm.name]); GLOW[gm.name] = gm; o.castShadow = false; }
+    });
+    roof = root.getObjectByName('Roof');
+    const SHELL = /^(BackWall|BackCedar|BackLining|BackWin|LeftWall|LeftCedar|LeftLining|LeftWin|RightWall|RightCedar|RightLining|Front(Cedar|Header|Sill|Transom|Mullion|Glass|Sconce)|SideDoor|SideSconce|DoorHandle|Partition|GH_(Glass|Post|Eave|Ridge|Rafter|Roof|Gable))/;
+    const copies = new Map();
+    root.traverse(o => {
+      if (!o.isMesh) return;
+      const inRoof = roof && (() => { for (let p = o; p; p = p.parent) if (p === roof) return true; return false; })();
+      if (!(SHELL.test(o.name) || inRoof)) return;
+      if (!copies.has(o.material)) { const c = o.material.clone(); c.userData.baseOpacity = o.material.opacity; c.userData.baseTransparent = o.material.transparent; copies.set(o.material, c); ALL_MATS.add(c); }
+      o.material = copies.get(o.material); o.userData.castShadow0 = o.castShadow; shellMeshes.push(o);
+    });
+    shellMats = [...copies.values()];
+    if (roof) roof.traverse(o => { if (o.isMesh) roofMeshes.push(o); });
+    // trees, ferns and rocks repeat hundreds of times: draw each kind as one instanced mesh
+    root.updateMatrixWorld(true);
+    const groups = new Map();
+    root.traverse(o => { if (o.isMesh && !roofMeshes.includes(o)) { const k = o.geometry.uuid + '|' + o.material.uuid; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(o); } });
+    const inv = new THREE.Matrix4().copy(root.matrixWorld).invert(), mtx = new THREE.Matrix4();
+    groups.forEach(list => {
+      if (list.length < 6) return;
+      const im = new THREE.InstancedMesh(list[0].geometry, list[0].material, list.length);
+      list.forEach((o, i) => im.setMatrixAt(i, mtx.multiplyMatrices(inv, o.matrixWorld)));
+      im.castShadow = list[0].castShadow; im.receiveShadow = true; im.computeBoundingSphere();
+      root.add(im); list.forEach(o => o.removeFromParent());
+      if (/^TreeCard/.test(im.material.name)) cardIMs.push({im, base:list.map(o => mtx.multiplyMatrices(inv, o.matrixWorld).clone())});
+    });
+    house.add(root);
+    $('vpLoad').classList.add('done');
+  }, undefined, err => { console.error(err); B.fallback2d(); });
+
+  // image-based light from a real forest sky (Poly Haven, 1K): natural fill and reflections on every material
+  // fire: layered additive sprites from a soft flame-shaped gradient, flickering independently
+  const flameTex = canvasTex(64, 128, (g, w, h) => { const r = g.createRadialGradient(w / 2, h * .72, 2, w / 2, h * .62, h * .6);
+    r.addColorStop(0, 'rgba(255,244,214,1)'); r.addColorStop(.25, 'rgba(255,170,70,.9)'); r.addColorStop(.6, 'rgba(230,80,20,.35)'); r.addColorStop(1, 'rgba(120,20,0,0)');
+    g.fillStyle = r; g.beginPath(); g.moveTo(w / 2, 0); g.bezierCurveTo(w * 1.05, h * .45, w * .95, h, w / 2, h); g.bezierCurveTo(w * .05, h, -w * .05, h * .45, w / 2, 0); g.fill(); });
+  const flames = Array.from({length:7}, (_, i) => { const sp = new THREE.Sprite(new THREE.SpriteMaterial({map:flameTex, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending, toneMapped:false, opacity:.85}));
+    sp.userData = {ox:(Math.random() - .5) * .9, oz:(Math.random() - .5) * .9, ph:Math.random() * 7, s:.8 + Math.random() * .6}; sp.center.set(.5, 0); sp.layers.set(1); house.add(sp); return sp; });
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  let skyTex = null;   // the same forest sky as the lighting, shown softly blurred behind the scene
+  new RGBELoader().load('assets/misty_pines_1k.hdr', tex => {
+    scene.environment = pmrem.fromEquirectangular(tex).texture; pmrem.dispose();
+    tex.mapping = THREE.EquirectangularReflectionMapping; skyTex = tex;
+    scene.background = tex; scene.backgroundBlurriness = .35; scene.backgroundIntensity = 1;
+  });
+
+  /* ---------- lights ---------- */
+  const hemi = new THREE.HemisphereLight(0xc2baff, 0x1a1030, .35); scene.add(hemi);
+  const sun = new THREE.DirectionalLight(0xffd9b0, 2.4); sun.position.set(-34, 60, 70); sun.target.position.set(14, 0, 24);
+  sun.castShadow = true; sun.shadow.mapSize.set(coarse ? 2048 : 4096, coarse ? 2048 : 4096); Object.assign(sun.shadow.camera, {left:-46, right:52, top:52, bottom:-46, near:1, far:220}); sun.shadow.bias = -.0003; sun.shadow.normalBias = .05; sun.shadow.radius = 3;
+  scene.add(sun, sun.target);
+  const moon = new THREE.DirectionalLight(0x8ea0ff, 0); moon.position.set(40, 70, -30); scene.add(moon);
+  const inner = [[6.5, 6.5, 6], [8, 9, 19], [17, 9, 19], [16, 6, 4], [29, 6, 19], [12, 6, 29]].map(([x, y, z]) => { const l = new THREE.PointLight(0xffb070, 0, 26, 1.8); l.position.set(x, y, z); scene.add(l); return l; });
+  const fireLight = new THREE.PointLight(0xff8a3d, 6, 22, 1.8); fireLight.position.set(12, TY + 2.4, 47); scene.add(fireLight);
+
+  /* ---------- devices: each one mounted where it is really installed ----------
+     A device is classified from its label (switch, window, ceiling, floor...) and placed on the matching
+     surface of its room: a wall by the door, a window frame, the ceiling (sloped in the living area),
+     the wall base, the rack, the eaves, or the Thermeä and greenhouse equipment. p = position, nrm = facing. */
+  const Z3 = {chambre:{x:0, z:0, w:13, d:12}, sdb:{x:13, z:0, w:6, d:8}, meca:{x:19, z:0, w:5, d:12}, vie:{x:0, z:12, w:24, d:13}, serre:{x:24, z:13, w:10, d:12}, terrasse:{x:0, z:25, w:24, d:8}, thermea:{cx:TC.x, cz:TC.z, r:TC.r}};   // zone boxes for highlights and framing
+  const singular = s => s.replace(/(\p{L}{3,})s\b/gu, '$1');
+  function expand(text, n){
+    const out = [];
+    text.split(/,\s*/).forEach(p => { const m = p.match(/^(\d+)\s+(.*)$/); if (m) for (let i = 0; i < +m[1]; i++) out.push(singular(m[2])); else out.push(p); });
+    return Array.from({length:n}, (_, i) => { const s = out[i % out.length] || 'Appareil'; return s.charAt(0).toUpperCase() + s.slice(1); });
+  }
+  const W = (x0, z0, x1, z1, nx, nz) => ({x0, z0, x1, z1, nx, nz});
+  const ROOMS = {
+    chambre:{rect:[.5, .5, 12.875, 11.875], ceil:() => 7.95, door:[11.3, 11.875, 0, -1],
+      walls:[W(.5, .5, 12.875, .5, 0, 1), W(.5, .5, .5, 11.875, 1, 0), W(12.875, .5, 12.875, 11.875, -1, 0), W(.5, 11.875, 10.5, 11.875, 0, -1)],
+      wins:[{c:[.5, 5.2], top:6.6, n:[1, 0], w:2.4}, {c:[4.1, .5], top:6.6, n:[0, 1], w:2.6}]},
+    sdb:{rect:[13.125, .5, 18.875, 7.875], ceil:() => 7.95, door:[16.6, 7.875, 0, -1],
+      walls:[W(13.125, .5, 18.875, .5, 0, 1), W(13.125, .5, 13.125, 7.875, 1, 0), W(18.875, .5, 18.875, 7.875, -1, 0)],
+      wins:[{c:[15.0, .5], top:6.6, n:[0, 1], w:3.6}]},
+    meca:{rect:[19.125, .5, 23.5, 11.875], ceil:() => 7.95, door:[21.2, 11.875, 0, -1],
+      walls:[W(19.125, .5, 19.125, 11.875, 1, 0), W(19.125, .5, 23.5, .5, 0, 1)],
+      wins:[{c:[21.5, .5], top:6.4, n:[0, 1], w:2.2}]},
+    vie:{rect:[.5, 12.125, 23.5, 24.5], ceil:z => 8 + 6 * z / 25 - .4, door:[12.6, 12.125, 0, 1],
+      walls:[W(.5, 12.125, .5, 24.5, 1, 0), W(23.5, 12.125, 23.5, 24.5, -1, 0), W(.5, 12.125, 12, 12.125, 0, 1)],
+      wins:[{c:[.5, 17.9], top:7.0, n:[1, 0], w:3.0}, {c:[7, 24.5], top:9.2, n:[0, -1], w:8}, {c:[16, 24.5], top:9.2, n:[0, -1], w:8}]}
+  };
+  function kind(label, fam){
+    const L = label.toLowerCase();
+    if (/caméra/.test(L)) return 'camera';
+    if (/sirène/.test(L)) return 'siren';
+    if (/contact de fenêtre|bris de vitre|vibration|store/.test(L)) return 'window';
+    if (/contact de porte|serrure|sonnette/.test(L)) return 'door';
+    if (/tag nfc|télécommande|ipad|boîtier|assistant vocal/.test(L)) return 'wallLowMid';   // tags, remotes, iPad and voice assistant spread around the room
+    if (/interrupteur|thermostat|écran|panique|bouton|module 0-10/.test(L)) return 'switch';
+    if (/fuite|prise|capteur de lit|plinthe/.test(L)) return 'floor';
+    if (/presence one|radar|avertisseur|haut-parleur|corniche|suspension|mouvement|ampoule|veilleuse|ventilateur de toiture/.test(L)) return 'ceiling';
+    if (/led|bande|armoire|miroir|synchro/.test(L)) return 'led';
+    return {ecl:'ceiling', pre:'ceiling', med:'ceiling', sec:'wallHigh', cli:'wallMid', inf:'wallMid', ene:'wallLow', ser:'wallMid', the:'wallMid'}[fam] || 'wallMid';
+  }
+  const spread = k => .14 + .72 * ((k * .618034 + .31) % 1);
+  const onWall = (w, t, y) => ({p:new V3(w.x0 + (w.x1 - w.x0) * t + w.nx * .06, y, w.z0 + (w.z1 - w.z0) * t + w.nz * .06), nrm:new V3(w.nx, 0, w.nz)});
+  function mountRoom(id, label, fam, cnt){
+    const R = ROOMS[id], K = kind(label, fam), k = cnt[K] = (cnt[K] || 0) + 1;
+    const [x0, z0, x1, z1] = R.rect;
+    if (id === 'meca' && fam === 'inf') {   // network gear on the face of the wall rack
+      const i = cnt.rack = (cnt.rack || 0) + 1;
+      return {p:new V3(22.55, 3.3 + ((i - 1) % 5) * .55, 11.12 + Math.floor((i - 1) / 5) * .36), nrm:new V3(-1, 0, 0)};
+    }
+    if (K === 'ceiling') {
+      const u = spread(k), v = ((k * .381966 + .17) % 1) * .7 + .15, x = x0 + (x1 - x0) * u, z = z0 + (z1 - z0) * v;
+      return {p:new V3(x, R.ceil(z) - .03, z), nrm:new V3(0, -1, 0)};
+    }
+    if (K === 'switch' || K === 'door') {   // beside the door, in a neat column
+      const [dx, dz, nx, nz] = R.door, along = nz ? new V3(1, 0, 0) : new V3(0, 0, 1);
+      const off = .9 + Math.floor((k - 1) / 3) * .55, row = (k - 1) % 3;
+      return {p:new V3(dx - along.x * off + nx * .06, 3.6 + row * .5, dz - along.z * off + nz * .06), nrm:new V3(nx, 0, nz)};
+    }
+    if (K === 'window') {
+      const wv = R.wins[(k - 1) % R.wins.length], s = (Math.floor((k - 1) / R.wins.length) - .5) * .6;
+      const along = wv.n[0] ? new V3(0, 0, 1) : new V3(1, 0, 0);
+      return {p:new V3(wv.c[0] + along.x * s * wv.w * .6 + wv.n[0] * .3, wv.top + .12, wv.c[1] + along.z * s * wv.w * .6 + wv.n[1] * .3), nrm:new V3(wv.n[0], 0, wv.n[1])};
+    }
+    const w = R.walls[(k - 1) % R.walls.length], t = spread(k + 3);
+    const y = {floor:.35, led:2.9, wallHigh:6.6, wallLow:1.6, wallLowMid:3.8}[K] ?? 5.0;
+    return onWall(w, t, y);
+  }
+  // exterior anchors
+  const FACE = (x, y) => ({p:new V3(x, y, 25.07), nrm:new V3(0, 0, 1)});
+  function mountTerrasse(label, fam, cnt){
+    const K = kind(label, fam), k = cnt[K] = (cnt[K] || 0) + 1, L = label.toLowerCase();
+    if (K === 'camera') return [FACE(1.4, 13.1), FACE(22.6, 13.1), {p:new V3(-.08, 9.6, 3), nrm:new V3(-1, 0, 0)}, {p:new V3(12, 7.6, -.08), nrm:new V3(0, 0, -1)}][(k - 1) % 4];
+    if (K === 'siren') return FACE(20.9, 12.6);
+    if (K === 'door' || K === 'switch' || /nfc/.test(L)) return FACE(13.4 + (k % 3) * .45, 4.0 + Math.floor(k / 3) * .45);
+    if (/haut-parleur|point d'accès/.test(L)) return {p:new V3(5 + k * 7, 13.6, 26.2), nrm:new V3(0, -1, 0)};
+    if (/station météo/.test(L)) return {p:new V3(23.4, 15.2, 24.6), nrm:new V3(0, 1, 0)};
+    if (/projecteur|guirlande|pot|marche|applique/.test(L) || fam === 'ecl') return {p:new V3(1.5 + spread(k) * 21, .03, 32.85), nrm:new V3(0, 1, 0)};
+    if (/présence/.test(L)) return FACE(10.2, 8.4);
+    return FACE(18.2 + (k % 3) * .5, 1.2 + Math.floor(k / 3) * .5);   // relays, ampli, outlets low on the façade
+  }
+  function mountThermea(label, fam, cnt){
+    const L = label.toLowerCase(), k = cnt.n = (cnt.n || 0) + 1;
+    const SPA = (x, z) => ({p:new V3(x, TY + 2.93, z), nrm:new V3(0, 1, 0)}), SAUNA = (y, z) => ({p:new V3(2.62, y, z), nrm:new V3(1, 0, 0)});
+    const POSTS = [[10.4, 36.0], [13.8, 37.4], [5.0, 42.6], [4.4, 51.4], [8.6, 54.6], [15.6, 54.6], [19.4, 51.8], [19.0, 41.6], [11.0, 57.6], [14.0, 60.6]];
+    const post = i => { const [x, z] = POSTS[i % POSTS.length]; return {p:new V3(x, TY + 1.72, z), nrm:new V3(0, 1, 0)}; };
+    if (/module du spa|relais du spa|contacteur du spa/.test(L)) return {p:new V3(20.11, TY + 1.2 + (k % 3) * .5, 47.6), nrm:new V3(-1, 0, 0)};
+    if (/analyseur/.test(L)) return {p:new V3(23.4, TY + 2.68, 47.6), nrm:new V3(0, 1, 0)};
+    if (/couvercle/.test(L)) return SPA(20.6, 46.0);
+    if (/sauna/.test(L)) return SAUNA(5.4 + (k % 3) * .55, 47.1);
+    if (/bain froid/.test(L)) return {p:new V3(30, TY + 2.62, 42.1), nrm:new V3(0, 1, 0)};
+    if (/foyer/.test(L)) return {p:new V3(12.9, TY + .5, 47.6), nrm:new V3(0, 1, 0)};
+    if (/bouton/.test(L)) return SAUNA(4.4, 47.2);
+    if (/caméra/.test(L)) return {p:new V3(-.6, 8.9, 46), nrm:new V3(0, 1, 0)};
+    if (/tag nfc/.test(L)) return {p:new V3(20.11, TY + 2.2, 45.3 + k * .3), nrm:new V3(-1, 0, 0)};
+    return post(k * 3);   // path lights, speakers, presence and Bluetooth beacons on the path posts
+  }
+  const FL = .65;
+  function mountSerre(label, fam, cnt){
+    const L = label.toLowerCase(), key = L.replace(/\s+\d.*/, ''), k = cnt[key] = (cnt[key] || 0) + 1;
+    if (/sonde/.test(L)) { const west = k % 2; return {p:new V3(west ? 25.5 : 32.5, FL + 1.43, 14.5 + Math.ceil(k / 2) * 2.2), nrm:new V3(0, 1, 0)}; }
+    if (/vanne|goutte/.test(L)) return {p:new V3(k % 2 ? 25.5 : 32.5, FL + .5, 13.36), nrm:new V3(0, 0, -1)};
+    if (/t\/h haut/.test(L)) return {p:new V3(29, 7.4, 19.5), nrm:new V3(0, -1, 0)};
+    if (/t\/h bas|co₂|par/.test(L)) return {p:new V3(27.3 + k * .5 + (/par/.test(L) ? 2 : 0), FL + 2.76, 14.3), nrm:new V3(0, 1, 0)};
+    if (/ventilateur/.test(L)) return {p:new V3(33.0, 7.2, k % 2 ? 13.27 : 24.73), nrm:new V3(0, 0, k % 2 ? 1 : -1)};
+    if (/ouvre-fenêtre|toile/.test(L)) return {p:new V3(29 + (/toile/.test(L) ? 1.2 : 0), 11.0, 19), nrm:new V3(0, -1, 0)};
+    if (/brumisateur/.test(L)) return {p:new V3(29, 10.5, 16.7), nrm:new V3(0, -1, 0)};
+    if (/chauffage/.test(L)) return {p:new V3(k % 2 ? 24.6 : 33.4, FL + .06, 24.3), nrm:new V3(0, 1, 0)};
+    if (/rampe/.test(L)) return {p:new V3(k % 2 ? 25.5 : 32.5, 6.95, 19), nrm:new V3(0, -1, 0)};
+    if (/caméra d'ensemble/.test(L)) return {p:new V3(33.6, 8.2, 24.6), nrm:new V3(-1, 0, 0)};
+    if (/caméra/.test(L)) return {p:new V3(k % 2 ? 25.5 : 32.5, 6.94, k % 2 ? 17 : 21), nrm:new V3(0, -1, 0)};
+    if (/contact de porte|serrure/.test(L)) return {p:new V3(33.76, 3.4 + (/serrure/.test(L) ? .5 : 0), 22.6), nrm:new V3(-1, 0, 0)};
+    if (/bris de vitre/.test(L)) return {p:new V3(29, 6.4, 24.7), nrm:new V3(0, 0, -1)};
+    if (/presence/.test(L)) return {p:new V3(24.35, 8.0, 19), nrm:new V3(1, 0, 0)};
+    if (/module 0-10|télécommande/.test(L)) return {p:new V3(27.1 + (k > 1 ? 3.8 : 0), FL + 1.6, 14.45), nrm:new V3(0, 0, 1)};
+    return {p:new V3(24.2, 4.2 + (k % 2) * .45, 15.2 + k * .5), nrm:new V3(1, 0, 0)};   // screens, voice assistant, NFC on the house wall
+  }
+  const devices = [];
+  B.ZONES.forEach(zone => {
+    const cnt = {};
+    zone.dev.forEach(([fam, n, text]) => expand(text, n).forEach(label => {
+      const m = zone.id === 'terrasse' ? mountTerrasse(label, fam, cnt) : zone.id === 'thermea' ? mountThermea(label, fam, cnt)
+              : zone.id === 'serre' ? mountSerre(label, fam, cnt) : mountRoom(zone.id, label, fam, cnt);
+      devices.push({label, fam, zone:zone.id, p:m.p, nrm:m.nrm.normalize()});
+    }));
+  });
+
+  B.planDevices(devices.map(d => ({fam:d.fam, zone:d.zone, x:d.p.x, z:d.p.z})));
+  // markers, highlights and network live on layer 1: drawn by the main camera, invisible to the ambient-occlusion pass
+  const OVERLAY = 1, toOverlay = o => o.traverse(c => c.layers.set(OVERLAY));
+  camera.layers.enable(OVERLAY);
+  const markers = new THREE.Group(); house.add(markers);
+  // a device is a small flat pin on its surface: white rim, coloured face, a soft glow
+  const pinG = new THREE.CircleGeometry(.27, 28), rimG = new THREE.CircleGeometry(.36, 28), hitG = new THREE.SphereGeometry(.6, 8, 6), hits = [];
+  const rimM = new THREE.MeshBasicMaterial({color:0xffffff, toneMapped:false}), ZAX = new V3(0, 0, 1);
+  devices.forEach((d, i) => {
+    const m = new THREE.Group();
+    m.position.copy(d.p); m.quaternion.setFromUnitVectors(ZAX, d.nrm);
+    const rim = new THREE.Mesh(rimG, rimM); m.add(rim);
+    const face = new THREE.Mesh(pinG, new THREE.MeshBasicMaterial({color:FAMHEX[d.fam], toneMapped:false})); face.position.z = .012; m.add(face);
+    const halo = new THREE.Sprite(new THREE.SpriteMaterial({map:haloTex, color:FAMHEX[d.fam], transparent:true, depthWrite:false, blending:THREE.AdditiveBlending, opacity:.6, toneMapped:false}));
+    halo.position.z = .05; halo.scale.setScalar(1.2); m.add(halo);
+    const hit = new THREE.Mesh(hitG); hit.visible = false; hit.userData.i = i; m.add(hit);
+    markers.add(m); d.mesh = m; d.halo = halo; d.hit = hit; d.phase = i * .37; hits.push(hit);
+  });
+
+  toOverlay(markers);
+
+  /* zone floors (highlight) + 3D labels */
+  const zoneFx = {};
+  Object.entries(Z3).forEach(([id, z]) => {
+    const g = z.r ? new THREE.CircleGeometry(z.r - .3, 56) : new THREE.PlaneGeometry(z.w - .4, z.d - .4);
+    const fill = new THREE.Mesh(g, new THREE.MeshBasicMaterial({color:0xEF773E, transparent:true, opacity:0, depthWrite:false, toneMapped:false}));
+    const line = new THREE.LineSegments(new THREE.EdgesGeometry(g), new THREE.LineBasicMaterial({color:0xEF773E, transparent:true, opacity:0, toneMapped:false}));
+    const grp = new THREE.Group(); grp.add(fill, line); grp.rotation.x = -Math.PI / 2;
+    grp.position.set(z.r ? z.cx : z.x + z.w / 2, id === 'thermea' ? TY + .02 : id === 'terrasse' ? .03 : .15, z.r ? z.cz : z.z + z.d / 2);
+    toOverlay(grp); house.add(grp);
+    const anchor = new V3(grp.position.x, id === 'serre' ? 12.4 : id === 'terrasse' ? 3 : id === 'thermea' ? 4.4 : id === 'vie' ? 10 : 9, grp.position.z);
+    const el = document.createElement('button'); el.type = 'button'; el.className = 'lbl3d'; el.textContent = B.zoneTitle(B.ZONES.find(x => x.id === id));
+    el.onclick = () => { stopTour(); B.selectZone(id, 'label'); };
+    $('labels3d').appendChild(el);
+    zoneFx[id] = {fill, line, anchor, el, k:0};
+  });
+  let selZone = B.currentZone;
+
+  /* network: every device wired back to the hub in the mechanical room */
+  const hub = new V3(23.05, 4.6, 11.3);   // network rack in the mechanical room
+  const hubDot = new THREE.Mesh(new THREE.SphereGeometry(.55, 20, 14), new THREE.MeshBasicMaterial({color:0xEF773E, toneMapped:false}));
+  const hubHalo = new THREE.Sprite(new THREE.SpriteMaterial({map:haloTex, color:0xEF773E, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending, toneMapped:false}));
+  hubHalo.scale.setScalar(6); hubDot.add(hubHalo); hubDot.position.copy(hub); hubDot.visible = false; toOverlay(hubDot); house.add(hubDot);
+  const netMat = new THREE.LineDashedMaterial({color:0xEF773E, dashSize:.5, gapSize:.35, transparent:true, opacity:.5, depthWrite:false, toneMapped:false});
+  let netLines = null, curves = [], netOn = false;
+  const packets = Array.from({length:42}, (_, i) => { const s = new THREE.Sprite(new THREE.SpriteMaterial({map:haloTex, color:0xffc08a, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending, toneMapped:false})); s.scale.setScalar(1.1); s.visible = false; s.userData = {c:0, t:Math.random(), v:.25 + Math.random() * .35, dir:i % 3 ? -1 : 1}; s.layers.set(OVERLAY); house.add(s); return s; });
+  function buildNet(){
+    if (netLines) { house.remove(netLines); netLines.geometry.dispose(); }
+    const pts = []; curves = [];
+    devices.forEach(d => {
+      if (!B.famOn[d.fam]) return;
+      const mid = hub.clone().lerp(d.p, .5); mid.y = Math.max(hub.y, d.p.y) + 3 + hub.distanceTo(d.p) * .1;
+      const c = new THREE.QuadraticBezierCurve3(hub, mid, d.p); curves.push(c);
+      const ps = c.getPoints(16); for (let i = 0; i < ps.length - 1; i++) pts.push(ps[i], ps[i + 1]);
+    });
+    netLines = new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), netMat);
+    netLines.computeLineDistances(); netLines.visible = netOn; netLines.layers.set(OVERLAY); house.add(netLines);
+    packets.forEach(p => p.userData.c = Math.floor(Math.random() * Math.max(1, curves.length)));
+  }
+
+  /* ---------- camera moves ---------- */
+  const OVERVIEW = () => [new V3(58, 46, 88), new V3(13, 1, 32)];
+  function zoneView(id){
+    const z = Z3[id]; const c = z.r ? new V3(z.cx, 0, z.cz) : new V3(z.x + z.w / 2, 0, z.z + z.d / 2);
+    const s = z.r ? z.r * 2 : Math.max(z.w, z.d), tgt = c.clone().setY(id === 'vie' ? 4 : id === 'thermea' ? 1 : 3);
+    const dir = new V3(.8, 1.15, 1.1).normalize();
+    return [tgt.clone().addScaledVector(dir, s * 1.3 + 18 * (camera.aspect < 1 ? 1.5 : 1)), tgt];
+  }
+  let fly = null;
+  function flyTo([pos, tgt], dur = 1.4){
+    zoomGoal = null;
+    if (reduce) { camera.position.copy(pos); controls.target.copy(tgt); return; }
+    fly = {p0:camera.position.clone(), t0:controls.target.clone(), p1:pos, t1:tgt, s:performance.now(), d:dur * 1000};
+  }
+
+  /* ---------- toggles ---------- */
+  let roofLift = 0, roofTarget = 7.5, nightK = 0, nightTarget = 0, paused = false, running = true;
+  let xray = 0, xrayTarget = 0, xrayApplied = -1;   // 1 = walls and roof almost invisible, to see into a room
+  const XRAY_ZONES = new Set(['chambre', 'sdb', 'meca', 'vie', 'serre']);
+  camera.layers.enable(2);   // faded shell moves to layer 2: still drawn, but ignored by the ambient-occlusion pass
+  const press = (b, on) => b.setAttribute('aria-pressed', on);
+  $('tRoof').onclick = e => { const open = roofTarget === 0; roofTarget = open ? 7.5 : 0; press(e.currentTarget, open); e.currentTarget.lastChild.textContent = open ? 'Toit ouvert' : 'Toit fermé'; };
+  $('tNight').onclick = e => { nightTarget = nightTarget ? 0 : 1; press(e.currentTarget, !!nightTarget); };
+  $('tNet').onclick = e => { netOn = !netOn; press(e.currentTarget, netOn); if (netOn && !netLines) buildNet(); if (netLines) netLines.visible = netOn; hubDot.visible = netOn; packets.forEach(p => p.visible = netOn); };
+  const TOUR = ['vie', 'chambre', 'sdb', 'meca', 'serre', 'terrasse', 'thermea'];
+  let tour = null;
+  function stopTour(){ if (!tour) return; clearInterval(tour); tour = null; press($('tTour'), false); }
+  $('tTour').onclick = () => {
+    if (tour) { stopTour(); flyTo(OVERVIEW()); return; }
+    press($('tTour'), true); let i = Math.max(0, TOUR.indexOf(selZone));
+    const step = () => { B.selectZone(TOUR[i % TOUR.length], 'tour'); i++; };
+    step(); tour = setInterval(step, 5200);
+  };
+  cv.addEventListener('pointerdown', stopTour, {passive:true});
+  // smooth wheel zoom: the library's own zoom moves a fixed step per wheel event, so a trackpad (dozens of
+  // tiny events a second) jumps from far to close at once. This one follows the real scroll amount and eases.
+  let zoomGoal = null;
+  vp.addEventListener('wheel', e => {
+    if (!controls.enabled) return;   // phones: 3D not activated yet, let the page scroll
+    e.preventDefault(); e.stopPropagation(); stopTour(); fly = null;
+    const px = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * 400 : e.deltaY;
+    const cur = zoomGoal ?? camera.position.distanceTo(controls.target);
+    zoomGoal = THREE.MathUtils.clamp(cur * Math.exp(Math.max(-60, Math.min(60, px)) * .0012), controls.minDistance, controls.maxDistance);
+  }, {capture:true, passive:false});
+
+  // phones: the canvas only grabs touch once the visitor asks for it, so the page still scrolls
+  if (coarse) {
+    controls.enabled = false; cv.style.touchAction = 'pan-y';
+    $('vpHint').textContent = 'Un doigt pour pivoter · deux pour zoomer';
+    $('vpActivate').hidden = false;
+    $('vpActivate').onclick = () => { controls.enabled = true; cv.style.touchAction = 'none'; $('vpActivate').hidden = true; $('vpExit').hidden = false; };
+    $('vpExit').onclick = () => { controls.enabled = false; cv.style.touchAction = 'pan-y'; $('vpActivate').hidden = false; $('vpExit').hidden = true; };
+  }
+
+  /* ---------- picking ---------- */
+  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2(), tip = $('tip3d');
+  ray.layers.enableAll();
+  let hover = null, down = null, selDev = null;
+  function pick(e){
+    const r = cv.getBoundingClientRect(); ndc.set((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, camera);
+    const cand = hits.filter(h => devices[h.userData.i].mesh.visible);
+    const res = ray.intersectObjects(roofLift < 3 && xray < .5 ? [...roofMeshes, ...cand] : cand, false);
+    return res.length && !roofMeshes.includes(res[0].object) ? devices[res[0].object.userData.i] : null;
+  }
+  cv.addEventListener('pointermove', e => {
+    if (e.pointerType === 'touch') return;
+    hover = pick(e); cv.style.cursor = hover ? 'pointer' : 'grab';
+    if (!hover) { tip.hidden = true; return; }
+    const z = B.ZONES.find(x => x.id === hover.zone), col = '#' + FAMHEX[hover.fam].toString(16).padStart(6, '0');
+    tip.innerHTML = `<b><i style="background:${col}"></i>${hover.label}</b><span>${B.FAM[hover.fam].n} · ${B.zoneTitle(z)}</span>`;
+    tip.hidden = false;
+  });
+  cv.addEventListener('pointerleave', () => { hover = null; tip.hidden = true; });
+  cv.addEventListener('pointerdown', e => { down = [e.clientX, e.clientY]; });
+  cv.addEventListener('pointerup', e => {
+    if (!down || Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 6) return;
+    const d = pick(e); if (!d) return;
+    selDev = d; B.selectZone(d.zone, '3d'); B.showDevice(d); highlight(d.zone);
+    flyTo([d.p.clone().add(new V3(9, 9, 11)), d.p.clone()], 1.1);
+  });
+
+  function highlight(id){ selZone = id; }
+  function refreshFilters(){
+    let n = 0; devices.forEach(d => { d.mesh.visible = !!B.famOn[d.fam]; if (d.mesh.visible) n++; });
+    $('vpCount').textContent = `${n} appareil${n > 1 ? 's' : ''} affiché${n > 1 ? 's' : ''}`;
+    if (netLines) buildNet();
+  }
+  refreshFilters();
+
+  /* ---------- loop ---------- */
+  const resize = () => {
+    const w = vp.clientWidth, h = vp.clientHeight; if (!w || !h) return;
+    renderer.setSize(w, h, false); composer?.setSize(w, h); camera.aspect = w / h; camera.fov = camera.aspect < 1 ? 50 : 38; camera.updateProjectionMatrix();
+  };
+  let composer = null, aoCam = null;
+  if (hq) {
+    composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(1, 1, {samples:4, type:THREE.HalfFloatType}));
+    composer.addPass(new RenderPass(scene, camera));
+    aoCam = camera.clone(); aoCam.layers.set(0);
+    const gtao = new GTAOPass(scene, aoCam, 1, 1);
+    gtao.updateGtaoMaterial({radius:2.6, distanceExponent:1.4, thickness:1.6, scale:1.1, samples:12});
+    gtao.blendIntensity = .9;
+    composer.addPass(gtao);
+    composer.addPass(new OutputPass());
+  }
+  new ResizeObserver(resize).observe(vp); resize();
+  new IntersectionObserver(es => { running = es[0].isIntersecting; }, {rootMargin:'120px'}).observe(vp);
+
+  const [p0, t0] = OVERVIEW();
+  controls.target.copy(t0);
+  if (reduce) { camera.position.copy(p0); roofLift = roofTarget; }
+  else { camera.position.set(p0.x * 1.5, p0.y * 1.35, p0.z * 1.5); flyTo([p0, t0], 2.4); }
+
+  const tmp = new V3(); let envN = -1;
+  const ZERO = new THREE.Matrix4().makeScale(0, 0, 0), tp = new V3();
+  let lastSight = '';
+  function clearSightline(){
+    const c = camera.position, t = controls.target;
+    const key = c.x.toFixed(1) + c.z.toFixed(1) + t.x.toFixed(1) + t.z.toFixed(1);
+    if (key === lastSight) return; lastSight = key;
+    const dx = t.x - c.x, dz = t.z - c.z, L2 = dx * dx + dz * dz || 1;
+    cardIMs.forEach(({im, base}) => {
+      for (let i = 0; i < base.length; i++) {
+        tp.setFromMatrixPosition(base[i]);
+        const w = base[i].elements[0] * .3 + 6;   // half the card width plus a margin
+        const u = ((tp.x - c.x) * dx + (tp.z - c.z) * dz) / L2;
+        const qx = c.x + Math.max(0, Math.min(1, u)) * dx - tp.x, qz = c.z + Math.max(0, Math.min(1, u)) * dz - tp.z;
+        const blocks = u > -0.05 && u < 1.02 && Math.hypot(qx, qz) < w;
+        im.setMatrixAt(i, blocks ? ZERO : base[i]);
+      }
+      im.instanceMatrix.needsUpdate = true;
+    });
+  }
+  let last = performance.now();
+  renderer.setAnimationLoop(now => {
+    if (!running || paused || document.hidden) { last = now; return; }
+    const dt = Math.min(.05, (now - last) / 1000), t = now / 1000; last = now;
+    if (fly) { const q = Math.min(1, (now - fly.s) / fly.d), e = q < .5 ? 4 * q * q * q : 1 - Math.pow(-2 * q + 2, 3) / 2;
+      camera.position.lerpVectors(fly.p0, fly.p1, e); controls.target.lerpVectors(fly.t0, fly.t1, e); if (q >= 1) fly = null; }
+    if (zoomGoal !== null) {
+      const off = camera.position.clone().sub(controls.target), d = off.length(), nd = d + (zoomGoal - d) * Math.min(1, dt * 9);
+      camera.position.copy(controls.target).add(off.setLength(nd));
+      if (Math.abs(nd - zoomGoal) < .01) zoomGoal = null;
+    }
+    controls.update();
+
+    if (!reduce && now > 900) roofLift += (roofTarget - roofLift) * Math.min(1, dt * 3.2); else if (reduce) roofLift = roofTarget;
+    if (roof) roof.position.y = ROOF_Y + roofLift;
+    if (xrayTarget && !fly && camera.position.distanceTo(controls.target) > 78) xrayTarget = 0;   // zoomed back out: walls return
+    xray += (xrayTarget - xray) * Math.min(1, dt * 4);
+    if (Math.abs(xray - xrayApplied) > .004) {
+      xrayApplied = xray; const faded = xray > .5;
+      shellMats.forEach(m => { const o0 = m.userData.baseOpacity ?? 1; m.opacity = o0 + (Math.min(o0, .07) - o0) * xray;
+        m.transparent = xray > .01 || m.userData.baseTransparent; m.depthWrite = !m.transparent || xray < .3 && !m.userData.baseTransparent; m.needsUpdate = true; });
+      shellMeshes.forEach(o => { o.castShadow = faded ? false : o.userData.castShadow0; o.layers.set(faded ? 2 : 0); });
+    }
+    nightK += (nightTarget - nightK) * Math.min(1, dt * 2.6);
+    const n = nightK;
+    scene.fog.color.lerpColors(BG.day, BG.night, n); scene.fog.density = .0042 + .004 * n;
+    if (skyTex) { if (n > .97) { if (scene.background !== null && scene.background.isTexture) scene.background = BG.night.clone(); }
+                  else { if (!scene.background || !scene.background.isTexture) scene.background = skyTex; scene.backgroundIntensity = 1 - .97 * n; } }
+    else if (scene.background && scene.background.isColor) scene.background.lerpColors(BG.day, BG.night, n);
+    hemi.intensity = .35 - .27 * n; sun.intensity = 2.6 * (1 - n); moon.intensity = .45 * n;
+    if (Math.abs(n - envN) > .005) { envN = n; ALL_MATS.forEach(m => { if (m.name !== 'Glass') m.envMapIntensity = 1 - .85 * n; }); }
+    const flick = 1 + (reduce ? 0 : .12 * Math.sin(t * 9) + .08 * Math.sin(t * 23));
+    if (GLOW.Glow_Fire) GLOW.Glow_Fire.emissiveIntensity = (2.5 + 3 * n) * flick;
+    if (GLOW.Glow_Water) GLOW.Glow_Water.emissiveIntensity = .04 + 1.4 * n;
+    ['Glow_Lantern', 'Glow_String', 'Glow_Sconce'].forEach(k => { if (GLOW[k]) GLOW[k].emissiveIntensity = 2.6 * n; });
+    if (GLOW.Glow_Fireplace) GLOW.Glow_Fireplace.emissiveIntensity = 2.4 * n * flick;
+    if (GLOW.Glow_Leds) GLOW.Glow_Leds.emissiveIntensity = 1.5 + n;
+    inner.forEach(l => l.intensity = 70 * n);
+    fireLight.intensity = (6 + 60 * n) * flick;
+
+    devices.forEach(d => {
+      const sel = d === selDev, inZone = d.zone === selZone;
+      const pulse = reduce ? 1 : 1 + .16 * Math.sin(t * 2.2 + d.phase);
+      const near = Math.min(1, Math.max(.3, camera.position.distanceTo(d.p) / 70));   // markers shrink as the camera comes close
+      d.halo.scale.setScalar((sel ? 3.0 : inZone ? 1.9 : 1.4) * pulse * near);
+      d.halo.material.opacity = (inZone || sel ? .75 : .42) + .25 * n;
+      d.mesh.scale.setScalar((sel ? 1.8 : 1) * (.7 + .5 * near));
+    });
+    Object.entries(zoneFx).forEach(([id, z]) => {
+      z.k += ((id === selZone ? 1 : 0) - z.k) * Math.min(1, dt * 5);
+      z.fill.material.opacity = .13 * z.k; z.line.material.opacity = .9 * z.k;
+    });
+    if (netOn) {
+      netMat.opacity = .6 + .25 * Math.sin(t * 2.4);
+      hubHalo.scale.setScalar(6 + (reduce ? 0 : 1.5 * Math.sin(t * 3)));
+      packets.forEach(p => { const u = p.userData, c = curves[u.c]; if (!c) return;
+        u.t += u.v * dt; if (u.t > 1) { u.t = 0; u.c = Math.floor(Math.random() * curves.length); }
+        p.position.copy(c.getPoint(u.dir > 0 ? u.t : 1 - u.t)); });
+    }
+
+    flames.forEach(f => { const u = f.userData, k = reduce ? 1 : 1 + .22 * Math.sin(t * 8.3 + u.ph) + .12 * Math.sin(t * 17 + u.ph * 2);
+      f.position.set(12 + u.ox, TY + .55, 47 + u.oz); f.scale.set(.75 * u.s, 1.7 * u.s * k, 1); f.material.opacity = (.55 + .3 * n) * (.8 + .2 * k); });
+    if (cardIMs.length) clearSightline();
+    if (aoCam) { aoCam.position.copy(camera.position); aoCam.quaternion.copy(camera.quaternion); aoCam.fov = camera.fov; aoCam.aspect = camera.aspect;
+      aoCam.projectionMatrix.copy(camera.projectionMatrix); aoCam.projectionMatrixInverse.copy(camera.projectionMatrixInverse); aoCam.updateMatrixWorld(); }
+    if (composer) composer.render(); else renderer.render(scene, camera);
+
+    // HTML overlays follow the camera
+    const w = vp.clientWidth, h = vp.clientHeight;
+    Object.entries(zoneFx).forEach(([id, z]) => {
+      tmp.copy(z.anchor).project(camera);
+      const off = tmp.z > 1 || Math.abs(tmp.x) > 1.05 || Math.abs(tmp.y) > 1.05;
+      z.el.style.opacity = off ? 0 : 1; z.el.style.pointerEvents = off ? 'none' : 'auto';
+      z.el.style.transform = `translate(${(tmp.x * .5 + .5) * w}px,${(-tmp.y * .5 + .5) * h}px) translate(-50%,-100%)`;
+      z.el.classList.toggle('on', id === selZone);
+    });
+    if (hover && !tip.hidden) { tmp.copy(hover.p).project(camera); tip.style.transform = `translate(${(tmp.x * .5 + .5) * w}px,${(-tmp.y * .5 + .5) * h}px) translate(-50%,calc(-100% - 16px))`; }
+  });
+
+  window.borea3d = {
+    focusZone(id){ selDev = null; highlight(id); xrayTarget = XRAY_ZONES.has(id) ? 1 : 0; flyTo(zoneView(id)); },
+    refreshFilters,
+    setPaused(p){ paused = p; },
+    cameraDistance(){ return camera.position.distanceTo(controls.target); }
+  };
+}
+</script>
+</body>
+</html>

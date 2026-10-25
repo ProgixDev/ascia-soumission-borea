@@ -1,0 +1,10 @@
+# generated: run python3 build_single.py
+dist/
+
+# Blender backups and scratch output
+*.blend1
+3d/unused.png
+
+# OS / editors
+.DS_Store
+__pycache__/

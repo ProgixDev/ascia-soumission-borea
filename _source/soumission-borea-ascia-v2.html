@@ -1,0 +1,812 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Soumission Boreä ASCIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one long proposal, hero with the total, then plan > budget > systems > AI > greenhouse > day > automations > options. Dark-first, nordic ink + birch light accent. */
+:root{
+  color-scheme: dark;
+  --bg:#0c0f13; --bg2:#12161c; --panel:#161b22; --line:#252c36; --line2:#323b47;
+  --fg:#eef1f4; --muted:#9aa5b2; --faint:#6b7684;
+  --accent:#7cc4ff; --accent-ink:#06121d; --warm:#e8b46a;
+  --s-ecl:#f2c14e; --s-cli:#5ec8e5; --s-sec:#f07a7a; --s-ene:#9bd36a; --s-ser:#4fbf8f; --s-the:#e59a5c; --s-med:#b49cf0; --s-pre:#8fa3ff; --s-inf:#c9d1db;
+  --f-display:"Sora", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){
+  color-scheme: light;
+  --bg:#f5f6f4; --bg2:#eceeeb; --panel:#ffffff; --line:#dfe3e0; --line2:#cfd5d2;
+  --fg:#11161c; --muted:#56606b; --faint:#7d8792;
+  --accent:#1f6fb2; --accent-ink:#ffffff; --warm:#a8661c;
+  --s-ecl:#c08a00; --s-cli:#0f8fae; --s-sec:#cc3b3b; --s-ene:#4f8f1f; --s-ser:#1d8a5c; --s-the:#c1661f; --s-med:#7a55d6; --s-pre:#4a5fd6; --s-inf:#66717d;
+}}
+:root[data-theme="light"]{
+  color-scheme: light;
+  --bg:#f5f6f4; --bg2:#eceeeb; --panel:#ffffff; --line:#dfe3e0; --line2:#cfd5d2;
+  --fg:#11161c; --muted:#56606b; --faint:#7d8792;
+  --accent:#1f6fb2; --accent-ink:#ffffff; --warm:#a8661c;
+  --s-ecl:#c08a00; --s-cli:#0f8fae; --s-sec:#cc3b3b; --s-ene:#4f8f1f; --s-ser:#1d8a5c; --s-the:#c1661f; --s-med:#7a55d6; --s-pre:#4a5fd6; --s-inf:#66717d;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(28px,4vw,42px);font-weight:600;line-height:1.1}
+h3{font-size:19px;font-weight:600;line-height:1.25}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lead{color:var(--muted);font-size:17px;max-width:62ch}
+.num{font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:60px}
+.logo{font-family:var(--f-display);font-weight:700;letter-spacing:.32em;font-size:17px;color:var(--fg);text-decoration:none}
+.logo span{color:var(--accent)}
+.nav ul{display:flex;gap:20px;list-style:none;margin:0 0 0 auto;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a.l{color:var(--muted);text-decoration:none;font-size:14px;white-space:nowrap}
+.nav a.l:hover{color:var(--fg)}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.hero .wrap{position:relative;padding-block:72px 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(46px,8vw,104px);font-weight:300;line-height:.95;letter-spacing:-.04em}
+.hero h1 b{font-weight:700;display:block}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;color:var(--muted);font-size:14px}
+.hero .meta span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:middle}
+.total-card{background:var(--panel);border:1px solid var(--line2);border-radius:20px;padding:28px}
+.total-card .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.total-card .v{font-family:var(--f-display);font-size:clamp(40px,5.4vw,58px);font-weight:600;letter-spacing:-.03em;line-height:1.05;margin:8px 0 4px}
+.total-card .sub{color:var(--muted);font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border-radius:12px;overflow:hidden;margin-top:22px}
+.stats div{background:var(--panel);padding:14px 16px}
+.stats b{font-family:var(--f-display);font-size:24px;font-weight:600;display:block;line-height:1.1}
+.stats small{color:var(--muted);font-size:12.5px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:48px}}
+
+section{padding-block:88px;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;gap:14px;margin-bottom:40px;max-width:780px}
+
+/* plan */
+.plan-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:900px){.plan-grid{grid-template-columns:1fr}}
+.plan-box{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:16px;overflow-x:auto}
+.plan-box svg{display:block;width:100%;height:auto;min-width:320px}
+.zone{cursor:pointer}
+.zone rect.z,.zone circle.z,.zone path.z{fill:var(--bg2);stroke:var(--line2);stroke-width:1.5;transition:fill .2s,stroke .2s}
+.zone:hover rect.z,.zone:hover circle.z,.zone:hover path.z{stroke:var(--accent)}
+.zone.on rect.z,.zone.on circle.z,.zone.on path.z{fill:color-mix(in srgb,var(--accent) 12%,var(--bg2));stroke:var(--accent);stroke-width:2}
+.zone text{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;fill:var(--muted);pointer-events:none}
+.zone.on text{fill:var(--fg)}
+.dot{transition:opacity .25s,r .25s}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);background:transparent;color:var(--fg);padding:6px 12px;border-radius:999px;font:500 13px var(--f-body);cursor:pointer}
+.chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.chip[aria-pressed="false"]{opacity:.4}
+.chip.sel{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.zone-panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;min-width:0}
+.zone-panel h3{font-size:24px}
+.zone-panel .zdesc{color:var(--muted);margin:6px 0 18px;font-size:15px}
+.zlist{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.zlist li{display:grid;grid-template-columns:12px 1fr auto;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.zlist li i{width:8px;height:8px;border-radius:50%;transform:translateY(-1px)}
+.zlist li b{font-family:var(--f-mono);font-weight:500;color:var(--muted);font-size:13px}
+
+/* budget */
+.budget{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px}
+@media (max-width:900px){.budget{grid-template-columns:1fr}}
+.bars{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px}
+.bar{display:grid;grid-template-columns:minmax(120px,190px) 1fr 92px;gap:14px;align-items:center;padding:7px 0;cursor:pointer;border-radius:8px}
+.bar:hover .track span{filter:brightness(1.15)}
+.bar .n{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .track{height:22px;background:var(--bg2);border-radius:6px;overflow:hidden;position:relative}
+.bar .track span{position:absolute;inset:0 auto 0 0;border-radius:6px;background:var(--accent);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.bar .p{font-family:var(--f-mono);font-size:13px;text-align:right}
+@media (max-width:520px){.bar{grid-template-columns:1fr 80px}.bar .track{grid-column:1/-1;grid-row:2}}
+.split{display:grid;gap:16px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px}
+.kpi .k{color:var(--muted);font-size:13.5px}
+.kpi .v{font-family:var(--f-display);font-size:30px;font-weight:600;letter-spacing:-.02em}
+.kpi p{color:var(--muted);font-size:14px;margin-top:6px}
+.ring{display:flex;gap:18px;align-items:center}
+.ring svg{flex:none}
+
+/* systems */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:20px;scrollbar-width:thin}
+.tab{flex:none;border:1px solid var(--line2);background:transparent;color:var(--muted);padding:9px 16px;border-radius:999px;font:600 14px var(--f-body);cursor:pointer;display:flex;gap:8px;align-items:center}
+.tab i{width:8px;height:8px;border-radius:50%}
+.tab[aria-selected="true"]{background:var(--panel);color:var(--fg);border-color:var(--fg)}
+.sys{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.sys-top{display:grid;grid-template-columns:1fr auto;gap:20px;padding:26px 26px 18px;align-items:end;border-bottom:1px solid var(--line)}
+.sys-top p{color:var(--muted);max-width:64ch;margin-top:8px;font-size:15px}
+.sys-top .t{text-align:right}
+.sys-top .t b{font-family:var(--f-display);font-size:32px;font-weight:600;display:block;letter-spacing:-.02em}
+.sys-top .t small{color:var(--muted);font-family:var(--f-mono);font-size:12px}
+@media (max-width:600px){.sys-top{grid-template-columns:1fr}.sys-top .t{text-align:left}}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:620px}
+th{font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:left;padding:12px 26px;border-bottom:1px solid var(--line)}
+td{padding:13px 26px;border-bottom:1px solid var(--line);vertical-align:top}
+td small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+th.r,td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.brand{font-family:var(--f-mono);font-size:11.5px;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);padding:1px 7px;border-radius:5px;margin-left:6px;white-space:nowrap}
+
+/* ai */
+.ai{display:grid;gap:14px}
+.ai-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:820px){.ai-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ai-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.ai-card h3{font-size:16px}
+.ai-card p{color:var(--muted);font-size:13.5px;margin-top:4px}
+.ai-label{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:10px}
+.ai-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.ai-core{border:1px solid var(--line2);border-radius:20px;padding:18px;background:var(--bg2)}
+.ai-core .ai-card{background:var(--panel)}
+.ha{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--panel));border-radius:16px;padding:20px;text-align:center}
+.ha h3{font-size:20px}
+.ha p{color:var(--muted);font-size:14.5px;margin-top:4px}
+.flow{display:flex;justify-content:center;color:var(--faint)}
+.flow svg{display:block}
+.ai-opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+@media (max-width:720px){.ai-opts{grid-template-columns:1fr}}
+.opt{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.opt.rec{border-color:var(--accent)}
+.opt .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.opt h3{margin:6px 0 8px}
+.opt ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
+
+/* serre */
+.serre{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:900px){.serre{grid-template-columns:1fr}}
+.phone{background:var(--panel);border:1px solid var(--line2);border-radius:26px;padding:20px;max-width:440px;width:100%;justify-self:center;box-shadow:0 30px 80px -40px rgba(0,0,0,.6)}
+.phone .ph-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.phone .ph-h b{font-family:var(--f-display);font-size:17px}
+.phone .ph-h small{font-family:var(--f-mono);color:var(--muted);font-size:11.5px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.tile{background:var(--bg2);border-radius:12px;padding:10px 12px}
+.tile small{color:var(--muted);font-size:11.5px;display:block}
+.tile b{font-family:var(--f-display);font-size:19px;font-weight:600}
+.beds{display:grid;gap:8px}
+.bed{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:var(--bg2);border-radius:12px;padding:10px 12px}
+.bed .leaf{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--s-ser) 18%,transparent)}
+.bed b{font-size:14px;display:block}
+.bed small{color:var(--muted);font-size:12.5px}
+.pill{font-family:var(--f-mono);font-size:11px;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:color-mix(in srgb,var(--s-ser) 20%,transparent);color:var(--s-ser)}
+.pill.warn{background:color-mix(in srgb,var(--warm) 20%,transparent);color:var(--warm)}
+.pill.harv{background:color-mix(in srgb,var(--s-sec) 18%,transparent);color:var(--s-sec)}
+.ai-msg{margin-top:12px;border:1px solid var(--line2);border-radius:14px;padding:12px 14px;font-size:13.5px;color:var(--fg)}
+.ai-msg span{font-family:var(--f-mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.steps li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--f-mono);color:var(--s-ser);font-size:14px;padding-top:2px}
+.steps b{display:block;font-family:var(--f-display);font-weight:600}
+.steps span{color:var(--muted);font-size:14.5px}
+
+/* day */
+.day{position:relative;display:grid;gap:0;margin-top:8px}
+.day::before{content:"";position:absolute;left:84px;top:8px;bottom:8px;width:1px;background:var(--line2)}
+.moment{display:grid;grid-template-columns:70px 28px 1fr;gap:0 12px;align-items:start;padding:14px 0}
+.moment time{font-family:var(--f-mono);font-size:14px;color:var(--muted);text-align:right;padding-top:2px}
+.moment .pt{width:13px;height:13px;border-radius:50%;margin:5px 0 0 8px;background:var(--bg);border:2px solid var(--accent);position:relative;z-index:1}
+.moment.night .pt{border-color:var(--s-pre)}
+.moment b{font-family:var(--f-display);font-weight:600;display:block}
+.moment span{color:var(--muted);font-size:14.5px}
+
+/* automations */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;align-items:center}
+.filters .count{margin-left:auto;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.auto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.auto{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.auto .top{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11.5px;color:var(--faint)}
+.auto .top i{width:7px;height:7px;border-radius:50%}
+.auto .ia{margin-left:auto;color:var(--accent-ink);background:var(--accent);padding:1px 7px;border-radius:5px;font-weight:500;letter-spacing:.05em}
+.auto h3{font-size:16px}
+.auto .trig{font-size:13px;color:var(--muted)}
+.auto .trig b{color:var(--fg);font-weight:600}
+.auto p{font-size:14px}
+
+/* options + footer */
+.opts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.optc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px}
+.optc b{font-family:var(--f-display);font-weight:600}
+.optc span{color:var(--muted);font-size:14px}
+.optc .pr{font-family:var(--f-mono);font-size:14px;color:var(--fg);margin-top:4px}
+.summary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:28px;align-items:start}
+@media (max-width:860px){.summary{grid-template-columns:1fr}}
+.recap{background:var(--panel);border:1px solid var(--line2);border-radius:20px;padding:24px}
+.recap .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.recap .row span:last-child{font-family:var(--f-mono)}
+.recap .row.tot{border:0;padding-top:16px;font-size:18px;font-weight:700}
+.recap .row.tot span:last-child{font-family:var(--f-display);font-size:24px}
+.notes{display:grid;gap:12px;color:var(--muted);font-size:14.5px}
+.notes li{margin-bottom:8px}
+footer{padding-block:44px;color:var(--faint);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="logo" href="#top">ASCIA<span>.</span></a>
+    <ul>
+      <li><a class="l" href="#plan">Plan</a></li>
+      <li><a class="l" href="#budget">Budget</a></li>
+      <li><a class="l" href="#systemes">Systèmes</a></li>
+      <li><a class="l" href="#ia">IA</a></li>
+      <li><a class="l" href="#serre">Serre</a></li>
+      <li><a class="l" href="#journee">Journée</a></li>
+      <li><a class="l" href="#automatisations">Automatisations</a></li>
+      <li><a class="l" href="#recap">Récapitulatif</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="mesh" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Soumission matériel · Forfait Premium filaire</p>
+      <h1 style="margin-top:18px">Chalet<b>Boreä</b></h1>
+      <p class="lead" style="margin-top:22px">Un chalet autonome de 600 pi² où l'éclairage, le climat, la sécurité, l'énergie solaire, l'eau de pluie, la serre et la zone Thermeä fonctionnent comme un seul système. 100 % local, sans abonnement, avec une IA qui reste dans la maison.</p>
+      <div class="meta"><span>New Way Living · Édition fondatrice 2026</span><span>24' × 25' · serre 10' × 12'</span><span>Soumission du 6 octobre 2026</span></div>
+    </div>
+    <aside class="total-card" aria-label="Total estimé">
+      <p class="k">Total matériel estimé</p>
+      <p class="v num" id="heroTotal">—</p>
+      <p class="sub">Avant taxes · main-d'œuvre et options exclues</p>
+      <div class="stats">
+        <div><b class="num" id="heroCount">—</b><small>appareils</small></div>
+        <div><b class="num">64</b><small>automatisations</small></div>
+        <div><b class="num">13</b><small>systèmes</small></div>
+        <div><b>0 $</b><small>abonnement mensuel</small></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">01 · Plan équipé</p>
+      <h2>Chaque pièce, chaque appareil</h2>
+      <p class="lead">Touchez une zone du plan pour voir ce qui y est installé. Les points représentent les appareils, colorés par système.</p>
+    </div>
+    <div class="plan-grid">
+      <div>
+        <div class="plan-box"><svg id="planSvg" viewBox="0 0 760 960" role="img" aria-label="Plan du chalet Boreä avec les appareils par zone"></svg></div>
+        <div class="legend" id="legend" aria-label="Filtrer par système"></div>
+      </div>
+      <div class="zone-panel" id="zonePanel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="budget">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">02 · Budget</p>
+      <h2>Où va l'investissement</h2>
+      <p class="lead">Répartition du matériel par système. Touchez une barre pour ouvrir le détail des appareils.</p>
+    </div>
+    <div class="budget">
+      <div class="bars" id="bars"></div>
+      <div class="split">
+        <div class="kpi ring">
+          <svg width="96" height="96" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="38" fill="none" stroke="var(--line2)" stroke-width="10"/><circle id="ringArc" cx="48" cy="48" r="38" fill="none" stroke="var(--accent)" stroke-width="10" stroke-linecap="round" transform="rotate(-90 48 48)" stroke-dasharray="0 999"/></svg>
+          <div><p class="k">Intelligence et pilotage</p><p class="v num" id="ringPct">—</p><p>Serveur, réseau, IA, capteurs et modules. Le reste est de l'équipement que le client utilise directement (audio, TV, stores, serrures).</p></div>
+        </div>
+        <div class="kpi"><p class="k">Coût moyen par appareil</p><p class="v num" id="avgDev">—</p><p>La majorité des appareils sont des capteurs et modules basse tension peu coûteux. Les gros postes sont l'audio-vidéo, les stores et le serveur.</p></div>
+        <div class="kpi"><p class="k">Ce qui est déjà amorti</p><p class="v">Énergie et eau</p><p>Le délestage solaire, le chauffe-eau sur surplus et l'arrosage à l'eau de pluie réduisent directement la taille des batteries et la consommation d'eau.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="systemes">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">03 · Systèmes et prix</p>
+      <h2>La liste complète du matériel</h2>
+      <p class="lead">Quantités estimées à partir du plan, prix unitaires en dollars canadiens. Les modèles en 120 V sont certifiés pour l'Amérique du Nord.</p>
+    </div>
+    <div class="tabs" id="tabs" role="tablist" aria-label="Systèmes"></div>
+    <div class="sys" id="sysPanel" role="tabpanel"></div>
+  </div>
+</section>
+
+<section id="ia">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">04 · Intelligence artificielle</p>
+      <h2>L'IA observe et conseille. Home Assistant décide.</h2>
+      <p class="lead">Toute l'IA tourne sur le serveur du chalet. Aucune image ni conversation ne sort de la maison, et l'IA ne peut jamais agir hors des règles de sécurité fixées : elle ne peut pas, par exemple, allumer un foyer ou ouvrir la valve d'eau d'elle-même.</p>
+    </div>
+    <div class="ai">
+      <p class="ai-label">Ce que la maison perçoit</p>
+      <div class="ai-row">
+        <div class="ai-card"><h3>Caméras</h3><p>Terrain, porte d'entrée, Thermeä et serre</p></div>
+        <div class="ai-card"><h3>Capteurs</h3><p>Climat, sol, radars, énergie, eau</p></div>
+        <div class="ai-card"><h3>Voix et iPad</h3><p>Questions et commandes en français</p></div>
+        <div class="ai-card"><h3>Météo et solaire</h3><p>Prévisions sur 48 heures</p></div>
+      </div>
+      <div class="flow" aria-hidden="true"><svg width="20" height="30"><path d="M10 2v24M4 20l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="ai-core">
+        <p class="ai-label" style="margin-bottom:12px">Serveur IA local</p>
+        <div class="ai-row">
+          <div class="ai-card"><h3>Frigate</h3><p>Personnes, véhicules, faune, plaques, colis, avec description de l'événement</p></div>
+          <div class="ai-card"><h3>Vision des plantes</h3><p>Maladies, ravageurs, carences, fruits mûrs</p></div>
+          <div class="ai-card"><h3>Assistant local</h3><p>Modèle de langage via Ollama : résumés, conseils, planification</p></div>
+          <div class="ai-card"><h3>Voix locale</h3><p>Whisper pour écouter, Piper pour répondre</p></div>
+        </div>
+      </div>
+      <div class="flow" aria-hidden="true"><svg width="20" height="30"><path d="M10 2v24M4 20l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="ha"><h3>Home Assistant · ASCIA OS</h3><p>Automatisations, historique et règles de sécurité. Toute action passe par ici.</p></div>
+      <div class="flow" aria-hidden="true"><svg width="20" height="30"><path d="M10 2v24M4 20l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="ai-row">
+        <div class="ai-card"><h3>Notifications</h3><p>Photo et explication en une phrase</p></div>
+        <div class="ai-card"><h3>iPad et écrans</h3><p>Carnet du jardinier, rapports, application 3D</p></div>
+        <div class="ai-card"><h3>Réponse vocale</h3><p>Briefing du matin, alertes</p></div>
+        <div class="ai-card"><h3>Actions</h3><p>Arrosage, stores, chauffage, alarme</p></div>
+      </div>
+    </div>
+    <div class="ai-opts">
+      <div class="opt rec">
+        <p class="tag">Inclus dans cette soumission</p>
+        <h3>Option légère</h3>
+        <ul><li>Serveur NUC + accélérateur Hailo-8</li><li>Environ 60 à 80 W pour tout le rack, en continu</li><li>Détection caméras, voix, diagnostics de la serre</li><li>Réponses de l'assistant plus simples</li></ul>
+      </div>
+      <div class="opt">
+        <p class="tag">En option · environ 2 400 $</p>
+        <h3>Option complète</h3>
+        <ul><li>Mini-PC avec carte graphique 16 Go</li><li>Réveillé sur demande ou pendant le surplus solaire, endormi la nuit</li><li>Assistant conversationnel plus riche, descriptions vidéo détaillées</li><li>La sécurité reste toujours active sur le NUC</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="serre">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">05 · Serre intelligente</p>
+      <h2>Un jardinier qui ne dort jamais</h2>
+      <p class="lead">La serre de 10' × 12' se régule seule : climat, eau de pluie, lumière. Trois caméras photographient les bacs chaque jour et l'IA locale explique ce qu'elle voit.</p>
+    </div>
+    <div class="serre">
+      <div class="phone" aria-label="Exemple d'écran du carnet du jardinier">
+        <div class="ph-h"><b>Carnet du jardinier</b><small>Exemple · mardi 10 h 02</small></div>
+        <div class="tiles">
+          <div class="tile"><small>Air</small><b class="num">23,4°</b></div>
+          <div class="tile"><small>Humidité</small><b class="num">68 %</b></div>
+          <div class="tile"><small>Lumière (DLI)</small><b class="num">14,2</b></div>
+          <div class="tile"><small>CO₂</small><b class="num">640</b></div>
+          <div class="tile"><small>Pluie dispo.</small><b class="num">1 840 L</b></div>
+          <div class="tile"><small>Arrosé aujourd'hui</small><b class="num">22 L</b></div>
+        </div>
+        <div class="beds">
+          <div class="bed"><div class="leaf"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14zm0 0 7-7" fill="none" stroke="var(--s-ser)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><b>Bac 1 · Tomates cerises</b><small>Sol 41 % · stade fructification</small></div><span class="pill harv">4 à cueillir</span></div>
+          <div class="bed"><div class="leaf"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14zm0 0 7-7" fill="none" stroke="var(--s-ser)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><b>Bac 2 · Concombres</b><small>Sol 36 % · humidité nocturne 88 %</small></div><span class="pill warn">À surveiller</span></div>
+          <div class="bed"><div class="leaf"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14zm0 0 7-7" fill="none" stroke="var(--s-ser)" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><b>Bac 3 · Basilic et fines herbes</b><small>Sol 48 % · croissance +12 % / semaine</small></div><span class="pill ok">En santé</span></div>
+        </div>
+        <div class="ai-msg"><span>Analyse IA</span>Petites taches jaunes sur 3 feuilles de concombre, et l'humidité dépasse 85 % la nuit depuis 3 jours. Risque d'oïdium. J'augmente le brassage d'air de 22 h à 6 h. Retirez les feuilles touchées si possible.</div>
+      </div>
+      <ol class="steps">
+        <li><div><b>Photo quotidienne</b><span>Chaque bac est photographié à 10 h, toujours dans la même lumière. Les photos sont archivées et une vidéo accélérée de la saison se crée seule.</span></div></li>
+        <li><div><b>Diagnostic visuel</b><span>Feuilles jaunies, taches, pucerons, aleurodes, manque d'eau ou brûlure de lumière, détectés par un modèle de vision local.</span></div></li>
+        <li><div><b>Croisement avec les capteurs</b><span>L'IA relie ce qu'elle voit à l'humidité, la température, le sol et la lumière pour expliquer la cause probable, puis ajuste la ventilation ou l'arrosage.</span></div></li>
+        <li><div><b>Récolte</b><span>Détection des fruits mûrs et notification du nombre prêt à cueillir.</span></div></li>
+        <li><div><b>Plan de culture</b><span>Le client dit ce qu'il veut faire pousser ; l'IA propose un calendrier de semis selon la lumière mesurée et règle les consignes de chaque bac.</span></div></li>
+        <li><div><b>Journal du dimanche</b><span>Résumé en français : croissance, eau de pluie utilisée, problèmes réglés, tâches de la semaine.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="journee">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">06 · Une journée au Boreä</p>
+      <h2>Ce que le client vit, heure par heure</h2>
+      <p class="lead">Un exemple de journée d'hiver ensoleillée, sans qu'aucun bouton ne soit nécessaire.</p>
+    </div>
+    <div class="day" id="day"></div>
+  </div>
+</section>
+
+<section id="automatisations">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">07 · Automatisations</p>
+      <h2>64 automatisations prêtes à la livraison</h2>
+      <p class="lead">Filtrez par moment de vie. Le badge IA indique celles qui utilisent l'intelligence artificielle locale.</p>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="auto-grid" id="autoGrid"></div>
+  </div>
+</section>
+
+<section id="options">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">08 · Options</p>
+      <h2>À ajouter selon les envies</h2>
+      <p class="lead">Non incluses dans le total. Prix matériel estimés.</p>
+    </div>
+    <div class="opts-grid" id="optsGrid"></div>
+  </div>
+</section>
+
+<section id="recap" style="border-bottom:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">09 · Récapitulatif</p>
+      <h2>Total du matériel</h2>
+    </div>
+    <div class="summary">
+      <div class="notes">
+        <p>Cette soumission couvre le matériel uniquement. L'installation, la programmation des 64 automatisations, la configuration de l'IA et la formation font l'objet d'un devis séparé.</p>
+        <ul>
+          <li>Prix en dollars canadiens, avant TPS et TVQ, estimés au 6 octobre 2026. Ils seront confirmés selon la disponibilité des fournisseurs.</li>
+          <li>Les quantités sont établies à partir du plan. Elles seront ajustées après la visite et la validation des modèles du spa, du sauna, du foyer, de la thermopompe et de l'onduleur solaire.</li>
+          <li>Les luminaires de base (pots, appliques) fournis par l'électricien ne sont pas inclus. Les stores comprennent le tissu et le moteur.</li>
+          <li>Tout fonctionne sans internet et sans abonnement. La connexion sert seulement aux notifications à distance et au support ASCIA.</li>
+          <li>La reconnaissance faciale et la lecture de plaques sont activées seulement avec le consentement du client (Loi 25).</li>
+        </ul>
+      </div>
+      <div class="recap" id="recapBox"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo" style="font-size:15px">ASCIA<span>.</span></span>
+    <span>Designed for a better living · info@ascia.ca · (514) 891-6213</span>
+  </div>
+</footer>
+
+<script>
+const SYS = [
+  {id:'infra', name:'Infrastructure', fam:'inf', desc:"Le cerveau du chalet, dans un mini-rack ventilé de la salle mécanique, alimenté par les batteries solaires via un UPS.", items:[
+    ['Serveur Home Assistant · Core Ultra 7, 32 Go, NVMe 1 To','ASUS NUC 14 Pro',1,1150,'HA, Zigbee2MQTT, Frigate, Music Assistant'],
+    ['Accélérateur IA M.2','Hailo-8',1,320,'Vision IA caméras et serre'],
+    ['Coordinateur Zigbee + Thread PoE','SMLight SLZB-MR1',1,120,'Un seul réseau suffit pour 600 pi²'],
+    ['Passerelle routeur + VLAN','UniFi Cloud Gateway Max',1,330,'Réseaux IoT, caméras, invités séparés'],
+    ['Switch PoE 16 ports','UniFi USW-Lite-16-PoE',1,320,'Caméras, iPad, points d\'accès'],
+    ['Point d\'accès WiFi 7 intérieur','UniFi U7 Pro',1,300,''],
+    ['Point d\'accès WiFi extérieur','UniFi U7 Outdoor',1,330,'Terrasse et zone Thermeä'],
+    ['NAS 2 baies + 2 disques 4 To (RAID 1)','Synology DS224+',1,880,'Vidéo, sauvegardes, photos de la serre'],
+    ['UPS en ligne 1500 VA','CyberPower OL1500',1,620,'Arrêt propre géré par NUT'],
+    ['Mini-rack mural 9U ventilé','StarTech / Navepoint',1,260,'Ventilateur piloté par sonde'],
+    ['Sonde de température du rack','Aqara',1,25,'Alerte surchauffe']]},
+  {id:'ecl', name:'Éclairage', fam:'ecl', desc:"14 circuits intérieurs, 9 extérieurs. Interrupteurs qui fonctionnent même sans serveur, LED 24 V pour l'ambiance chaude du plan.", items:[
+    ['Interrupteur gradateur Zigbee 2-en-1 (cUL)','Inovelli Blue',9,95,'Avec ou sans neutre, mode lampe intelligente'],
+    ['Relais Zigbee encastré','Sonoff ZBMINI-R2 / Aqara T2',7,30,'Appliques, sentiers, sauna, spa, foyer'],
+    ['Contrôleur LED RGBW / CCT Zigbee','Gledopto Pro',8,45,'Corniche, armoires, plinthes, lit, miroir, marches'],
+    ['Bande LED 24 V haute densité · 40 m + alimentations','COB 24 V + Mean Well',1,520,'Lot complet'],
+    ['Kit synchronisation TV HDMI « ASCIA Sync »','HyperHDR + WLED',1,220,'Capture HDMI, ESP32, bande LED'],
+    ['Ampoules Zigbee de chevet','Aqara T2',2,28,''],
+    ['Module gradateur 0-10 V Zigbee','Sunricher',1,55,'Rampes horticoles de la serre'],
+    ['Rampes LED horticoles pleine lumière','Spider Farmer SF-2000',2,290,'Complément d\'hiver'],
+    ['Prise extérieure étanche Zigbee','Sonoff / Aqara',1,45,'Guirlandes de terrasse'],
+    ['Projecteurs RGBW extérieurs (uplights)','Gledopto IP65',4,90,'Arbres et rocailles'],
+    ['Bornes de sentier 12 V + transformateur','Lot paysager',1,620,'Sentiers Thermeä'],
+    ['Télécommande murale à scènes','Aqara H1 / Hue Tap',3,40,'Entrée, chevet, porte de la serre']]},
+  {id:'cli', name:'Climat et air', fam:'cli', desc:"Plancher radiant en base, thermopompe pour les ajustements rapides. Le pilotage est prédictif et utilise le soleil des grandes fenêtres.", items:[
+    ['Thermostat de zone plancher hydronique Zigbee','Sinopé TH1400ZB',3,165,'Aire ouverte, chambre, salle de bain'],
+    ['Relais pompe / chaudière du radiant','Sinopé RM3250ZB',1,90,''],
+    ['Module local pour thermopompe murale','ESPHome CN105 / UART',1,55,'Sans infrarouge ni cloud'],
+    ['Module d\'allumage du foyer au gaz','Selon fabricant',1,180,'Avec sécurités'],
+    ['Relais multi-vitesses pour VRC','Sonoff ZBMINI × 2',1,60,''],
+    ['Relais ventilateurs (salle de bain, toiture)','Sonoff ZBMINI-R2',2,30,''],
+    ['Capteur température / humidité Zigbee','Aqara T1',5,25,''],
+    ['Moniteur qualité d\'air CO₂, COV, PM2.5','Apollo AIR-1',2,120,''],
+    ['Détecteur de radon','Airthings Wave Radon',1,260,''],
+    ['Station météo (vent, pluie, UV)','Ecowitt WS90 + GW2000',1,420,'Locale'],
+    ['Store motorisé Zigbee, fenêtres pleine hauteur','Zemismart / Coulisse',4,480,'Tissu + moteur'],
+    ['Store motorisé Zigbee, chambre et salle de bain','Zemismart',3,360,'Tissu + moteur'],
+    ['Toile d\'ombrage motorisée de la serre + relais','Moteur tubulaire + Sonoff',1,420,'']]},
+  {id:'ala', name:'Alarme', fam:'sec', desc:"Konnected Alarm Pro et Alarmo. Tous les capteurs sont filaires et invisibles, pensés pour un chalet souvent inoccupé.", items:[
+    ['Panneau d\'alarme','Konnected Alarm Pro',1,420,''],
+    ['Contact encastré filaire (portes et fenêtres)','GRI / Honeywell',11,16,'3 portes, 8 fenêtres'],
+    ['Détecteur de mouvement filaire','Bosch Blue Line',2,45,''],
+    ['Détecteur de bris de vitre filaire','Honeywell FG-1625',2,65,'Fenêtres pleine hauteur, serre'],
+    ['Avertisseur fumée / CO câblé interconnecté','Kidde',3,75,''],
+    ['Module relais d\'avertisseurs','Kidde SM120X',1,55,''],
+    ['Détecteur de gaz (foyer)','Filaire 12 V',1,70,''],
+    ['Sirène intérieure + sirène extérieure stroboscope','Filaires',2,75,''],
+    ['Bouton panique','Filaire',2,30,'Chambre, entrée'],
+    ['Capteur de fuite filaire','Filaire',4,25,''],
+    ['Valve d\'eau principale motorisée Zigbee','Sinopé Sedna',1,520,'Fermeture automatique'],
+    ['Sonde de gel des tuyaux','Aqara',1,25,'']]},
+  {id:'cam', name:'Caméras', fam:'sec', desc:"Reolink PoE et Frigate. Le NVR enregistre en continu, Frigate détecte et décrit. Aucune caméra dans les pièces de vie.", items:[
+    ['Sonnette vidéo PoE (interphone)','Reolink Video Doorbell PoE',1,200,'Réponse depuis l\'iPad'],
+    ['Caméra 4K PoE vision de nuit couleur','Reolink RLC-1240A',4,170,'Terrasse, arrière, côté, stationnement'],
+    ['Caméra double objectif 180°','Reolink Duo 3 PoE',1,300,'Zone Thermeä'],
+    ['Caméra de la serre (vue d\'ensemble)','Reolink E1 Outdoor PoE',1,160,'Yeux de l\'IA'],
+    ['Caméra gros plan des bacs','ESP32-S3 + capteur 5 MP',2,45,''],
+    ['Enregistreur NVR 8 canaux, 2 To','Reolink RLN8-410',1,460,'']]},
+  {id:'acc', name:'Accès', fam:'sec', desc:"Serrures Matter sur Thread, gérées en local par Home Assistant. Codes invités temporaires.", items:[
+    ['Serrure à empreinte Matter-over-Thread, porte avant','Aqara U200',1,380,''],
+    ['Serrure intelligente, porte de la serre','Aqara U100 / U200 Lite',1,300,'']]},
+  {id:'ene', name:'Énergie', fam:'ene', desc:"Le gestionnaire solaire : il décide quoi alimenter selon le soleil et l'état des batteries.", items:[
+    ['Passerelle onduleur / batteries (Modbus, MQTT local)','Victron Cerbo GX ou équivalent',1,380,'Selon l\'onduleur installé'],
+    ['Mesure par circuit, 16 circuits','Emporia Vue 3 (ESPHome)',1,280,''],
+    ['Contrôleur du chauffe-eau 60 gal','Sinopé RM3500ZB',1,190,'Chauffe sur surplus'],
+    ['Contacteur de puissance piloté (spa, sauna)','Contacteur 40 A + relais',2,160,'Délestage'],
+    ['Prise Zigbee avec mesure d\'énergie','Sonoff S60 / Aqara',6,32,'']]},
+  {id:'eau', name:'Eau', fam:'ene', desc:"Eau de pluie, eaux grises et réseau. La maison sait combien il reste et où ça coule.", items:[
+    ['Capteur de niveau de réservoir','ESPHome ultrason / pression',2,85,'Pluie et eaux grises'],
+    ['Débitmètre','ESPHome',3,90,'Entrée, pluie, eaux grises'],
+    ['Capteur de pression différentielle (filtres)','ESPHome',2,75,''],
+    ['Capteur qualité de l\'eau TDS / pH','Atlas / DFRobot',1,160,''],
+    ['Relais de pompe','Sonoff ZBMINI-R2',2,30,''],
+    ['Électrovanne de bascule pluie / réseau','Motorisée 3/4"',1,160,''],
+    ['Relais de l\'aspirateur central','Sonoff',1,30,''],
+    ['Sonde de température des réservoirs','Aqara',2,25,'Anti-gel']]},
+  {id:'ser', name:'Serre', fam:'ser', desc:"Climat, arrosage goutte-à-goutte à l'eau de pluie, ventilation et carnet du jardinier IA.", items:[
+    ['Capteur température / humidité (haut, bas)','Aqara T1',2,25,''],
+    ['Capteur de CO₂','Apollo MTR-1 / SCD40',1,90,''],
+    ['Capteur de lumière PAR','Apogee SQ / ESPHome',1,190,'Calcul du DLI'],
+    ['Sonde d\'humidité du sol capacitive','ESPHome / Zigbee',6,30,'Une par bac'],
+    ['Sonde de température du sol','DS18B20',2,20,''],
+    ['Électrovanne goutte-à-goutte par zone','Zigbee 24 V',4,45,''],
+    ['Kit goutte-à-goutte complet','Rain Bird',1,160,''],
+    ['Ventilateur d\'extraction et de brassage','AC Infinity',2,130,''],
+    ['Ouvre-fenêtre de toit motorisé','Actionneur 24 V',1,210,''],
+    ['Brumisateur (vanne + buses)','Kit',1,180,''],
+    ['Chauffage d\'appoint et tapis de semis','Prise Zigbee incluse',2,85,''],
+    ['Écran 7" étanche « carnet du jardinier »','Tablette durcie',1,260,'']]},
+  {id:'the', name:'Zone Thermeä', fam:'the', desc:"Spa, sauna, bain froid et foyer extérieur, lancés en une session et chauffés sur le surplus solaire.", items:[
+    ['Module de contrôle du spa','Balboa / Gecko local',1,260,''],
+    ['Analyseur d\'eau du spa flottant','Sutro / ESPHome',1,220,'pH, chlore, température'],
+    ['Capteur du couvercle du spa','Aqara',1,25,''],
+    ['Sonde haute température du sauna','ESPHome',1,90,'Contacteur compté en Énergie'],
+    ['Contact de porte + présence du sauna','Aqara',2,40,'Sécurité'],
+    ['Contrôle du bain froid (contacteur + sonde)','ESPHome',1,160,''],
+    ['Vanne et allumage du foyer extérieur au gaz','Selon fabricant',1,360,''],
+    ['Haut-parleurs extérieurs (paire)','Polk Atrium 6',2,420,''],
+    ['Bouton d\'appel étanche','Aqara',1,40,'']]},
+  {id:'med', name:'Multimédia', fam:'med', desc:"Multiroom WiiM et Music Assistant, local et sans dépendre de Sonos. Cinéma au salon.", items:[
+    ['Haut-parleurs encastrés au plafond (paire)','Polk RC80i',2,320,'Aire ouverte, chambre'],
+    ['Haut-parleur encastré humidité','Polk RC60i',1,160,'Salle de bain'],
+    ['Amplificateur multiroom','WiiM Amp Pro',4,460,''],
+    ['Haut-parleurs extérieurs terrasse (paire)','Polk Atrium 5',1,380,''],
+    ['Récepteur cinéma + enceintes 3.1','Yamaha RX-V4A + Paradigm',1,1650,''],
+    ['Téléviseur 65"','LG C5 OLED',1,2200,''],
+    ['Lecteur multimédia','Apple TV 4K',1,200,''],
+    ['Télécommande intelligente','Unfolded Circle Remote 3',1,560,'Intégrée à HA']]},
+  {id:'int', name:'Interfaces et voix', fam:'inf', desc:"Un iPad principal, des écrans à la marque ASCIA, et une voix 100 % locale en français.", items:[
+    ['Tableau de bord principal','iPad Air 11"',1,880,'Application 3D, interphone'],
+    ['Boîtier mural encastré PoE pour iPad','iPort Surface Mount',1,520,''],
+    ['Écran mural 4" ASCIA','ESP32-S3 86 mm',2,75,'Chambre, porte de la serre'],
+    ['Assistant vocal local','Home Assistant Voice PE',3,85,''],
+    ['Tag NFC','NTAG215 ASCIA',10,3,'']]},
+  {id:'pre', name:'Présence et bien-être', fam:'pre', desc:"Radar pour réagir à l'instant, Bluetooth pour savoir qui est là. Sommeil et chute sans caméra.", items:[
+    ['Capteur de présence mmWave + PIR + proxy Bluetooth','Everything Presence One',4,115,'Salon, cuisine, chambre, serre'],
+    ['Capteur mmWave de plafond','Apollo MSR-2',1,70,'Salle de bain'],
+    ['Capteur de présence extérieur','Aqara FP / PIR IP65',2,70,''],
+    ['Radar 60 GHz respiration et sommeil','Seeed MR60BHA2',1,65,''],
+    ['Radar 60 GHz détection de chute','Seeed MR60FDA2',1,65,'Salle de bain'],
+    ['Capteur de lit (cellules de charge)','ESPHome',1,85,''],
+    ['Capteur de vibration de fenêtre','Aqara',2,25,''],
+    ['Proxy Bluetooth PoE','Olimex ESP32-POE',1,60,'Couvre la Thermeä'],
+    ['Balise Bluetooth porte-clés','Feasycom / Ruuvi',2,30,'']]}
+];
+const FAM = {
+  ecl:{n:'Éclairage',c:'var(--s-ecl)'}, cli:{n:'Climat',c:'var(--s-cli)'}, sec:{n:'Sécurité',c:'var(--s-sec)'},
+  ene:{n:'Énergie et eau',c:'var(--s-ene)'}, ser:{n:'Serre',c:'var(--s-ser)'}, the:{n:'Thermeä',c:'var(--s-the)'},
+  med:{n:'Multimédia',c:'var(--s-med)'}, pre:{n:'Présence',c:'var(--s-pre)'}, inf:{n:'Réseau et interfaces',c:'var(--s-inf)'}
+};
+const OPTIONS = [
+  ['Option IA complète','Mini-PC avec carte graphique 16 Go, réveillé sur demande',2400],
+  ['Support TV motorisé descendant','Ramène la TV du foyer à hauteur des yeux',1900],
+  ['Cinéma extérieur','Projecteur Epson et toile sous la terrasse',2600],
+  ['Borne de recharge VE OCPP','Grizzl-E, recharge sur surplus solaire',700],
+  ['Internet de secours','Starlink ou routeur LTE sur la passerelle',650],
+  ['Génératrice à démarrage automatique','Si les batteries sont critiques en hiver',6500],
+  ['Pompe doseuse d\'engrais','Fertigation automatique de la serre',180],
+  ['Clé Z-Wave 800','Seulement si une serrure Z-Wave est choisie',60]
+];
+const money = v => Math.round(v).toLocaleString('fr-CA') + ' $';
+SYS.forEach(s => { s.total = s.items.reduce((a,i)=>a+i[2]*i[3],0); s.count = s.items.reduce((a,i)=>a+i[2],0); });
+const GRAND = SYS.reduce((a,s)=>a+s.total,0);
+const COUNT = SYS.reduce((a,s)=>a+s.count,0);
+document.getElementById('heroTotal').textContent = money(GRAND);
+document.getElementById('heroCount').textContent = COUNT;
+
+/* hero mesh */
+(function(){
+  const cv=document.getElementById('mesh'); const ctx=cv.getContext('2d'); let W,H,pts=[];
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*devicePixelRatio;cv.height=H*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+    pts=Array.from({length:Math.round(W*H/16000)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18}));}
+  function draw(){const col=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();ctx.clearRect(0,0,W,H);
+    for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
+    ctx.strokeStyle=col;ctx.fillStyle=col;
+    for(let i=0;i<pts.length;i++){const a=pts[i];for(let j=i+1;j<pts.length;j++){const b=pts[j];const d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){ctx.globalAlpha=(1-d/120)*.22;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+      ctx.globalAlpha=.5;ctx.beginPath();ctx.arc(a.x,a.y,1.4,0,7);ctx.fill();}
+    ctx.globalAlpha=1; if(!reduce) requestAnimationFrame(draw);}
+  size();draw();addEventListener('resize',size);
+})();
+
+/* plan */
+const ZONES = [
+  {id:'chambre',name:'Chambre',shape:'rect',x:40,y:40,w:260,h:240,desc:"13' × 12', plafond 8'. Réveil naturel, sommeil suivi sans caméra.",dev:[['ecl',4,'Interrupteur, LED sous le lit, 2 ampoules de chevet'],['cli',4,'Thermostat de zone, capteur T/H, qualité d\'air, 2 stores'],['sec',4,'2 contacts de fenêtre, mouvement, avertisseur, panique'],['pre',3,'Presence One, radar sommeil, capteur de lit'],['med',2,'Haut-parleurs encastrés, ampli'],['inf',2,'Écran 4", assistant vocal']]},
+  {id:'sdb',name:'Salle de bain',shape:'rect',x:300,y:40,w:110,h:160,desc:"6' × 8'. Plancher chaud au réveil, ventilation selon l'humidité.",dev:[['ecl',2,'Interrupteur, LED miroir et veilleuse'],['cli',4,'Thermostat, capteur T/H, ventilateur, store'],['sec',2,'Contact de fenêtre, capteur de fuite'],['pre',2,'Radar de plafond, radar de chute'],['med',1,'Haut-parleur résistant à l\'humidité']]},
+  {id:'meca',name:'Salle méca.',shape:'rect',x:410,y:40,w:110,h:240,desc:"Le cerveau du chalet : rack, alarme, énergie et eau.",dev:[['inf',10,'Serveur, IA, Zigbee/Thread, routeur, switch, NAS, UPS, rack'],['sec',6,'Konnected, NVR, avertisseur, fuites, valve, sonde de gel'],['ene',13,'Onduleur, Emporia, chauffe-eau, contacteurs, réservoirs, débitmètres, filtres'],['cli',2,'Relais du radiant, VRC'],['ecl',1,'Interrupteur auto à l\'ouverture']]},
+  {id:'vie',name:'Aire ouverte',shape:'rect',x:40,y:280,w:480,h:260,desc:"Salon, salle à manger et cuisine, plafond cathédral 14'. Foyer, TV, grandes fenêtres.",dev:[['ecl',9,'Interrupteurs, corniche, foyer, armoires, plinthes, synchro TV, télécommande'],['cli',8,'Thermostat, thermopompe, foyer, 4 stores, T/H, qualité d\'air, radon'],['sec',8,'Contacts, mouvement, bris de vitre, avertisseur, gaz, vibrations'],['pre',2,'2 Presence One'],['med',7,'Haut-parleurs, ampli, cinéma 3.1, TV, Apple TV, télécommande'],['inf',4,'iPad encastré, assistant vocal, tags NFC'],['ene',3,'Prises intelligentes']]},
+  {id:'serre',name:'Serre',shape:'rect',x:520,y:300,w:200,h:240,desc:"10' × 12' vitrée. Climat, arrosage à l'eau de pluie, 3 caméras pour l'IA.",dev:[['ser',22,'Capteurs air, CO₂, PAR, 6 sondes de sol, 4 vannes, ventilation, fenêtre, brumisateur, chauffage, écran'],['ecl',3,'2 rampes horticoles, module 0-10 V'],['sec',5,'3 caméras, contact de porte, serrure'],['cli',1,'Toile d\'ombrage'],['pre',1,'Presence One'],['inf',2,'Écran 4", assistant vocal']]},
+  {id:'terrasse',name:'Terrasse',shape:'rect',x:40,y:540,w:480,h:160,desc:"24' × 8' couverte. Salon extérieur, marches éclairées, musique.",dev:[['ecl',5,'Pots, marches LED, appliques, guirlandes'],['sec',3,'Sonnette vidéo, caméra, serrure de la porte avant'],['med',2,'Haut-parleurs extérieurs, ampli'],['pre',1,'Présence extérieure'],['cli',1,'Station météo']]},
+  {id:'thermea',name:'Thermeä',shape:'circle',x:380,y:830,r:115,desc:"Sauna tonneau, spa, bain froid et foyer extérieur.",dev:[['the',11,'Spa, analyseur d\'eau, couvercle, sauna, porte, bain froid, foyer, haut-parleurs, bouton d\'appel'],['ecl',6,'Sentiers, uplights, foyer, spa, sauna'],['sec',1,'Caméra 180°'],['ene',2,'Contacteurs spa et sauna'],['pre',2,'Présence extérieure, proxy Bluetooth'],['med',1,'Ampli']]}
+];
+const famOn = Object.fromEntries(Object.keys(FAM).map(k=>[k,true]));
+let currentZone='vie';
+const svg=document.getElementById('planSvg'); const NS='http://www.w3.org/2000/svg';
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e;}
+function seeded(n){let s=n*9301+49297;return()=>{s=(s*9301+49297)%233280;return s/233280;};}
+function drawPlan(){
+  svg.innerHTML='';
+  el('text',{x:40,y:24,fill:'var(--faint)','font-family':'JetBrains Mono, monospace','font-size':12,'letter-spacing':'1'}).textContent="24'-0\"  ·  ÉCHELLE INDICATIVE";
+  el('path',{d:'M380 700 V 715',stroke:'var(--line2)','stroke-dasharray':'4 4'});
+  ZONES.forEach((z,zi)=>{
+    const g=el('g',{class:'zone'+(z.id===currentZone?' on':''),tabindex:0,role:'button','aria-label':z.name});
+    if(z.shape==='rect') el('rect',{class:'z',x:z.x,y:z.y,width:z.w,height:z.h,rx:6},g);
+    else el('circle',{class:'z',cx:z.x,cy:z.y,r:z.r},g);
+    const lx=z.shape==='rect'?z.x+14:z.x, ly=z.shape==='rect'?z.y+24:z.y-z.r+28;
+    el('text',{x:lx,y:ly,'text-anchor':z.shape==='rect'?'start':'middle'},g).textContent=z.name;
+    const rnd=seeded(zi+3); const dots=[];
+    z.dev.forEach(([f,n])=>{for(let i=0;i<n;i++)dots.push(f);});
+    dots.forEach((f,i)=>{
+      let x,y;
+      if(z.shape==='rect'){const cols=Math.max(4,Math.floor((z.w-28)/22));const cx=i%cols, cy=Math.floor(i/cols);x=z.x+22+cx*((z.w-44)/Math.max(1,cols-1));y=z.y+50+cy*20; x+= (rnd()-.5)*6; y+=(rnd()-.5)*6;}
+      else {const a=i/dots.length*Math.PI*2, rr=40+ (i%3)*22; x=z.x+Math.cos(a)*rr; y=z.y+16+Math.sin(a)*rr*.8;}
+      el('circle',{class:'dot',cx:x.toFixed(1),cy:y.toFixed(1),r:famOn[f]?5.5:3,fill:FAM[f].c,opacity:famOn[f]?.95:.15},g);
+    });
+    const pick=()=>{currentZone=z.id;drawPlan();renderZone();};
+    g.addEventListener('click',pick); g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick();}});
+  });
+}
+function renderZone(){
+  const z=ZONES.find(x=>x.id===currentZone); const n=z.dev.reduce((a,d)=>a+d[1],0);
+  document.getElementById('zonePanel').innerHTML=`<p class="eyebrow">${n} appareils</p><h3 style="margin-top:8px">${z.name}</h3><p class="zdesc">${z.desc}</p><ul class="zlist">${z.dev.map(([f,c,t])=>`<li><i style="background:${FAM[f].c}"></i><span><b style="color:var(--fg);font-family:var(--f-body);font-weight:600;font-size:14.5px">${FAM[f].n}</b><br><span style="color:var(--muted)">${t}</span></span><b>× ${c}</b></li>`).join('')}</ul>`;
+}
+const leg=document.getElementById('legend');
+Object.entries(FAM).forEach(([k,f])=>{const b=document.createElement('button');b.className='chip';b.setAttribute('aria-pressed','true');b.innerHTML=`<i style="background:${f.c}"></i>${f.n}`;b.onclick=()=>{famOn[k]=!famOn[k];b.setAttribute('aria-pressed',famOn[k]);drawPlan();};leg.appendChild(b);});
+drawPlan();renderZone();
+
+/* bars */
+const sorted=[...SYS].sort((a,b)=>b.total-a.total); const max=sorted[0].total;
+const barsEl=document.getElementById('bars');
+barsEl.innerHTML=sorted.map(s=>`<div class="bar" data-id="${s.id}" role="button" tabindex="0" aria-label="${s.name}, ${money(s.total)}"><span class="n">${s.name}</span><span class="track"><span data-w="${(s.total/max*100).toFixed(1)}" style="width:0;background:${FAM[s.fam].c}"></span></span><span class="p num">${money(s.total)}</span></div>`).join('');
+requestAnimationFrame(()=>setTimeout(()=>barsEl.querySelectorAll('.track span').forEach(e=>e.style.width=e.dataset.w+'%'),60));
+barsEl.querySelectorAll('.bar').forEach(b=>{const go=()=>{selectSys(b.dataset.id);document.getElementById('systemes').scrollIntoView({behavior:'smooth'});};b.onclick=go;b.onkeydown=e=>{if(e.key==='Enter')go();};});
+const brain=['infra','ala','cam','ene','eau','ser','pre'].reduce((a,id)=>a+SYS.find(s=>s.id===id).total,0)+SYS.find(s=>s.id==='int').total;
+const pct=brain/GRAND; document.getElementById('ringPct').textContent=Math.round(pct*100)+' %';
+const C=2*Math.PI*38; document.getElementById('ringArc').setAttribute('stroke-dasharray',`${(C*pct).toFixed(1)} ${C}`);
+document.getElementById('avgDev').textContent=money(GRAND/COUNT);
+
+/* tabs */
+const tabsEl=document.getElementById('tabs');
+SYS.forEach(s=>{const b=document.createElement('button');b.className='tab';b.role='tab';b.id='tab-'+s.id;b.setAttribute('aria-selected','false');b.innerHTML=`<i style="background:${FAM[s.fam].c}"></i>${s.name}`;b.onclick=()=>selectSys(s.id);tabsEl.appendChild(b);});
+function selectSys(id){
+  const s=SYS.find(x=>x.id===id);
+  tabsEl.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t.id==='tab-'+id));
+  document.getElementById('tab-'+id).scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+  document.getElementById('sysPanel').innerHTML=`<div class="sys-top"><div><h3 style="font-size:26px">${s.name}</h3><p>${s.desc}</p></div><div class="t"><b class="num">${money(s.total)}</b><small>${s.count} appareils · ${s.items.length} lignes</small></div></div>
+  <div class="tbl"><table><thead><tr><th>Appareil</th><th class="r">Qté</th><th class="r">Prix unitaire</th><th class="r">Total</th></tr></thead><tbody>${s.items.map(i=>`<tr><td>${i[0]}<span class="brand">${i[1]}</span>${i[4]?`<small>${i[4]}</small>`:''}</td><td class="r">${i[2]}</td><td class="r">${money(i[3])}</td><td class="r">${money(i[2]*i[3])}</td></tr>`).join('')}</tbody></table></div>`;
+}
+selectSys('ecl');
+
+/* day */
+const DAY=[
+  ['06:45','Réveil naturel','Les stores de la chambre s\'ouvrent sur 15 minutes, la lumière monte en blanc chaud. Le plancher de la salle de bain est déjà chaud.'],
+  ['07:10','Briefing du matin','En entrant dans la cuisine : « −14 °C, beaucoup de soleil, 38 kWh prévus, batteries à 72 %, 4 tomates à cueillir. »'],
+  ['08:30','Départ','Le chalet se vide. Portes verrouillées, alarme armée, chauffage en mode économie. Rapport : tout est fermé.'],
+  ['10:00','Photo de la serre','Diagnostic des plantes. Risque d\'oïdium sur les concombres : le brassage nocturne est programmé.'],
+  ['11:30','Gain solaire','Les stores des grandes fenêtres restent ouverts. Le soleil charge la dalle, le radiant ralentit.'],
+  ['12:30','Surplus solaire','Batteries à 92 %. Le chauffe-eau, le bain froid et le spa chauffent gratuitement.'],
+  ['16:40','Retour à 10 km','Mode confort, éclairage d\'accueil. À la porte, la serrure reconnaît le propriétaire et lance sa playlist.'],
+  ['17:30','Session Thermeä','Lancée depuis le téléphone une heure plus tôt : sauna à 80 °C, spa à 39 °C, sentiers allumés, foyer à l\'arrivée.'],
+  ['19:15','Souper','Suspension tamisée, reste de la pièce à 30 %, musique douce.'],
+  ['20:30','Cinéma','Play sur l\'Apple TV : stores fermés, lumières éteintes sauf la synchro TV, son en mode film.'],
+  ['22:45','Bonne nuit','Un bouton au chevet : tout s\'éteint, portes verrouillées, foyer coupé, alarme en mode nuit.'],
+  ['02:10','Chemin de nuit','Lever détecté par le capteur de lit : LED sous le lit et veilleuse de la salle de bain à 5 %, rien d\'autre.']
+];
+document.getElementById('day').innerHTML=DAY.map(([t,h,d])=>{const hr=+t.slice(0,2);return `<div class="moment${hr<6||hr>=22?' night':''}"><time>${t}</time><span class="pt"></span><div><b>${h}</b><span>${d}</span></div></div>`;}).join('');
+
+/* automations */
+const A=[
+ ['vie','Réveil naturel','Heure ou sommeil léger','Stores de la chambre ouverts sur 15 min, lumière tiède, plancher de salle de bain déjà chaud',0],
+ ['vie','Briefing du matin','Premier passage en cuisine','Annonce de la météo, du solaire, des batteries, de l\'eau et des tâches de la serre',1],
+ ['vie','Arrivée au chalet','Téléphone à 10 km','Chauffage en mode confort, chauffe-eau relancé, accueil lumineux, alarme désarmée',0],
+ ['vie','Accueil personnalisé','Bluetooth identifie la personne','Déverrouillage, scène et playlist préférées',0],
+ ['vie','Lumière qui suit','Radar de chaque pièce','Allumage instantané, intensité selon la lumière naturelle et l\'heure',0],
+ ['vie','Éclairage circadien','Position du soleil','Blanc froid le jour, ambre le soir',0],
+ ['vie','Chemin de nuit','Lever du lit entre 23 h et 6 h','LED sous le lit, plinthes et veilleuse à 5 %',0],
+ ['vie','Cuisine en action','Présence à l\'îlot','LED sous armoires à 100 %, musique baissée',0],
+ ['vie','Souper','Bouton ou voix','Suspension tamisée, pièce à 30 %, playlist',0],
+ ['vie','Cinéma','Lecture d\'un film','Stores fermés, synchro TV, support descendu, son en mode film',0],
+ ['vie','Pause du film','Lecture en pause','Lumières à 20 %',0],
+ ['vie','Soirée foyer','Bouton « foyer »','Foyer allumé, niche ambre, stores fermés, musique douce',0],
+ ['vie','Bonne nuit','Bouton de chevet ou voix','Tout s\'éteint, portes verrouillées, foyer coupé, alarme de nuit',0],
+ ['vie','Oubli au départ','Tout le monde est parti','Rapport des portes, fenêtres ou foyer actifs, avec bouton pour corriger',0],
+ ['vie','Aspirateur central','Hebdomadaire ou sac plein','Rappel d\'entretien',0],
+ ['cli','Chauffage prédictif','Prévision météo 24 h','Le plancher radiant anticipe le froid, la thermopompe ajuste',1],
+ ['cli','Gain solaire passif','Soleil d\'hiver','Stores ouverts pour charger la dalle, chauffage réduit',0],
+ ['cli','Anti-surchauffe','Soleil d\'été et chaleur','Stores fermés avant que la pièce chauffe',0],
+ ['cli','Purge de chaleur','Plafond chaud, nuit fraîche','Ventilateur de toit et VRC en grande vitesse',0],
+ ['cli','Air frais','CO₂ au-dessus de 900 ppm','VRC accéléré, thermopompe en pause si fenêtre ouverte',0],
+ ['cli','Douche','Humidité qui monte','Ventilateur jusqu\'au retour à la normale',0],
+ ['cli','Fenêtre ouverte','Contact de fenêtre','Chauffage ou climatisation de la zone en pause',0],
+ ['cli','Fumée de feux de forêt','PM2.5 élevé','VRC en recirculation, alerte',0],
+ ['cli','Radon','Seuil dépassé 7 jours','Alerte et ventilation augmentée',0],
+ ['cli','Confort personnel','Personne identifiée dans la chambre','Température préférée de cette personne',0],
+ ['ene','Surplus solaire','Batteries au-dessus de 90 %','Chauffe-eau, bain froid, spa et VE en priorité',0],
+ ['ene','Délestage','Batteries sous 30 %','Spa et sauna en pause, éclairage décoratif coupé',0],
+ ['ene','Mode survie','Batteries sous 15 %','Chauffage minimal, réseau, caméras et réfrigérateur seulement',0],
+ ['ene','Planification de la journée','Chaque matin','Heure idéale pour le sauna ou la lessive selon le soleil prévu',1],
+ ['ene','Rapport d\'autonomie','Chaque dimanche','kWh produits et consommés, litres de pluie récupérés',0],
+ ['ene','Gros consommateur','Circuit anormal','Alerte avec le nom de l\'appareil',0],
+ ['ene','Réservoir bas','Pluie sous 20 %','Bascule sur le réseau ou le puits, arrosage réduit',0],
+ ['ene','Pluie annoncée','Prévision météo','Arrosage reporté',0],
+ ['ene','Filtre colmaté','Pression différentielle','Rappel de changement',0],
+ ['ene','Fuite par débit','Débit continu 30 min sans usage','Valve principale fermée, alerte',0],
+ ['ene','Anti-gel','Tuyaux sous 4 °C','Chauffage d\'appoint, alerte',0],
+ ['sec','Armement auto','Personne depuis 15 min','Alarme armée, portes verrouillées',0],
+ ['sec','Intrusion','Alarme déclenchée','Lumières à 100 %, sirènes, clips vidéo, tableau de bord verrouillé',0],
+ ['sec','Personne sur le terrain','Détection la nuit','Notification décrite : « un homme avec une lampe frontale près du spa »',1],
+ ['sec','Faune','Ours, chevreuil, raton','Notification sans alarme, projecteurs allumés',1],
+ ['sec','Véhicule à l\'entrée','Lecture de plaque','Plaque connue : accueil. Inconnue : alerte',1],
+ ['sec','Visiteur','Sonnette','Vidéo sur l\'iPad et le téléphone, réponse, ouverture à distance',0],
+ ['sec','Livraison','Colis détecté','Notification avec photo',0],
+ ['sec','Code invité','Location ou visite','Code valide pour les dates du séjour',0],
+ ['sec','Simulation de présence','Chalet vide le soir','Lumières et stores imitent la vie réelle',0],
+ ['sec','Feu ou CO','Avertisseur','Gaz coupé, VRC arrêté, portes déverrouillées, appel aux contacts',0],
+ ['sec','Fuite d\'eau','Capteur de fuite','Valve fermée, pompes arrêtées, alerte localisée',0],
+ ['sec','Vibration de fenêtre','La nuit','Pré-alerte et projecteurs avant le bris',0],
+ ['ser','Arrosage intelligent','Sol sous la consigne du bac','Goutte-à-goutte par zone, eau de pluie en priorité',0],
+ ['ser','Surchauffe','Air au-dessus de 28 °C','Fenêtre, ventilation, ombrage, brumisation',0],
+ ['ser','Gel','Air sous 5 °C','Chauffage d\'appoint, fenêtre fermée',0],
+ ['ser','Lumière d\'appoint','Lumière du jour insuffisante','Rampes LED jusqu\'à la cible de la culture',0],
+ ['ser','Risque fongique','Humidité nocturne et photo','Brassage d\'air de nuit, alerte avec photo',1],
+ ['ser','Diagnostic quotidien','Photo de 10 h','Santé des plantes, ravageurs, carences',1],
+ ['ser','Récolte','Fruits mûrs détectés','« 4 tomates et 2 poivrons prêts »',1],
+ ['ser','Journal hebdomadaire','Dimanche','Résumé en français et vidéo accélérée',1],
+ ['the','Session Thermeä','Bouton, voix ou tag NFC','Sauna, spa, bain froid, sentiers, playlist, foyer',0],
+ ['the','Coach chaud-froid','Session en cours','Minuteur de cycles sur l\'iPad ou la montre',0],
+ ['the','Sécurité sauna','Plus de 25 min ou chaleur anormale','Alerte vocale, puis téléphone',0],
+ ['the','Sécurité spa','Présence la nuit ou couvercle ouvert','Alerte',0],
+ ['the','Foyer extérieur','Vent fort ou absence 10 min','Arrêt automatique',0],
+ ['the','Entretien du spa','Eau hors plage','Rappel avec la dose à ajouter',0],
+ ['the','Terrasse le soir','Coucher du soleil et présence','Pots, marches, guirlandes ; extinction à 23 h',0],
+ ['bie','Rapport de sommeil','Chaque matin','Heures, respiration, température et CO₂ de la nuit, avec un conseil',1]
+];
+const CAT={vie:['Vie quotidienne','var(--s-ecl)'],cli:['Confort et climat','var(--s-cli)'],ene:['Énergie et eau','var(--s-ene)'],sec:['Sécurité','var(--s-sec)'],ser:['Serre','var(--s-ser)'],the:['Thermeä','var(--s-the)'],bie:['Bien-être','var(--s-pre)']};
+let cat='all';
+const fEl=document.getElementById('filters');
+const mk=(k,l)=>{const b=document.createElement('button');b.className='chip'+(k===cat?' sel':'');b.textContent=l;b.dataset.k=k;b.onclick=()=>{cat=k;fEl.querySelectorAll('.chip').forEach(c=>c.classList.toggle('sel',c.dataset.k===k));renderA();};fEl.appendChild(b);};
+mk('all','Toutes');Object.entries(CAT).forEach(([k,[l]])=>mk(k,l));mk('ia','Avec IA');
+const cnt=document.createElement('span');cnt.className='count';fEl.appendChild(cnt);
+function renderA(){
+  const list=A.map((a,i)=>[i+1,...a]).filter(a=>cat==='all'||(cat==='ia'?a[5]:a[1]===cat));
+  cnt.textContent=list.length+' / 64';
+  document.getElementById('autoGrid').innerHTML=list.map(([n,c,t,tr,ac,ia])=>`<article class="auto"><div class="top"><i style="background:${CAT[c][1]}"></i>${String(n).padStart(2,'0')} · ${CAT[c][0]}${ia?'<span class="ia">IA</span>':''}</div><h3>${t}</h3><p class="trig"><b>Quand</b> ${tr}</p><p>${ac}</p></article>`).join('');
+}
+renderA();
+
+/* options + recap */
+document.getElementById('optsGrid').innerHTML=OPTIONS.map(([n,d,p])=>`<div class="optc"><b>${n}</b><span>${d}</span><span class="pr num">+ ${money(p)}</span></div>`).join('');
+document.getElementById('recapBox').innerHTML=sorted.map(s=>`<div class="row"><span>${s.name}</span><span class="num">${money(s.total)}</span></div>`).join('')+`<div class="row tot"><span>Total matériel</span><span class="num">${money(GRAND)}</span></div><p style="color:var(--muted);font-size:13px;margin-top:6px">${COUNT} appareils · avant taxes · sans main-d'œuvre</p>`;
+</script>
+
+</body></html>
